@@ -1,12 +1,23 @@
-#Hi, I am Arthur Chan. Here is a short bio of mine :
+# What's up? This is Arthur Chan.
 
-I have been working on speech recognition-related problems for the last 15 years. I was a Staff Scientist at BBN, a Speech Scientist at Speechworks (later acquired by Nuance), a Core Technology Scientist at Scanscout (later acquired by Tremor Video).
+Here’s a short bio of mine:
 
-While at CMU, I was one of the maintainers of the CMU Sphinx project. I mainly worked on Sphinx 3.X but later branched out on SphinxTrain.
+I have been working on speech recognition–related problems (lately rebranded as *Conversational AI*) for the last 25 years. I was a Staff Scientist at BBN, a Speech Scientist at SpeechWorks (later acquired by Nuance), a Core Technology Scientist at ScanScout (later acquired by Tremor Video), and a Principal Speech Architect at Voci (later acquired by Medallia).
 
-I currently serve as a Principal Speech Architect at Voci Technology. My speciality is to maintain and further develop ASR-related software.  I also heavily involved in other machine learning tasks such as emotion classification, gender detection as well as keyword spotting.
+### At CMU  
+I was one of the maintainers of the CMU Sphinx project. I primarily worked on Sphinx 3.X, but later contributed to SphinxTrain as well.
 
-This page is a revival of my old blog - [The Grand Janitor Blog](http://thegrandjanitor.com/about/) which is acollection of my thoughts on speech recognition, machine learning and technology-related issues.  Since 2016 April, I curated the [Facebook Artificial Intelligence and Deep Learning (AIDL) Forum](https://www.facebook.com/groups/DeepNetGroup/).
+### At Voci  
+As Principal Speech Architect, my specialty was maintaining and extending ASR-related software. I was also deeply involved in machine learning tasks such as emotion classification, gender detection, and keyword spotting. I did hands-on coding and led a team of three colleagues.
 
-Arthur Chan
+### Currently  
+I’m an AI advisor in the space of Conversational AI — covering ASR, LLMs, and TTS.  
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2003/).
 
+---
+
+This page is a revival of my old blog — [The Grand Janitor Blog](http://thegrandjanitor.com/about/) — a collection of my thoughts on speech recognition, machine learning, and technology-related topics.
+
+Since April 2016, I’ve also curated the [Facebook Artificial Intelligence and Deep Learning (AIDL) Forum](https://www.facebook.com/groups/DeepNetGroup/).
+
+— Arthur Chan
