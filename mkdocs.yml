@@ -25,10 +25,6 @@ theme:
 
 nav:
   - Home: index.md
-  - Posts:
-      - First Post: post1.md
-      - Second Post: post2.md
-  - About: about.md
 
 extra_css:
   - assets/custom.css
