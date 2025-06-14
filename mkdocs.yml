@@ -1,23 +1,44 @@
-site_name: Arthur Chan's AI Advisory Site
+site_name: Arthur's AI Advisory Blog
+site_url: https://arthurchan.github.io/
+site_description: "A collection of essays and thoughts of Arthur"
+site_author: Arthur Chan
 
-site_url: https://arthchan2003.github.io/
 theme:
   name: material
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: teal
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: teal
+    - scheme: default
+      primary: blue
+      accent: light blue
+    - scheme: slate
+      primary: blue
+      accent: cyan
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Inter
+    code: Fira Code
+  logo: images/logo.png
+  favicon: images/favicon.ico
   features:
     - navigation.tabs
     - navigation.top
-    - search.suggest
+    - toc.integrate
     - search.highlight
+
+nav:
+  - Home: index.md
+  - Posts:
+      - First Post: post1.md
+      - Second Post: post2.md
+  - About: about.md
+
+extra_css:
+  - assets/custom.css
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - footnotes
+  - attr_list
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
 
