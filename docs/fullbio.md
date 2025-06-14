@@ -1,12 +1,12 @@
 # About Me
 
-## 🧭 Personal Mission Statement
+## Personal Mission Statement
 
 *Apply human language technology and machine learning to improve everyone’s life.*
 
 ---
 
-## 🏆 Career Highlights
+## Career Highlights
 
 - Former Speech Architect of Voci’s speech recognition engine (2012-2023)
 - Former maintainer of the open-source CMU Sphinx project (2004–2006)  
@@ -18,7 +18,7 @@
 
 ---
 
-## 💻 Skills
+## Skills
 
 ### Programming
 
@@ -59,7 +59,7 @@ PyTorch, Tensorflow.
 
 ---
 
-## 💬 Soft Skills
+## Soft Skills
 
 - Startup experience and MVP building
 - Speech applications and analytics

@@ -12,7 +12,7 @@ I often work with **mid- to late-stage startups** and **established companies**,
 
 ---
 
-## 🧠 Expertise Highlights
+## Expertise Highlights
 
 - Deep expertise in **automatic speech recognition (ASR)**, from core architecture to production systems  
 - Solid experience with **LLMs and generative AI workflows**  
@@ -20,7 +20,7 @@ I often work with **mid- to late-stage startups** and **established companies**,
 
 ---
 
-## 🤝 Leadership & Business Experience
+## Leadership & Business Experience
 
 - One **startup exit**: Voci Technologies (acquired by Medallia)  
 - **Team leadership** experience: led a team for over three years in a fast-paced startup environment  
