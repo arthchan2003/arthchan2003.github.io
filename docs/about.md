@@ -12,12 +12,12 @@ As Principal Speech Architect, my specialty was maintaining and extending ASR-re
 
 ### Independent AI Advisory
 Currently, I’m an AI advisor in the space of Conversational AI — covering ASR, LLMs, and TTS.  
-Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2003/).
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2003/) for further inquiries.
 
 ---
 
 This page is a revival of my old blog — [The Grand Janitor Blog](http://thegrandjanitor.com/about/) — a collection of my thoughts on speech recognition, machine learning, and technology-related topics.
 
-Since April 2016, I’ve also curated the [Facebook Artificial Intelligence and Deep Learning (AIDL) Forum](https://www.facebook.com/groups/DeepNetGroup/).
+Since April 2016, I’ve also curated the [Facebook Artificial Intelligence and Deep Learning (AIDL) Forum](https://www.facebook.com/groups/DeepNetGroup/) and its [LinkedIn version](https://www.linkedin.com/groups/12846050/)
 
 — Arthur Chan

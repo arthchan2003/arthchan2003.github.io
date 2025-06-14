@@ -24,6 +24,7 @@ theme:
 nav:
   - Home: index.md
   - About: about.md
+  - Full bio: fullbio.md
 
 extra_css:
   - assets/custom.css
