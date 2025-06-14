@@ -5,6 +5,7 @@ site_author: Arthur Chan
 
 theme:
   name: material
+  logo: images/ArthurChanConsulting.ico
   palette:
     - scheme: default
       primary: blue
