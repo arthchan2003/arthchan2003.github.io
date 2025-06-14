@@ -15,8 +15,6 @@ theme:
   font:
     text: Inter
     code: Fira Code
-  logo: images/logo.png
-  favicon: images/favicon.ico
   features:
     - navigation.tabs
     - navigation.top
@@ -25,6 +23,7 @@ theme:
 
 nav:
   - Home: index.md
+  - About: about.md
 
 extra_css:
   - assets/custom.css
