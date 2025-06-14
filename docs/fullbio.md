@@ -2,7 +2,7 @@
 
 ## Personal Mission Statement
 
-*Apply human language technology and machine learning to improve everyone’s life.*
+*"Advancing human language technology and machine learning to deliver practical, impactful, and measurable improvements in everyday life."*
 
 ---
 
@@ -28,10 +28,12 @@
 ---
 
 ### Conversational AI
-- Encompass skills in ASR/LLM/TTS
-  - I am proficient few generations of speech recognition including HMM-based approach, HMM/DNN hybrid and the current foundational models.
-  - I have fine-tuned TTS foundational models
-  - I have extensive experience of LLM as well.
+
+My expertise spans the full stack of Conversational AI technologies, including **automatic speech recognition (ASR)**, **large language models (LLMs)**, and **text-to-speech (TTS)**.
+
+- **ASR**: Proficient across multiple generations of speech recognition systems, from traditional HMM-based models and HMM-DNN hybrids to modern foundation model–based approaches  
+- **TTS**: Experienced in fine-tuning state-of-the-art TTS foundation models for custom voice synthesis  
+- **LLM**: Deep experience with large language models, including prompt engineering, fine-tuning, and applying them to real-world NLP tasks.
 
 
 ### 🗣️ Speech Recognition
