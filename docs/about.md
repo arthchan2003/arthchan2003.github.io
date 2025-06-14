@@ -10,8 +10,8 @@ I was one of the maintainers of the CMU Sphinx project. I primarily worked on Sp
 ### At Voci  
 As Principal Speech Architect, my specialty was maintaining and extending ASR-related software. I was also deeply involved in machine learning tasks such as emotion classification, gender detection, and keyword spotting. I did hands-on coding and led a team of three colleagues.
 
-### Currently  
-I’m an AI advisor in the space of Conversational AI — covering ASR, LLMs, and TTS.  
+### Independent AI Advisory
+Currently, I’m an AI advisor in the space of Conversational AI — covering ASR, LLMs, and TTS.  
 Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2003/).
 
 ---
