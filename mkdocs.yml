@@ -27,6 +27,7 @@ nav:
   - About: about.md
   - Full bio: fullbio.md
   - Publications: publications.md
+  - AI Portfolio: ai_portfolio.md
 
 extra_css:
   - assets/custom.css
