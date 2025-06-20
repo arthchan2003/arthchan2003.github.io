@@ -26,6 +26,7 @@ nav:
   - Home: index.md
   - About: about.md
   - Full bio: fullbio.md
+  - Pass Publications: publications.md
 
 extra_css:
   - assets/custom.css
