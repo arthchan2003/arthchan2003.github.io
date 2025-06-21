@@ -6,7 +6,7 @@ In that regard, here are selected systems I've worked on over the years.
 
 ---
 
-## 🗣️ Automatic Speech Recognition / Speech-based ML Systems
+## Automatic Speech Recognition / Speech-based ML Systems
 
 ### Grad School Years (2000–2002)
 
