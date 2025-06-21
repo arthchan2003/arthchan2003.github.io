@@ -20,6 +20,10 @@ After Voci was acquired by Medallia, I took on a leadership role, managing a tea
 I now work independently as an AI advisor, focusing on Conversational AI — including ASR, large language models (LLMs), and text-to-speech (TTS).  
 Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2003/) for further inquiries.
 
+### Others
+
+With Waikit Lau, I have curated and manage the [Facebook AIDL Group](https://www.facebook.com/groups/DeepNetGroup) and its LinkedIn version(https://www.linkedin.com/groups/12846050/).
+
 ---
 
 This page revives my old blog — [The Grand Janitor Blog](http://thegrandjanitor.com/about/) — where I shared thoughts on speech recognition, machine learning, and other tech topics.
