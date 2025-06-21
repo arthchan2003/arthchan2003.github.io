@@ -5,7 +5,7 @@ This is a curated list of foundational and influential books in the field of mac
 
 ---
 
-## 🧠 Core Machine Learning Books
+## Core Machine Learning Books
 
 ### **Pattern Recognition and Machine Learning**  
 **Author**: Christopher Bishop  
@@ -47,15 +47,13 @@ This is a curated list of foundational and influential books in the field of mac
 - *Machine Learning: A Probabilistic Perspective* – Kevin Murphy  
 - *Information Theory, Inference and Learning Algorithms* – David MacKay  
 - *Deep Learning* – Ian Goodfellow, Yoshua Bengio, Aaron Courville  
-  - The only book here directly focused on deep learning. [See my impression here.](http://thegrandjanitor.com/2017/01/21/deep-learning-book-goodfellow-et-al-quick-impression/)
+  -- The only book here directly focused on deep learning. [See my impression here.](http://thegrandjanitor.com/2017/01/21/deep-learning-book-goodfellow-et-al-quick-impression/)
 
 ---
 
-## 🧬 Historical / Advanced References
+## Historical / Advanced References
 
-- *Perceptrons: An Introduction to Computational Geometry* – Marvin Minsky & Seymour Papert  
-  - Historically significant; challenged early neural net developments.
+- *Perceptrons: An Introduction to Computational Geometry* – Marvin Minsky & Seymour Papert - Historically significant; challenged early neural net developments.
 
-- *Parallel Models of Associative Memory* – Geoffrey Hinton  
-  - Of historical interest and influence.
+- *Parallel Models of Associative Memory* – Geoffrey Hinton  - Of historical interest and influence.
 
