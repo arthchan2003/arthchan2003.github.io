@@ -44,6 +44,6 @@ In that regard, here are selected systems I've worked on over the years.
 - independent AI advisors
 - **Scientific Advisor of C-Level Managers** on the matter of *Conversational AI*.
 - Two major projects:
-  - **Lead researcher** in ASR development for European languages
-  - **Lead researcher** in TTS development for two Asian languages
+  - **Lead Researcher** in ASR development for European languages
+  - **Lead Researcher** in TTS development for two Asian languages
   
