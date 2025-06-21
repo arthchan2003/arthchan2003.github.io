@@ -28,6 +28,13 @@ nav:
   - Full bio: fullbio.md
   - Publications: publications.md
   - AI Portfolio: ai_portfolio.md
+  - Resources:
+      - resources.md
+      - learning-dl-top5.md
+      - book-recommendations.md
+#      - Book Recommendations: book-recommendations.md
+               
+        
 
 extra_css:
   - assets/custom.css
