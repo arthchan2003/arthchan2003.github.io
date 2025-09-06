@@ -23,7 +23,7 @@ Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2
 
 ### Others
 
-With Waikit Lau, I have curated and manage the [Facebook AIDL Group](https://www.facebook.com/groups/DeepNetGroup) and its LinkedIn version(https://www.linkedin.com/groups/12846050/).
+With Waikit Lau, I have curated and manage the [Facebook AIDL Group](https://www.facebook.com/groups/DeepNetGroup) and its [LinkedIn version](https://www.linkedin.com/groups/12846050/).
 
 ---
 
