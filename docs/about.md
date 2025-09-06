@@ -18,7 +18,8 @@ After Voci was acquired by Medallia, I took on a leadership role, managing a tea
 ### Independent AI Advisory
 
 I now work independently as an AI advisor, focusing on Conversational AI — including ASR, large language models (LLMs), and text-to-speech (TTS).  
-Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2003/) for further inquiries.
+
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/arthchan2003/) for further inquiries.  For consultation calls, you may schedule a zoom meeting with me on [calendly](https://calendly.com/arthchan2003/30min/). 
 
 ### Others
 
