@@ -27,4 +27,4 @@ With Waikit Lau, I have curated and manage the [Facebook AIDL Group](https://www
 
 ---
 
-This page revives my old blog — [The Grand Janitor Blog](http://thegrandjanitor.com/about/) — where I shared thoughts on speech recognition, machine learning, and other tech topics.
+This page revives my old blog — [The Grand Janitor Blog](/grandjanitor/) (2006–2020, now archived here) — where I shared thoughts on speech recognition, machine learning, and other tech topics.
