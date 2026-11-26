@@ -1,0 +1,1366 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2013/01/10/commentary-on-sphinxtrain1-07s-bw-part-i/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Commentary on SphinxTrain1.07's bw (Part I) - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#commentary-on-sphinxtrain107s-bw-part-i" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Commentary on SphinxTrain1.07's bw (Part I)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="commentary-on-sphinxtrain107s-bw-part-i">Commentary on SphinxTrain1.07's bw (Part I)<a class="headerlink" href="#commentary-on-sphinxtrain107s-bw-part-i" title="Permanent link">&para;</a></h1>
+<p>I was once asked by a fellow who didn't work in ASR on how the estimation algorithms in speech recognition work. That's a tough question to answer. From the high level, you can explain how properties of Q function would allow an increase of likelihood after each re-estimation. You can also explain how the Baum-Welch algorithm is derived from the Q-function and how the estimation algorithm can eventually expressed by greeks, and naturally link it to the alpha and bet pass. Finally, you can also just write down the reestimation formulae and let people perplex about it. </p>
+<p>All are options, but this is not what I wanted nor the fellow wanted. We hoped that somehow there is one single of entry in understanding the Baum-Welch algorithm. Once we get there, we will grok. Unfortunately, that's impossible for Baum-Welch. It is really a rather deep algorithm, which takes several type of understanding. </p>
+<p>In this post, I narrow down the discussion to just Baum-Welch in SphinxTrain1.07. I will focus on the coding aspect of the program. Two stresses here:</p>
+<ol>
+<li>How Baum-Welch of speech recognition in practice is different from the theory?</li>
+<li>How different parts of the theory is mapped to the actual code.</li>
+</ol>
+<p>In fact, in Part I, I will just describe the high level organization of the Baum-Welch algorithm in bw. I assumed the readers know what the Baum-Welch algorithm is. In Part II, I will focus on the low level functions such as <em>next_utt_state, foward, backward_update, accum_global .</em></p>
+<p>(At a certain point, I might write another post just to describe Baum-Welch, This will help my Math as well......)</p>
+<p>Unlike the <a href="http://grandjanitor.blogspot.com/2012/12/sphinx-4-from-c-background-setting-up.html">post of setting up Sphinx4</a>. This is not a post for faint of heart. So skip the post if you feel dizzy.</p>
+<p><strong>Some Fun Reading Before You Move On</strong></p>
+<p>Before you move on, here are three references which I found highly useful to understand Baum-Welch in speech recognition. They are</p>
+<ol>
+<li>L. Rabiner and B. H. Juang, Fundamentals of Speech Recognition. Chapter 6. "Theory and Implementation of Hidden Markov Model." p.343 and p.369. <em>Comments: In general, the whole Chapter 6 is essential to understand HMM-based speech recognition. There are also a full derivation of the re-estimation formulae. Unfortunately, it only gives the formula without proof for the most important case, in which observation probability was expressed as Gaussian Mixture Model (GMM).</em></li>
+<li>X. D. Huang, A. Acero and H. W. Hon, Spoken Language Processing. Chapter 8. "Hidden Markov Models" <em>Comments: written by one of the authors of Sphinx 2, Xuedong Huang, the book is a very good review of spoken language system. Chapter 8 in particular has detailed proof of all reestimation algorithms. If you want to choose one book to buy in speech recognition. This is the one. The only thing I would say it's the typeface of greeks are kind of ugly.</em></li>
+<li>X. D. Huang, Y. Ariki, M. A. Jack, Hidden Markov Models for Speech Recognition. Chapter 5, 6, 7. <em>Comments: again by Xuedong Huang, I think this is the most detail derivations I ever seen on continuous HMM in books. (There might be good papers I don't know of). Related to Sphinx, it has a chapter of semi-continuous HMM (SCHMM) as well.</em></li>
+</ol>
+<p>bw also features rather nice code commentaries. My understanding is that it is mostly written by Eric Thayer, who put great effort to pull multiple fragmented codebase together and form the embryo of today's SphinxTrain.</p>
+<p><strong>Baum-Welch algorithm in Theory</strong><br />
+<strong><br />
+</strong>Now you read the references, in a very high-level what does a program of Baum-Welch estimation does? To summarize, we can think of it this way</p>
+<p>* For each training utterance  </p>
+<ol>
+<li>Build an HMM-network to represent it.</li>
+<li>Run Forward Algorithm</li>
+<li>Run Backward Algorithm</li>
+<li>From the Forward/Backward, calculate the statistics (or counts or posterior scores depends on how you call it.)</li>
+</ol>
+<p>* After we run through all utterances, estimate the parameters (means, variances, transition probability etc....) from the statistics.</p>
+<p>Sounds simple? I actually skipped a lot of details here but this is the big picture.</p>
+<p><strong>Baum-Welch algorithm in Practice</strong><br />
+<strong><br />
+</strong>  </p>
+<p>There are several practical concerns on doing Baum-Welch in practice. These are particularly important when it is implemented for speech recognition. </p>
+<ol>
+<li><strong>Scaling of alpha/beta scores</strong> : <em>this</em> <em>is explained in detail in Rabiner's book (p.365-p.368). The gist is that when you calculate the alpha or beta scores. They can easily exceed the range of precision of any machines. It turns out there is a beautiful way to avoid this problem.</em></li>
+<li><strong>Multiple observation sequences</strong>: or stream. <em>this is a little bit archaic, but there are still some researches work on having multiple streams of features for speech recognition (e.g. combining the lip signal and speech signal).</em></li>
+<li><strong>Speed</strong>: <em>most implementation you see are not based on a full run of forward or backward algorithm. To improve speed, most implementations use a beam to constrained the search.</em></li>
+<li><strong>Different types of states</strong>: <em>you can have HMM states which are emitting or non-emitting. How you handle it complicates the implementation.</em></li>
+</ol>
+<p>You will see bw has taken care of a lot of these practical issues. In my opinion, that is the reason why the whole program is a little bit bloated (5000 lines total). </p>
+<ul>
+<li>*</li>
+</ul>
+<p><strong>Tracing of bw: High Level</strong><br />
+<strong><br />
+</strong>Now we get into the code level. I will follow the version of bw from SphinxTrain1.07. I don't see there are much changes in 1.08 yet. So this tracing is very likely to be applicable for a while.</p>
+<p>I will organize the tracing in this way. First I will go through the high-level flow of the high-level. Then I will describe some interesting places in the code by line numbers.</p>
+<p><strong>main() - src/programs/bw/main.c</strong><br />
+<strong><br />
+</strong>This is the high level of main.c (Line 1903 to 1914)</p>
+<div class="highlight"><pre><span></span><code> main -&gt;   
+    main_initialize()  
+    if it is not mmie training  
+      main_reestimate()  
+    else  
+      main_reestimate_mmi()  
+</code></pre></div>
+<p>main_initialize()<br />
+We will first go forward with <em>main_initialize</em>()</p>
+<div class="highlight"><pre><span></span><code> main_initailize  
+ -&gt; initialize the model inventory, essentially means 4 things, means (mean) variances (var), transition matrices (tmat), mixture weights (mixw).  
+ -&gt; a lexicon (or .... a dictionary)  
+ -&gt; model definition  
+ -&gt; feature vector type  
+ -&gt; lda (lda matrix)  
+ -&gt; cmn and agc  
+ -&gt; svspec  
+ -&gt; codebook definition (ts2cb)  
+ -&gt; mllr for SAT type of training.   
+</code></pre></div>
+<p>Interesting codes:  </p>
+<ul>
+<li>Line 359: <em>extract diagonal matrix if we specified a full one.</em></li>
+<li>Line 380: <em>precompute Gaussian distribution. That's usually mean the constant and almost always most the code faster.</em></li>
+<li>Line 390: <em>specify what type of reestimation.</em></li>
+<li>Line 481: <em>check point. I never use this one but it seems like something that allow the training to restart if network fails.</em></li>
+<li>Line 546 to 577: <em>do MLLR transformation for models: for SAT type of training.</em></li>
+</ul>
+<p>(Note to myself: got to understand why svspec was included in the code.)</p>
+<p><strong>main_reestimate()</strong><br />
+<strong><br />
+</strong>Now let's go to main_reestimate. In a nutshell, this is where the looping occurred.</p>
+<div class="highlight"><pre><span></span><code>      -&gt; for every utterane.   
+        -&gt; corpus_get_generic_featurevec (get feature vector (mfc))  
+        -&gt; feat_s2mfc2feat_live (get the feature vector)  
+        -&gt; corpus_get_sent (get the transcription)  
+        -&gt; corpus_get_phseg (get the phoneme segmentation.)  
+        -&gt; pdumpfn (open a dump file, this is more related Dave's constrained Baum-Welch research)  
+        -&gt; next_utt_states() /*create the state sequence network. One key function in bw. I will trace it more in detail.  */ 
+        -&gt; if it is not in Viterbi mode.  
+         -&gt; baum_welch_update()  /*i.e. Baum-Welch update */
+         else   
+         -&gt; viterbi()  /*i.e. Viterbi update)
+</code></pre></div>
+<p>Interesting code:</p>
+<ul>
+<li>
+<p>Line 702: several parameter for the algorithm was initialized including <em>abeam, bbeam, spthres, maxuttlen.</em></p>
+<ul>
+<li><em>abeam</em> and <em>bbeam</em> are essentially the beam sizes which control forward and backward algorithm.</li>
+<li><em>maxuttlen</em>: this controls how large an utterance will be read in. In these days, I seldom see this parameter set to something other than 0. (i.e. no limit).</li>
+<li><em>spthres: "</em>State posterior probability floor for reestimation. States below this are not counted". ** Another parameter I seldom use......</li>
+</ul>
+</li>
+</ul>
+<h4 id="baum_welch_update">baum_welch_update()<a class="headerlink" href="#baum_welch_update" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code> baum_welch_update()  
+ -&gt; for each utterance
+       forward() (forward.c) (&lt;This is where the forward algorithm is -Very complicated. 700 lines)  
+       if -outphsegdir is specified , dump a phoneme segmentation.  
+       backward_update() (backward.c Do backward algorithm and also update the accumulator)  
+           (&lt;- This is even more complicated 1400 lines)  
+ -&gt; accum_global() (Global accumulation.)   
+         (&lt;- Sort of long, but it's more trivial than forward and backwrd.)  
+</code></pre></div>
+<p>Now this is the last function for today. If you look back to the section of "Baum-Welch in theory". you will notice how the procedure are mapped onto Sphinx. Several thoughts:</p>
+<ol>
+<li>One thing to notice is that <em>forward, backward_update</em> and <em>accum_global</em> need to work together. But you got to realize all of these are long complicated functions. So like <em>next_utt_state**,</em> I will separate the discussion on another post.</li>
+<li>Another comment here: <em>backward_update</em> not only carry out the backward pass. It also do an update of the statistics.</li>
+</ol>
+<h4 id="conclusion-of-this-post">Conclusion of this post<a class="headerlink" href="#conclusion-of-this-post" title="Permanent link">&para;</a></h4>
+<p>In this post, I went through the high-level description of Baum-Welch algorithm as well as how the theory is mapped onto the C codebase. My next post (will there be one?), I will focus on the low level functions such as <em>next_utt_state, forward, backward_update</em> and <em>accum_global</em>.</p>
+<p>Feel free to comment. </p>
+<p>Arthur</p>
+<hr />
+<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h2>
+<p><strong>telfer cronos</strong> (2013-11-06):</p>
+<p>Thanks. Your post is a lot of fun. I will look at it much more carefully today. I have used sphinx - perhaps only the pre-compiled demonstrations. ANyway seeing your blog has inspired me to have another look at Sphinx.</p>
+<p>Richard Mullins</p>
+<p><strong>Arthur Chan</strong> (2013-11-17):</p>
+<p>Hey Richard,</p>
+<p>Both HTK and Sphinx is great toolkits. If you are into ASR, read the source codes of both, I believe you will learn great insights (as well as idiosyncrasies) in the process.</p>
+<p>Of course, don't forget Kaldi!</p>
+<p>Arthur</p>
+<p><strong>telfer cronos</strong> (2013-11-06):</p>
+<p>Thanks. Your post is a lot of fun. I will look at it much more carefully today. I have used sphinx - perhaps only the pre-compiled demonstrations. ANyway seeing your blog has inspired me to have another look at Sphinx.</p>
+<p>Richard Mullins</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

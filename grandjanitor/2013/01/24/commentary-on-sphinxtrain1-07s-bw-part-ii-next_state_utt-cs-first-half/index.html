@@ -1,0 +1,1408 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2013/01/24/commentary-on-sphinxtrain1-07s-bw-part-ii-next_state_utt-cs-first-half/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Commentary on SphinxTrain1.07's bw (Part II : next_state_utt.c's First Half) - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#commentary-on-sphinxtrain107s-bw-part-ii-next_state_uttcs-first-half" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Commentary on SphinxTrain1.07's bw (Part II : next_state_utt.c's First Half)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="commentary-on-sphinxtrain107s-bw-part-ii-next_state_uttcs-first-half">Commentary on SphinxTrain1.07's bw (Part II : next_state_utt.c's First Half)<a class="headerlink" href="#commentary-on-sphinxtrain107s-bw-part-ii-next_state_uttcs-first-half" title="Permanent link">&para;</a></h1>
+<p>I will go on with the analysis of bw. In my <a href="http://grandjanitor.blogspot.com/2013/01/commentary-on-sphinxtrain107s-bw-part-i.html">last post</a>, we understand the high-level structure of the bw program. So we now turns to the details of how the state lattice was built. Or how next_state_utt.c works.</p>
+<p>As always, here is the standard disclaimer: this is another long and super technical post I only expect a small group of programmer with exoteric interest of Baum-Welch algorithm can read. It's not for faint of heart but if you understand the whole thing, you would have some basic but genuine understanding of Baum-Welch algorithm in real life.</p>
+<p>The name of the module, next_state_utt.c, is quite unassuming but it is an important key of understanding the Baum-Welch algorithm. The way how the state lattice is structured affects how parameter estimation works. The same statement says for not only Baum-Welch estimation but also other estimation algorithm in speech.</p>
+<p>But what so difficult about the coding the lattice? Here are two points I think it is worthwhile to point out:</p>
+<ol>
+<li>I guess an average programmer can probably work out a correct concatenation of all phone HMMs if all phones are context-independent in 3 days to 1 week. But in many advanced systems, most of them are using <strong>context-dependent phones</strong>. So you go to make sure at the right time, the right triphone state was used.</li>
+<li>In Sphinx, it got a bit more complicated because there is a distinction between positions of triphones. This is quite specific to Sphinx and you won't find it in systems such as HTK. So it further complicates coding. You will see in the following discussion, Sphinx has back off cases of position-dependent triphone estimation from time-to-time. In my view, it might not be too different from the position-independent triphone system. (It's certainly fun to read. :) )</li>
+</ol>
+<p>My goal here is to analyze the next_state_utt.c, how it works and to state some part one can improve.</p>
+<h4 id="high-level-layout-of-next_utt_statec">High-Level Layout of next_utt_state.c:<a class="headerlink" href="#high-level-layout-of-next_utt_statec" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code> next_utt_state.c  
+ -&gt; mk_wordlist (mk_wordlist.c)  
+ -&gt; mk_phone_list (mk_phonelist.c)  
+ -&gt; cvt2triphone (cvt2triphone.c)  
+ -&gt; state_seq_make (state_seq_make.c)  
+</code></pre></div>
+<p>Nothing fancy here. We first make a wordlist (<em>mk_wordlist)</em> , then make a phone list <em>(mk_phone_list)</em>, then convert the phone list to triphone (<em>cvt2triphones</em>), then create the state sequence (<em>state_seq_make)</em>.</p>
+<p>Now before we go on, just at this level, you may already discover one issue of Sphinx's bw. It is using a list to represent phone models. So, let's assume if you want to model a certain word with multiple pronunciations, you probably can't do it without changing the code.</p>
+<p>Another important thing to note: just like many non-WFST systems, it is not that easy to make a simple phoneme system with Sphinx. (HTK is an exception but you can always turn on a flag to expand context. Just look up the manual.) Say if you want to express your phoneme system to be one phoneme word, then you would want your dictionary look like:</p>
+<p>AA AA<br />
+AE AE<br />
+B B<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.</p>
+<p>But then, if a word is a phone, should you actually want to build a network of cross-word triphones? You probably want to if you want to shoot for performance - all of the most accurate phoneme-based system has some sort of context-dependency there. (The Brno's recognizer probably has some, but I don't really grok why it is so good.)</p>
+<p>But if you want to do your own interesting experiments, this fixed behavior may not suit your appetite. Maybe you just want to use a context-independent phone system for some toy experiments. But then, you are probably always building a triphone system. So, it might or might not be what you like.</p>
+<p>So if you really want to trigger the CI-model behavior, what can you do? Take a look of my next post, in cvt2triphone.c, if the model definition file only specify CI states, then no triphone conversion will occur. In a way, that is to say the system assume if you just train the CI model, you will get the CI model but there is no explicit way to turn it off.</p>
+<p><strong><em>mk_wordlist</em></strong> <br />
+<strong><br />
+</strong><em>mk_wordlist</em> is rather trivial:</p>
+<div class="highlight"><pre><span></span><code> char **mk_wordlist(char *str,  
+             uint32 *n_word)  
+ {  
+   uint32 n_w;  
+   uint32 i;  
+   char **wl;  
+   n_w = n_words(str);  
+   wl = ckd_calloc(n_w, sizeof(char *));  
+   wl[0] = strtok(str, " t");  
+   for (i = 1; i &lt; n_w; i++) {  
+      wl[i] = strtok(NULL, " t");  
+   }  
+   assert(strtok(NULL, " t") == NULL);  
+   *n_word = n_w;  
+   return wl;  
+ }  
+</code></pre></div>
+<p>With one line of transcripts, <em>mk_wordlist</em> transform it to an array of C-string. Memory of the string are allocated.</p>
+<p><strong><em>mk_phone_list</em></strong>  </p>
+<hr />
+<p><em><em><em><em>mk_phone_list</em> is still trivial but there is a bit more detail</em>.</em> <br />
+</em><br />
+*<em><br />
+</em>   </p>
+<div class="highlight"><pre><span></span><code>1:  acmod_id_t *mk_phone_list(char **btw_mark,  
+2:                  uint32 *n_phone,  
+3:                  char **word,  
+4:                  uint32 n_word,  
+5:                  lexicon_t *lex)  
+6:  {  
+7:    uint32 n_p;  
+8:    lex_entry_t *e;  
+9:    char *btw;  
+10:    unsigned int i, j, k;  
+11:    acmod_id_t *p;  
+12:    /*  
+13:     * Determine the # of phones in the sequence.  
+14:     */  
+15:    for (i = 0, n_p = 0; i &lt; n_word; i++) {  
+16:       e = lexicon_lookup(lex, word[i]);  
+17:       if (e == NULL) {  
+18:         E_WARN("Unable to lookup word '%s' in the lexiconn", word[i]);  
+19:         return NULL;  
+20:       }  
+21:       n_p += e-&gt;phone_cnt;  
+22:    }  
+23:    /*  
+24:     * Allocate the phone sequence  
+25:     */  
+26:    p = ckd_calloc(n_p, sizeof(acmod_id_t));  
+27:    /*  
+28:     * Allocate the between word markers  
+29:     */  
+30:    btw = ckd_calloc(n_p, sizeof(char));  
+31:    for (i = 0, k = 0; i &lt; n_word; i++) {     /* for each word */  
+32:       e = lexicon_lookup(lex, word[i]);  
+33:       if (e-&gt;phone_cnt == 0) /* Ignore words with no pronunciation */  
+34:        continue;  
+35:       for (j = 0; j &lt; e-&gt;phone_cnt-1; j++, k++) {     /* for all but the last phone in the word */  
+36:         p[k] = e-&gt;ci_acmod_id[j];  
+37:       }  
+38:       p[k] = e-&gt;ci_acmod_id[j];     /* move over the last phone */  
+39:       btw[k] = TRUE;               /* mark word boundary following  
+40:                             kth phone */  
+41:       ++k;  
+42:    }  
+43:    *btw_mark = btw;  
+44:    *n_phone = n_p;  
+45:    assert(k == n_p);  
+46:    return p;  
+47:  }  
+</code></pre></div>
+<p>In line 15-22:, we first look up the pronunciations of the words. (Remember, right now we can only look up one.) It then allocate the an array of phones with ID (in the type of <em>acmod_id_t</em>).</p>
+<p>Now here is special part of the code, other the array of phones, it also allocate an array call "between word markers". So what's the mechanism? Let me give an example.</p>
+<p>Suppose you have a transcript with word sequence "MY NAME IS CLINTON"</p>
+<p>mk_word_list would create</p>
+<div class="highlight"><pre><span></span><code>     word[0] -&gt; MY  
+     word[1] -&gt; NAME  
+     word[2] -&gt; IS  
+     word[3] -&gt; CLINTON  
+</code></pre></div>
+<p>mk_print_list (with my best guess of pronunciations) would create  </p>
+<div class="highlight"><pre><span></span><code>     ph[0] -&gt; M      btw[0] -&gt; 0
+     ph[1] -&gt; AY      btw[1] -&gt; 1
+     ph[2] -&gt; N      btw[2] -&gt; 0
+     ph[3] -&gt; EY      btw[3] -&gt; 0
+     ph[4] -&gt; M      btw[4] -&gt; 1
+     ph[5] -&gt; IY      btw[5] -&gt; 0
+     ph[6] -&gt; S      btw[6] -&gt; 1
+     ph[7] -&gt; K      btw[7] -&gt; 0
+     ph[8] -&gt; L      btw[8] -&gt; 0
+     ph[9] -&gt; IY      btw[9] -&gt; 0
+     ph[10] -&gt; N      btw[10] -&gt; 0
+     ph[11] -&gt; T      btw[11] -&gt; 0
+     ph[12] -&gt; AX     btw[12] -&gt; 0
+     pH[13] -&gt; N      btw[13] -&gt; 1
+</code></pre></div>
+<p>So essentially it would indicate there is a word end at a certain phone. </p>
+<p>I believe such as representation are for convenience purpose: it facilitate determination of whether a word is at the beginning, the middle or the end.</p>
+<p>An alternative here is to do an optional silence. This, according to HTK handbook, usually reduce the WER slightly. It seems to be reasonable to figure out where the location of a phone is using silences as a marker.</p>
+<h4 id="a-digression-acmod_id_t"><strong><em>A digression: acmod_id_t</em></strong><a class="headerlink" href="#a-digression-acmod_id_t" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>1:  typedef unsigned char ci_acmod_id_t;  
+2:  #define NO_CI_ACMOD     (0xff)  
+3:  #define MAX_CI_ACMOD     (0xfe)  
+4:  typedef uint32 acmod_id_t;  
+5:  #define NO_ACMOD     (0xffffffff)     /* The ID representing no acoustic  
+6:                            * model. */  
+7:  #define MAX_ACMOD     (0xfffffffe)     /* The max ID possible */  
+</code></pre></div>
+<p>Now, we used <em>acmod_id_t</em> in <em>mk_phone_list</em>, but what is it really? So let's take a detour of <em>acmod_id_ds.t</em> (<em>"ds"</em> stands for data structure.)</p>
+<p><em>acmod_id_t</em> is essentially a <em>uint32</em>, which is just a the size of unsigned integer or 2^32 -1. Why -1? Notice that <em>MAX_CI_ACMOD</em> was defined as <em>0xfe</em>?</p>
+<p>The more interesting part here: we saw <em>ci_acmod_id_t</em> is only a character type. This is obviously another problem here, in some languages, one may be interested to express it with more than 255 phones. (Why 255?)</p>
+<p>We'll meet acmod_set a little bit more. But let us move on first - sometimes code tracing will be more motivated when you see the code before the data structure. Many suggest otherwise: Indeed, once you know the data, code will make more sense. But in practice, you will most likely read the code first and needs to connect things together. Thus IMO: both approach has their merit in code tracing.</p>
+<h4 id="so-far-and-next-post"><strong>So far ..... and next post</strong><a class="headerlink" href="#so-far-and-next-post" title="Permanent link">&para;</a></h4>
+<p>To avoid clutter a single post, I will stop and put the rest of next_utt_states.c (<em>cvt2phones and state_seq_make)</em> on another post. But I want to summarize several things I have observed so far:</p>
+<ol>
+<li>Current bw doesn't create a word network so it has issues to handle multiple pronunciations.</li>
+<li>Current bw automatically expand triphone contexts. There is no explicit way to turn it off.</li>
+<li>bw is not doing optional silence in the network.</li>
+<li>bw doesn't work for more than 255 CI phones.</li>
+</ol>
+<p>Btw, SphinxTrain1.08 has several changed which replace mk_word_list with data structure from sphinxbase. Those are encouraging changes. If I have time, I will cover them. </p>
+<p>Arthur</p>
+<hr />
+<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h2>
+<p><strong>三十三博</strong> (2013-01-26):</p>
+<p>Thanks!</p>
+<p><strong>Elias Majic</strong> (2013-01-26):</p>
+<p>Hi Arthur,
+I added you on twitter.</p>
+<p><strong>三十三博</strong> (2013-01-26):</p>
+<p>Sure Elias,</p>
+<p>From time to time, I will add more content on this site.</p>
+<p>If you want to catch up with updates, subscribe "Grand Janitor" with RSS/Twitter or include me in Plus.</p>
+<p>Arthur</p>
+<p><strong>Elias Majic</strong> (2013-01-26):</p>
+<p>These are great blog posts. I would vote for more training blog posts.</p>
+<p><strong>Elias Majic</strong> (2013-01-26):</p>
+<p>These are great blog posts. I would vote for more training blog posts.</p>
+<p><strong>三十三博</strong> (2013-02-25):</p>
+<p>Mr. Anonymous,</p>
+<p>You might want to follow the basic training tutorial from cmusphinx.org.</p>
+<p>http://cmusphinx.sourceforge.net/wiki/tutorialam</p>
+<p>I do plan to write more tutorial material on this blog. Just that I am a little bit busy. Hopefully later......</p>
+<p><strong>602e03f4-2327-11e2-8544-000bcdcb8a73</strong> (2013-02-25):</p>
+<p>Hi,</p>
+<p>If I just want to create the mdef file, from transcription and dictionary files, how should I go about it?</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

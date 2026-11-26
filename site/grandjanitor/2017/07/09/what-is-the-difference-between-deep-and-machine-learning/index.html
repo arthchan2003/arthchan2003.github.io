@@ -1,0 +1,1274 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2017/07/09/what-is-the-difference-between-deep-and-machine-learning/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>What is the Difference between Deep Learning and Machine Learning? - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-the-difference-between-deep-learning-and-machine-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What is the Difference between Deep Learning and Machine Learning?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="what-is-the-difference-between-deep-learning-and-machine-learning">What is the Difference between Deep Learning and Machine Learning?<a class="headerlink" href="#what-is-the-difference-between-deep-learning-and-machine-learning" title="Permanent link">&para;</a></h1>
+<p><em>[image not recovered: question-mark-2123967_1920.jpg]</em></p>
+<p>AIDL member <a href="https://www.facebook.com/bob.akili.90?fref=ufi">Bob Akili</a> asked (rephrased): </p>
+<blockquote>
+<p>What is the Difference between Deep Learning and Machine Learning?</p>
+</blockquote>
+<p>Usually I don't write a full blog message to answer member's questions. But what is "deep" is such a fundamental concept in deep learning, yet there are many well-meaning but incorrect answers floating around. So I think it is a great idea to answer the question clearly and hopefully disabuse some of the misconceptions as well. Here is a cleaned up and expanded version of my comment to the <a href="https://www.facebook.com/groups/DeepNetGroup/permalink/466714983721389/">thread</a>. </p>
+<h1 id="deep-learning-is-just-a-subset-of-machine-learning">Deep Learning is Just a Subset of Machine Learning<a class="headerlink" href="#deep-learning-is-just-a-subset-of-machine-learning" title="Permanent link">&para;</a></h1>
+<p>First of all deep learning is just a subset of techniques of machine learning. You may heard from many "Deep Learning Consultants"-type: "deep learning is completely different from from Machine Learning". But then when we are talking about "deep learning" these days, we are really talking about "neural networks which has more than one layer". Since neural network is just one type of ML techniques, it doesn't make any sense to call DL as "different" from ML. It might work for marketing purpose, but the thought was clearly misleading. </p>
+<h1 id="deep-learning-is-a-kind-of-representation-learning">Deep Learning is a kind of Representation Learning<a class="headerlink" href="#deep-learning-is-a-kind-of-representation-learning" title="Permanent link">&para;</a></h1>
+<p>So now we know that deep learning is a kind of machine learning. We still can't quite answer why it is special. So let's be more specific, deep learning is a kind of <a href="https://en.wikipedia.org/wiki/Feature_learning">representation learning</a>. What is representation learning? Representation learning is an opposite of another school of thought/practice: <a href="https://en.wikipedia.org/wiki/Feature_engineering">feature engineering</a>. In feature engineering, humans are supposed to hand-craft features to make machine works better. If you Kaggle before, this should be obvious to you, sometimes you just want to manipulate the raw inputs and create new feature to represent your data.</p>
+<p>Yet in some domains which involve high-dimensional data such as images, speech or text, hand-crafting feature was found to be very difficult. e.g. Using HOG type of approaches to do computer vision usually takes a 4-5 years of a PhD student. So here we come back to representation learning - can computer automatically learn good features? </p>
+<h1 id="what-is-a-deep-technique">What is a "Deep" Technique?<a class="headerlink" href="#what-is-a-deep-technique" title="Permanent link">&para;</a></h1>
+<p>Now we come to the part why deep learning is "deep" - usually we call a method "deep" when we are optimizing a** nested function** in the method. So for example, if you can express such functions as a graph, you would find that it has multiple layers. <em>The term "deep" really is describing such "nestedness".</em> That should explain why we typically called any artificial neural network (ANN) with more than 1 hidden layer as "deep". Or the general saying, "deep learning is just neural network which has more layers".</p>
+<p>(Another appropriate term is "hierarchical". See footnote [4] for more detail.)</p>
+<p>This is also the moment Karpathy in cs231n will show you the multi-layer CNN such that features are automatically learned from the simplest to more complex one. Eventually your last layer can just differentiate them using a linear classifier. As there is a "deep" structure that learn the right feature (last layer). Note the key term here is "automatic", all these Gabor-filter like feature are not hand-made. Rather, they are results from back-propagation [3]. </p>
+<h1 id="are-there-anything-which-is-deep-but-not-a-neural-network">Are there Anything which is "Deep" but not a Neural Network?<a class="headerlink" href="#are-there-anything-which-is-deep-but-not-a-neural-network" title="Permanent link">&para;</a></h1>
+<p>Actually, there are plenty, <a href="http://proceedings.mlr.press/v5/salakhutdinov09a/salakhutdinov09a.pdf">deep Boltzmann machine</a>? <a href="https://en.wikipedia.org/wiki/Deep_belief_network">deep belief network</a>? <a href="http://proceedings.mlr.press/v31/damianou13a.pdf">deep Gaussian process</a>? They are still discussed in unsupervised learning using neural network, but I always found that knowledge of graphical models is more important to understand them. </p>
+<h1 id="so-is-deep-learning-also-a-marketing-term">So is Deep Learning also a Marketing Term?<a class="headerlink" href="#so-is-deep-learning-also-a-marketing-term" title="Permanent link">&para;</a></h1>
+<p>Yes and no. It depends on who you talk to. If you talk with ANN researchers/practitioners, they would just tell you "deep learning is just neural network which has more than 1 hidden layer". Indeed, if you think from their perspective, the term "deep learning" could just be a short-form. Yet as we just said, you can also called other methods "deep". So the adjective is not totally void of meaning. But many people would also tell you that because "deep learning" has become such a marketing term, it can now mean many different things. I will say more in next section.</p>
+<p>Also the term "deep learning" has been there for a century. Check out Prof. Schmidhuber's <a href="https://plus.google.com/100849856540000067209/posts/7N6z251w2Wd">thread</a> for more details? </p>
+<h1 id="no-way-x-is-not-deep-but-it-is-also-taught-in-deep-learning-class-you-made-a-horrible-mistake">"No Way! X is not Deep but it is also taught in Deep Learning Class, You made a Horrible Mistake!"<a class="headerlink" href="#no-way-x-is-not-deep-but-it-is-also-taught-in-deep-learning-class-you-made-a-horrible-mistake" title="Permanent link">&para;</a></h1>
+<p>I said it with much authority and I know some of you guys would just jump in and argue:</p>
+<p>"What about <a href="https://en.wikipedia.org/wiki/Word2vec">word2vec</a>? It is nothing deep at all, but people still call it Deep learning!!!" "What about all wide architectures such as "<a href="https://arxiv.org/abs/1606.07792">wide-deep learning</a>"?" "Arthur, You are Making a HORRIBLE MISTAKE!"</p>
+<p>Indeed, the term "deep learning" is being abused these days. More learned people, on the other hand, are usually careful to call certain techniques "deep learning" For example, in cs221d 2015/2016 lectures, Dr. Richard Socher was quite cautious to call word2vec as "deep". His supervisor, Prof. Chris Manning, who is an authority in NLP, is known to dispute whether deep learning is always useful in NLP, simply because some recent advances in NLP really due to deep learning [1][2].</p>
+<p>I think these cautions make sense. Part of it is that calling everything "deep learning" just blurs what really should be credited in certain technical improvement. The other part is we shouldn't see deep learning as the only type of ML we want to study. There are many ML techniques, some of them are more interesting and practical than deep learning in practice. For example, deep learning is not known to work well with small data scenario. Would I just yell at my boss and say "<em>Because I can't use deep learning, so I can't solve this problem</em>!"? No, I would just test out random forest, support vector machines, GMM and all these nifty methods I learn over the years. </p>
+<h1 id="misleading-claim-about-deep-learning-i-deep-learning-is-about-machine-learning-methods-which-use-a-lot-of-data">Misleading Claim About Deep Learning (I) - "Deep Learning is about Machine Learning Methods which use a lot of Data!"<a class="headerlink" href="#misleading-claim-about-deep-learning-i-deep-learning-is-about-machine-learning-methods-which-use-a-lot-of-data" title="Permanent link">&para;</a></h1>
+<p>So now we come to the arena of misconceptions, I am going to discuss two claims which many people have been drumming about deep learning. But neither of them is the right answer to the question "What is the Difference between Deep and Machine Learning?</p>
+<p>The first one you probably heard all the time, "Deep Learning is about ML methods which use a lot of data". Or people would tell you "Oh, deep learning <em>just</em> use a lot of data, right?" This sounds about right, deep learning in these days does use a lot of data. So what's wrong with the statement?</p>
+<p>Here is the answer: while deep learning does use a lot of data, <em>before deep learning</em>, <em>other techniques use tons of data too!</em> e.g. Speech recognition before deep learning, i.e. HMM+GMM, can use up to 10k hours of speech. Same for SMT. And you can do SVM+HOG on Imagenet. And more data is always better for those techniques as well. So if you say "deep learning use more data", then you forgot the older techniques also can use more data.</p>
+<p>What you can claim is that <em>"deep learning is a more effective way to utilize data".</em>  That's very true, because once you get into either GMM or SVM, they would have scalability issues. GMM scales badly when the amount of data is around 10k hour. SVM (with RBF-kernel in particular) is super tough/slow to use when you have ~1 million point of data. </p>
+<h1 id="misleading-claim-about-deep-learning-ii-deep-learning-is-about-using-gpu-and-having-data-center">Misleading Claim About Deep Learning II - "Deep Learning is About Using GPU and Having Data Center!"<a class="headerlink" href="#misleading-claim-about-deep-learning-ii-deep-learning-is-about-using-gpu-and-having-data-center" title="Permanent link">&para;</a></h1>
+<p>This particular claim is different from the previous "Data Requirement" claim, but we can debunk it in a similar manner. The reason why it is wrong? Again <em>before deep learning, people have GPUs to do machine learning</em> <em>already.</em> For example, you can use GPU to speed up GMM. Before deep learning is hot, you need a cluster of machines to train acoustic model or language model for speech recognition. You also need tons of RAM to train a language model for SMT. So calling GPU/Data Center/RAM/ASIC/FPGA a differentiator of deep learning is just misleading.</p>
+<p>You can say though "<em>Deep Learning has change the computational model from distributed network model to more a single machine-centric paradigm (which each machine has one GPU). But later approaches also tried to combine both CPU-GPU processing together".</em>  </p>
+<h1 id="conclusion-and-what-you-say-is-just-your-opinion-my-theory-makes-equal-sense">Conclusion and "What you say is Just Your Opinion! My Theory makes Equal Sense!"<a class="headerlink" href="#conclusion-and-what-you-say-is-just-your-opinion-my-theory-makes-equal-sense" title="Permanent link">&para;</a></h1>
+<p>Indeed, you should always treat what you read on-line with a grain of salt. Being critical is a good thing, having your own opinion is good. But you should also try to avoid <em>equivocate</em> an issue. Meaning: sometimes things have only one side, but you insist there are two equally valid answers. If you do so, you are perhaps making a logical error in your thinking. And a lot of people who made claims such as "deep learning is learning which use more data and use a lot of GPUS" are probably making such thinking errors.</p>
+<p>Saying so, I would suggest you to read several good sources to judge my answer, they are: 
+1. Chapter 1 of<a href="http://www.deeplearningbook.org/contents/intro.html">Deep Learning</a>.
+2. Shakir's Machine Learning Blog on a <a href="http://blog.shakirm.com/ml-series/a-statistical-view-of-deep-learning/">Statistical View of Deep Learning</a>. In particular, part VI, "<a href="http://blog.shakirm.com/2015/06/a-statistical-view-of-deep-learning-vi-what-is-deep/">What is Deep?</a>"
+3. Tombone's post on <a href="http://www.computervisionblog.com/2015/03/deep-learning-vs-machine-learning-vs.html">Deep Learning vs Machine Learning vs Pattern Recognition </a></p>
+<p>In any case, I hope that this article helps you. I thank Bob to ask the question, <a href="https://www.facebook.com/rumi.naik?fref=ufi">Armaghan Rumi Naik</a> has debunked many misconceptions in the original <a href="https://www.facebook.com/groups/DeepNetGroup/permalink/466714983721389/">thread</a> - his understanding on machine learning is clearly above mine and he was able to point out mistakes from other commenters. It is worthwhile for your reading time. </p>
+<h1 id="footnotes">Footnotes<a class="headerlink" href="#footnotes" title="Permanent link">&para;</a></h1>
+<p>[1] See "<a href="http://mitp.nautil.us/article/170/last-words-computational-linguistics-and-deep-learning">Last Words: Computational Linguistics and Deep Learning</a>" [2] Generally whether DL is useful in NLP is widely disputed topic. Take a look of Yoav Goldberg's view on some recent<a href="https://medium.com/@yoav.goldberg/an-adversarial-review-of-adversarial-generation-of-natural-language-409ac3378bd7">GAN results on language generation</a>. AIDL Weekly #18 also gave an <a href="http://aidl.io/issues/18#start">expose</a> on the issue. [3] Perhaps another useful term is "hierarchical". In the case of ConvNet the term is right on. As <a href="https://www.facebook.com/eric.heitzman?fref=ufi">Eric Heitzman</a> comments at AIDL: "(deep structure) They are *not* necessarily recursive, but they *are* necessarily hierarchical since layers always form a hierarchical structure." After Eric's comment, I think both "deep" and "hierarchical" are fair terms to describe methods in "deep learning". (Of course, "hierarchical learning" is a much a poorer marketing term.) [4] In earlier draft. I use the term recursive to describe the term "deep", which as <a href="https://www.facebook.com/eric.heitzman?fref=ufi">Eric Heitzman</a> at AIDL, is not entirely appropriate. "Recursive" give people a feeling that the function is self-recursive or<span class="arithmatex">\(f(f( \ldots f(f(*))))\)</span>. but actual function are more "nested", like <span class="arithmatex">\(f_1(f_2( \ldots f_{n-1}(f_n(*))))\)</span>. As a result, I removed the term "recursive" but just call the function "nested function". Of course, you should be aware that my description is not too mathematically rigorous neither. (I guess it is a fair wordy description though)</p>
+<p>History: 20170709 at 6: fix some typos.</p>
+<p>20170711: fix more typos.</p>
+<p>20170711 at 7:05 p.m.: I got a feedback from <a href="https://www.facebook.com/eric.heitzman?fref=ufi">Eric Heitzman</a> who points out that the term "recursive" can be deceiving. Thus I wrote footnote [4].</p>
+<p>If you like this message, subscribe the Grand Janitor Blog's RSS feed. You can also find me (Arthur) at <a href="https://twitter.com/arthchan2003">twitter</a>, <a href="https://www.linkedin.com/in/arthchan2003">LinkedIn</a>, <a href="https://plus.google.com/">Plus</a>, <a href="https://clarity.fm/arthurchan">Clarity.fm</a>. Together with <a href="https://www.linkedin.com/in/waikit-lau-89129?authType=OPENLINK&amp;authToken=ECvg&amp;locale=en_US&amp;srchid=32591551472085290618&amp;srchindex=1&amp;srchtotal=1&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId%3A32591551472085290618%2CVSRPtargetId%3A58285%2CVSRPcmpt%3Aprimary%2CVSRPnm%3Atrue%2CauthType%3AOPENLINK">Waikit Lau</a>, I maintain the <a href="https://www.facebook.com/groups/DeepNetGroup/">Deep Learning Facebook forum</a>. Also check out my awesome employer: <a href="https://www.linkedin.com/company/9382025?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A9382025%2Cidx%3A2-1-2%2CtarId%3A1472085172997%2Ctas%3Avoci">Voci</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

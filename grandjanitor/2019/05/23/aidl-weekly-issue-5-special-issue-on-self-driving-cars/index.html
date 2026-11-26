@@ -1,0 +1,1293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/05/23/aidl-weekly-issue-5-special-issue-on-self-driving-cars/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue #5 - Special Issue on Self-Driving Cars - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-5-special-issue-on-self-driving-cars" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue #5 - Special Issue on Self-Driving Cars
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-5-special-issue-on-self-driving-cars">AIDL Weekly Issue #5 - Special Issue on Self-Driving Cars<a class="headerlink" href="#aidl-weekly-issue-5-special-issue-on-self-driving-cars" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<p>Intel/Mobileye big deal, more Waymo/Uber drama, etc. - yet another big week for self-driving cars! It's not hyperbole to say that self-driving cars represent one of largest market-size application for A.I. The jockeying for positions had been happening for a while and won't abate anytime soon. Intel largely missed the boat on mobile and is determined not to miss it on A.I. and autonomous vehicles. There's a subsystem race going on in the h/w and s/w space to solve all the myriad problems. </p>
+<p>At the highest level, a successful architecture would need to at least understand: 
+- <strong>Where am I (car) and where am I going?</strong> Need maps, GPS, odometry data.
+- <strong>What's around me based on my sensors?</strong> Need car sensors - LIDAR, camera, ultrasound, audio, infrared, etc. Need low-level intelligence / classifiers on each of those signals to identify and make sense of road signs, humans, pets, random objects on the street
+- <strong>What's around me based on external telemetry data?</strong> Need other car-related positioning and odometry data, weather data, traffic pattern data
+- <strong>How do I make sense of what's around me, what other objects are doing and whether I'm doing the right actions?</strong> A brain that takes internal sensor data and external telemetry data, makes sense of them and outputs an action. This is an oversimplification and is inherently a really tough challenge. There are so many corner and non-corner cases to account for. No company wants to own the first self-driving car that kills a pedestrian. How does the algorithm weigh navigation decisions in an unavoidable accident scenario where you could hit one group of pedestrians or another?
+- <strong>How do I train car to be smarter over time?</strong> Need phone home feature to a remote human operator if car can't decide what to do, generating training data
+- Etc.</p>
+<p>This isn't meant to be exhaustive, but as you can see, the moment we start thinking about all the things a human driver does in navigation and in response to other moving blobs on the street, it becomes incredibly hard to create a driving machine replica. We suspect there will be multiple waves of innovation here over time, along the dimensions of better sensors, more types of telemetry data, better cost curve, and better brain.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="californias-green-light-to-self-driving-cars"><a href="http://spectrum.ieee.org/cars-that-think/transportation/self-driving/california-gives-the-green-light-to-selfdriving-cars">California's Green Light to Self-Driving Cars</a><a class="headerlink" href="#californias-green-light-to-self-driving-cars" title="Permanent link">&para;</a></h3>
+<p>The California State is giving loosening regulations on self-driving cars. This makes vehicles with automated <a href="http://www.techrepublic.com/article/autonomous-driving-levels-0-to-5-understanding-the-differences/">level 4 or 5</a> be more easily tested. Vehicles such as Uber's self-driving taxi would also be allowed to pick up customers, but not for a fee. California's move is bold as many other cities in the world, such as Singapore, Boston, Pittsburgh, competes to be the leading city of driverless car. Free pick-up has been implemented <a href="https://newsroom.uber.com/pittsburgh-self-driving-uber/">in Pittsburgh back September last year</a>. </p>
+<p><a href="http://spectrum.ieee.org/cars-that-think/transportation/self-driving/california-gives-the-green-light-to-selfdriving-cars">ieee.org</a></p>
+<hr />
+<h3 id="intel-buys-mobileye-for-15b"><a href="https://www.technologyreview.com/s/603853/machine-learning-and-data-are-fueling-a-new-kind-of-car/">Intel buys Mobileye for $15B</a><a class="headerlink" href="#intel-buys-mobileye-for-15b" title="Permanent link">&para;</a></h3>
+<p>Intel acquisition of Mobileye deserves some attention: the price is expensive. <a href="http://www.reuters.com/article/us-intel-mobileye-idUSKBN16K0ZP">Intel is paying 60 times of Mobileye's earning</a>. Many people believe that it is <a href="https://www.fool.com/investing/2017/03/13/intel-is-paying-an-awful-lot-for-mobileye.aspx">overpriced</a>. So the question is : is it worthwhile? </p>
+<p>From the A.I. perspective, it does make sense. Intel's rival Nvidia released <a href="http://www.nvidia.com/object/embedded-systems-dev-kits-modules.html">Jetson TX2</a>, and is positioning to get into autonomous vehicles via tier-1 auto suppliers like Bosch. Intel missed the mobile wave and they are determined not to miss this wave.</p>
+<p>Mobileye's Autopilot was one of the most prominent systems used in many self-driving system, lauded as the <a href="http://wccftech.com/tesla-autopilot-story-in-depth-technology/4/">first deep-learning-based system for vehicle detection</a>. Mobileye is a major supplier for many self-driving companies, which used to include Tesla, but Tesla dropped the relationship <a href="https://www.technologyreview.com/s/603853/machine-learning-and-data-are-fueling-a-new-kind-of-car/">after a fatal accident</a>. Currently Mobileye is investing reinforcement learning to improve their system. They also have a simulated system to assist such learning.</p>
+<p>If you compare Mobileye with Drive.ai (also featured in this issue), perhaps the deep learning technology is less sexy. Drive.ai uses an end-to-end training strategy which usually results in bigger gain. But then Mobileye has been around, its existing customer base is more massive.</p>
+<p>It's reasonable to think that acquisition of Mobileye, similar to <a href="https://www.nervanasys.com/intel-nervana/">Nervanna's</a>, would assist Intel's progress of creating specialized hardware chip on deep learning, and more important, the development platform for adopters.</p>
+<p><a href="https://www.technologyreview.com/s/603853/machine-learning-and-data-are-fueling-a-new-kind-of-car/">technologyreview.com</a></p>
+<hr />
+<h3 id="deep-learning-and-driveai"><a href="http://spectrum.ieee.org/cars-that-think/transportation/self-driving/how-driveai-is-mastering-autonomous-driving-with-deep-learning">Deep Learning and Drive.ai</a><a class="headerlink" href="#deep-learning-and-driveai" title="Permanent link">&para;</a></h3>
+<p>For a new company in the self-driving space, Drive.ai stands out among the crowd, and made headlines multiple times. For example, we saw <a href="http://observer.com/2017/02/this-startups-new-self-driving-car-video-is-way-more-impressive-than-teslas/">a video back in February</a> that Drive can take care of a driving on rainy night, and very difficult driving condition such as malfunction red-light And we learn from several articles (such as <a href="https://techcrunch.com/2016/08/30/drive-ai-uses-deep-learning-to-teach-self-driving-cars-and-to-give-them-a-voice/">this one</a> and the IEEE piece), that Drive attempts to train their network end-to-end. So we can imagine it is a sort of all-in-one architecture that include object-detection, and their approach would come up with both driving decision and if it is safe one or not. </p>
+<p>The IEEE piece tells one more interesting technical strength: which is how it can obtain data. It uses a small band of annotators, but most of them are used to train new scenarios. Whereas the deep-learning-based system is used to automate validate the data itself.</p>
+<p>The test the author went through was based on automated level Level 2, which assumes human is on the driving seat. With California's state law loosen, we might see more Drive to showcase their close to Level-4 automated driving in the future.</p>
+<p><a href="http://spectrum.ieee.org/cars-that-think/transportation/self-driving/how-driveai-is-mastering-autonomous-driving-with-deep-learning">ieee.org</a></p>
+<hr />
+<h3 id="update-on-waymos-lawsuit"><a href="http://www.theverge.com/2017/3/10/14884666/alphabet-waymo-google-uber-lawsuit-testimony-block">Update on Waymo's Lawsuit</a><a class="headerlink" href="#update-on-waymos-lawsuit" title="Permanent link">&para;</a></h3>
+<p>Woo. Waymo is ramping up its legal actions on Uber! This time it is filing for an injunction of the whole Uber's self-driving car operation (!). Enough said. As blogger <a href="https://danielcompton.net/about">Daniel Compton</a> analyzed, it may be provable that Levandowski and Uber collaborated on the data theft before Levandowski even left Google </p>
+<p><a href="http://www.theverge.com/2017/3/10/14884666/alphabet-waymo-google-uber-lawsuit-testimony-block">theverge.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="iclr-2017-vs-arxiv-sanity"><a href="https://medium.com/@karpathy/iclr-2017-vs-arxiv-sanity-d1488ac5c131#.vf91uwqo6">ICLR 2017 vs arxiv-sanity</a><a class="headerlink" href="#iclr-2017-vs-arxiv-sanity" title="Permanent link">&para;</a></h3>
+<p>Here is an interesting analysis by <a href="http://cs.stanford.edu/people/karpathy/">Andrej Karpathy</a>, on ICLR 2017 papers. What's the difference between peer review results and from arxiv-sanity? Spoiler alert: many papers loved by arxiv-sanity are rejected. So check out Karpathy's article and see why. </p>
+<p><a href="https://medium.com/@karpathy/iclr-2017-vs-arxiv-sanity-d1488ac5c131#.vf91uwqo6">medium.com</a></p>
+<hr />
+<h3 id="an-analysis-of-ubers-worst-case-scenario"><a href="https://danielcompton.net/2017/03/14/uber-bombshell">An analysis of Uber's Worst Case Scenario</a><a class="headerlink" href="#an-analysis-of-ubers-worst-case-scenario" title="Permanent link">&para;</a></h3>
+<p>This is a piece written by Blogger Daniel Compton. In our view, perhaps it gives the best speculation on how the Waymo-Uber lawsuit would turn out. It ain't pretty. </p>
+<p><a href="https://danielcompton.net/2017/03/14/uber-bombshell">danielcompton.net</a></p>
+<hr />
+<h3 id="updates-on-learning-deep-learning-my-top-five-list"><a href="/grandjanitor/2016/08/15/learning-deep-learning-my-top-five-resource/">Updates on "Learning Deep Learning - My Top Five List"</a><a class="headerlink" href="#updates-on-learning-deep-learning-my-top-five-list" title="Permanent link">&para;</a></h3>
+<p>At <a href="https://www.facebook.com/groups/DeepNetGroup/">AIDL</a>, we usually point any beginner resource question to Q4 which answers the question " How do you compare different resources on machine learning/deep learning?" and it links to one of my (Arthur's) blog post "Learning Deep Learning - My Top-Five List". </p>
+<p>Recently I gave the post a quarterly update, a summary: - Add a "Philosophy" section - Add a "Top-Five of Top-Five" section for people who don't know how to start. - Update my impression about Socher's class - as I finish the course half-way as well as looping through Hinton's class second time. No ranking changes. - Also add Oxford Deep Learning and several other classes in the Lectures/Courses section - Link Ian GoodFellow's "Deep Learning" with some of my quick impressions of the book - as I browse through the whole book once. (Also in this Issue.) - Add "Top-Five" for mailing list. You favorite mailing list "AIDL Weekly" is #1! :)</p>
+<p><a href="/grandjanitor/2016/08/15/learning-deep-learning-my-top-five-resource/">thegrandjanitor.com</a></p>
+<hr />
+<h3 id="applying-ml-on-march-madness"><a href="https://adeshpande3.github.io/adeshpande3.github.io/Applying-Machine-Learning-to-March-Madness">Applying ML on March madness.</a><a class="headerlink" href="#applying-ml-on-march-madness" title="Permanent link">&para;</a></h3>
+<p>One of our favorite writers, <a href="https://www.facebook.com/adit.deshpande.5?fref=pb_other">Adit Despande</a> wrote an interesting piece on how to use machine learning to predict March Madness' result using data from last 25 years. </p>
+<p><a href="https://adeshpande3.github.io/adeshpande3.github.io/Applying-Machine-Learning-to-March-Madness">github.io</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="yerevann-labs-a-guide-to-deep-learning"><a href="http://yerevann.com/a-guide-to-deep-learning/">YerevaNN Lab's "A Guide to Deep Learning"</a><a class="headerlink" href="#yerevann-labs-a-guide-to-deep-learning" title="Permanent link">&para;</a></h3>
+<p>We stumbled on this tremendous resources, a courtesy from YerevaNN Lab from Armenia. For beginners of deep learning, this guide is absolutely a treasure trove - it has a ranked resource list, separated by topics and gives very clear guidance what topic should be learned. It will give you a good sense on what topic in deep learning is a must-learn and how difficulty the topic is. </p>
+<p><a href="http://yerevann.com/a-guide-to-deep-learning/">yerevann.com</a></p>
+<hr />
+<h3 id="tf-seq2seq"><a href="https://github.com/google/seq2seq?utm_campaign=Revue%20newsletter&amp;utm_medium=Newsletter&amp;utm_source=revue">tf-Seq2seq</a><a class="headerlink" href="#tf-seq2seq" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/dennybritz">Denny Britz</a> released a general purpose seq2seq engine, tf-seq2seq. He mentioned that this engine, unlike <a href="https://research.googleblog.com/2016/09/a-neural-network-for-machine.html">GNMT</a> is meant to be general purpose, so he doesn't guarantee tf-seq2seq would replicate Google's results. But the engine does look promising enough, it encompasses several functionalities including Machine Translation, Text Summarization, Conversational Modeling, Image Captioning. While these applications are based on the same theory, you usually need to do some plumbing to train well if you only have a translation engine. </p>
+<p><a href="https://github.com/google/seq2seq?utm_campaign=Revue%20newsletter&amp;utm_medium=Newsletter&amp;utm_source=revue">github.com</a></p>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<h3 id="aidl-office-hour-session-with-han-shu-of-airbnb-data-science-team"><a href="https://www.youtube.com/watch?v=Qqtc9_05yLc">AIDL Office Hour session with Han Shu, of Airbnb data science team</a><a class="headerlink" href="#aidl-office-hour-session-with-han-shu-of-airbnb-data-science-team" title="Permanent link">&para;</a></h3>
+<p>Han Shu, who leads a couple of data science teams at Airbnb, graciously took time out to talk with us about how Airbnb implements ML into the platform and how they think about it. They think as much as about org design as the code itself. </p>
+<p>Several interesting tidbits: 
+- Both of us (Arthur and Waikit) were interested in Airbnb's design of scalable experimentation. Engineers can easily change their engine and quickly perform A/B tests. Results populate automately in their in-house built data platform
+- Han gave an insider's view on how deep learning changed automatic speech recognition (ASR). He has been very experienced in ASR - PhD from <a href="https://groups.csail.mit.edu/sls/research/">MIT SLS group</a> and one of the co-founders of <a href="http://www.vlingo.com/">Vlingo</a> (later acquired by Nuance).</p>
+<p><a href="https://www.youtube.com/watch?v=Qqtc9_05yLc">youtube.com</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1429 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/past-issues-of-aidl-weekly/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDLWeekly(Past Issues) - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidlweeklypast-issues" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDLWeekly(Past Issues)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidlweeklypast-issues">AIDLWeekly(Past Issues)<a class="headerlink" href="#aidlweeklypast-issues" title="Permanent link">&para;</a></h1>
+<p>Here are all the past issues of AIDL Weekly, archived as blog messages. </p>
+<ul>
+<li>
+<h2 id="issue-86"><a href="/grandjanitor/2019/07/25/aidl-weekly-issue-86-ces-2019-edward-grefenstette-and-common-voice/">Issue 86</a><a class="headerlink" href="#issue-86" title="Permanent link">&para;</a></h2>
+<p>CES 2019, Edward Grefenstette and Common Voice
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-85-agi-is-nowhere-near-according-to-prof-hinton/">Issue 85</a></p>
+<p>AGI is Nowhere Near - According to Prof. Hinton
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-84-udacity-reorg-ai-index-2018-report/">Issue 84</a></p>
+<p>Udacity Reorg, AI Index 2018 Report
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-83-neurips-2018/">Issue 83</a></p>
+<p>NeurIPS 2018
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-82-so-you-want-to-be-an-ai-researcher/">Issue 82</a></p>
+<p>So You Want to be an AI Researcher?
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-81-math-is-language-that-uses-god-vladimir-vapnik/">Issue 81</a></p>
+<p>"Math is language that uses God" - Vladimir Vapnik
+- ## <a href="/grandjanitor/2019/07/25/aidl-issue-80-alright-we-are-going-to-talk-about-the-ai-news-anchor/">Issue 80</a></p>
+<p>Alright..... We are Going to Talk About the AI News Anchor.....
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-79-the-man-from-la-famille-de-belamy/">Issue 79</a></p>
+<p>The Man from La Famille de Belamy
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-78-uber-vs-waymo-a-revisit/">Issue 78</a></p>
+<p>Uber vs Waymo: A Revisit
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-77-keras-vs-tensorflow-by-adrian-joey-rosebrock-stanford-nlp-2012/">Issue 77</a></p>
+<pre><code>- Keras vs Tensorflow by Adrian Joey Rosebrock
+- Stanford NLP 2012
+</code></pre>
+</li>
+<li>
+<h2 id="issue-76"><a href="/grandjanitor/2019/07/25/aidl-weekly-issue-76-fast-ai-pytorch-library-mss-infer-net-oct-8th-2018/">Issue 76</a><a class="headerlink" href="#issue-76" title="Permanent link">&para;</a></h2>
+<p>fast.ai pytorch library, MS's infer.NET
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-75-inside-google-dataset-search/">Issue 75</a></p>
+<p>Inside Google Dataset Search
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-74-facebook-vs-fake-news-or-ai-vs-fake-news/">Issue 74</a></p>
+<p>Facebook vs Fake News (or AI vs Fake News?)
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-73-google-dataset-search-engine/">Issue 73</a></p>
+<p>Google Dataset Search Engine
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-72-google-dopamine/">Issue 72</a></p>
+<p>Google Dopamine
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-71-humans-vs-openai-five/">Issue 71</a></p>
+<p>Humans vs OpenAI Five
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-70-nvidia-turing-tf-2-0/">Issue 70</a></p>
+<p>Nvidia Turing, TF 2.0
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-69-a-dexterous-robotic-hand/">Issue 69</a></p>
+<p>A Dexterous Robotic Hand
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-68-dr-rachel-thomas-on-automl-and-what-ml-practitioners-actually-do/">Issue 68</a></p>
+<p>Dr. Rachel Thomas on AutoML and What ML Practitioners Actually do.
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-67-ai-in-vc-investing-and-world-cup/">Issue 67</a></p>
+<p>AI in VC investing and World Cup</p>
+</li>
+<li>
+<h2 id="issue-66"><a href="/grandjanitor/2019/07/25/aidl-weekly-issue-66-uber-lays-off-100-sdc-operators/">Issue 66</a><a class="headerlink" href="#issue-66" title="Permanent link">&para;</a></h2>
+<pre><code>- Let AI help you figure out which opportunities and jobs are right for you!
+- Uber Lays Off 100 SDC operators
+</code></pre>
+<ul>
+<li>
+<h2 id="issue-65"><a href="/grandjanitor/2019/07/25/aidl-weekly-issue-65-machines-capture-the-flag/">Issue 65</a><a class="headerlink" href="#issue-65" title="Permanent link">&para;</a></h2>
+</li>
+</ul>
+<p>Machines! Capture The Flag!
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-64-the-medical-brain/">Issue 64</a></p>
+<p>The Medical Brain
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-63-predicting-winner-of-world-cup-2018/">Issue 63</a></p>
+<p>Predicting Winner of World Cup 2018
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-62-ai-at-google-and-apple/">Issue 62</a></p>
+<p>AI at Google and Apple
+- ## <a href="/grandjanitor/2019/07/25/aidl-weekly-issue-61-project-maven/">Issue 61</a></p>
+<p>Project Maven
+- ## <a href="https://wp.me/p47Nh8-o4">Issue 60</a></p>
+<p>Teach Machines Cause and Effect
+- ## <a href="/grandjanitor/2019/07/18/issue-59-google-io-2018-in-particular-duplex/">Issue 59</a></p>
+<p>Google I/O 2018, in particular, Duplex
+- ## <a href="/grandjanitor/2019/07/18/issue-58-f8-and-iclr-2018/">Issue 58</a></p>
+<p>F8 and ICLR 2018
+- ## <a href="/grandjanitor/2019/07/17/issue-57-salaries-of-deep-learning-researchers/">Issue 57</a></p>
+<p>Salaries of Deep Learning Researchers</p>
+</li>
+<li>
+<h2 id="issue-56"><a href="/grandjanitor/2019/07/17/issue-56-will-ai-solve-all-problems-of-facebook/">Issue 56</a><a class="headerlink" href="#issue-56" title="Permanent link">&para;</a></h2>
+<p>A profile on SenseTime; How does "Hey Siri" work?
+- ## <a href="/grandjanitor/2019/07/17/issue-55-will-ai-solve-all-problems-of-facebook/">Issue 55</a></p>
+<p>Will AI solve all problems of Facebook?
+- ## <a href="/grandjanitor/2019/07/17/issue-54-jeff-dean-fact-he-is-the-new-google-chief-of-ai-and-this-is-actually-true/">Issue 54</a></p>
+<p>Jeff Dean Fact: He is the new Google Chief of AI, and this is actually true!
+- ## <a href="/grandjanitor/2019/07/17/issue-53-gtc-2018/">Issue 53</a></p>
+<p>GTC 2018
+- ## <a href="/grandjanitor/2019/07/16/aidl-weekly-52-amoebanet/">Issue 52</a></p>
+<p>AmoebaNet
+- ## <a href="/grandjanitor/2019/07/16/aidl-weekly-51-windows-ml/">Issue 51</a></p>
+<p>Windows ML
+- ## <a href="/grandjanitor/2019/07/16/aidl-weekly-50-project-alexandria-and-google-ml-crash-course/">Issue 50</a></p>
+<p>Project Alexandria and Google ML Crash Course
+- ## <a href="/grandjanitor/2019/07/16/aidl-weekly-49-google-and-verily-your-eyes-tell-us-everything/">Issue 49</a></p>
+<p>Google and Verily: Your Eyes tell Us Everything
+- ## <a href="/grandjanitor/2019/07/16/aidl-weekly-48-tensor-comprenhension-and-tpu-beta/">Issue 48</a></p>
+<p>Tensor Comprenhension and TPU beta
+- ## <a href="https://wp.me/p47Nh8-nz">Issue 47</a></p>
+<p>About Prof. Geoffrey Hinton</p>
+</li>
+<li>
+<h2 id="issue-46"><a href="/grandjanitor/2019/07/16/aidl-weekly-46-ngs-ai-fund-deeplearning-ai-course-5-iclr-2017/">Issue 46</a><a class="headerlink" href="#issue-46" title="Permanent link">&para;</a></h2>
+<p>Ng's AI Fund, deeplearning.ai Course 5, ICLR 2017
+- ## <a href="/grandjanitor/2019/07/16/aidl-weekly-45-prof-lecun-is-stepping-down-as-the-chief-of-fair/">Issue 45</a></p>
+<p>Prof. Lecun is Stepping Down as the Chief of FAIR
+- ## <a href="/grandjanitor/2019/07/16/aidl-weekly-44-prof-lecun-vs-dr-goertzel/">Issue 44</a></p>
+<p>Prof. Lecun vs Dr. Goertzel
+- ## I<a href="/grandjanitor/2019/07/16/aidl-weekly-43-chinas-ai-park/">ssue 43</a></p>
+<p>China's AI Park
+- ## <a href="https://wp.me/p47Nh8-no">Issue 42</a></p>
+<p>Throwback 2017
+- ## <a href="/grandjanitor/2019/07/08/aidl-weekly-41-how-everyone-see-deep-learning-in-2017/">Issue 41</a></p>
+<p>How Everyone See Deep Learning in 2017?
+- ## <a href="/grandjanitor/2019/07/08/aidl-weekly-40-special-issue-on-nips-2017/">Issue 40</a></p>
+<p>Special Issue on NIPS 2017
+- ## <a href="/grandjanitor/2019/07/08/aidl-weekly-39-amazon-the-ai-powerhouse/">Issue 39</a></p>
+<p>Amazon The AI Powerhouse
+- ## <a href="/grandjanitor/2019/07/08/aidl-weekly-38/">Issue 38</a></p>
+<p>The FaceID Hack
+- ## <a href="/grandjanitor/2019/07/05/aidl-weekly-issue-37-first-level-4-sdc-pieter-abbeel-and-raquel-urtasun/">Issue 37</a></p>
+<p>First Level 4 SDC, Pieter Abbeel and Raquel Urtasun</p>
+</li>
+<li>
+<h2 id="issue-36"><a href="/grandjanitor/2019/07/05/aidl-weekly-issue-36-capsules-capsules-and-capsules/">Issue 36</a><a class="headerlink" href="#issue-36" title="Permanent link">&para;</a></h2>
+<p>Capsules, Capsules and Capsules
+- ## <a href="/grandjanitor/2019/07/05/aidl-weekly-issue-35/">Issue 35</a></p>
+<p>Install our messaging app to connect with other AI/DL professionals, AlphaGo Zero and The Swish Function
+- ## Issue 34</p>
+<p>Interviews, Partnership, SDC Testing in California 2018
+- ## <a href="/grandjanitor/2019/07/03/aidl-weekly-issue-33-all-about-deepmind-its-cost-its-ethic-society-and-its-recent-wavenet-launch/">Issue 33</a></p>
+<p>All About DeepMind - Its Cost, Its Ethic Society and Its Recent Wavenet Launch
+- ## <a href="/grandjanitor/2019/07/03/aidl-weekly-issue-32-the-consciousness-prior/">Issue 32</a></p>
+<p>The Consciousness Prior
+- ## <a href="/grandjanitor/2019/07/02/aidl-weekly-issue-31-get-rid-of-backprop-and-start-over/">Issue 31</a></p>
+<p>Get Rid of Backprop and Start Over
+- ## <a href="/grandjanitor/2019/07/02/aidl-weekly-issue-30-the-a-i-in-iphone-x/">Issue 30</a></p>
+<p>The A.I. in iPhone X
+- ## <a href="/grandjanitor/2019/07/02/aidl-weekly-issue-29-a-sobering-look-at-ibm-watson-google-in-beijing-and-amazon-in-barcelona/">Issue 29</a></p>
+<p>A Sobering Look at IBM Watson, Google in Beijing and Amazon in Barcelona,
+- ## <a href="/grandjanitor/2019/06/28/aidl-weekly-issue-28/">Issue 28</a></p>
+<p>MyriadX, ChainerCV and DLSS 2017 Videos
+- ## <a href="/grandjanitor/2019/07/02/weekly-issue-27/">Issue 27</a></p>
+<p>Origin Story of Prof. Andrew Ng, Backdoored ANN and Superconvergence</p>
+</li>
+<li>
+<h2 id="issue-26"><a href="/grandjanitor/2019/06/26/issue-26-reissue-openai-dota-2-bot-early-reviews-of-deeplearning-ai-and-cs231n-2017/">Issue 26</a><a class="headerlink" href="#issue-26" title="Permanent link">&para;</a></h2>
+<p>Reissue: OpenAI DotA-2 Bot, Early Reviews of deeplearning.ai and cs231n 2017
+- ## <a href="/grandjanitor/2019/06/22/aidl-weekly-25-openai-dota-2-bot-early-reviews-of-deeplearning-ai-and-cs231n-2017/">Issue 25</a></p>
+<p>OpenAI DotA-2 Bot, Early Reviews of deeplearning.ai and cs231n 2017
+- ## <a href="/grandjanitor/2019/06/22/aidl-weekly-24-a-deep-dive-into-deeplearning-ai/">Issue 24</a></p>
+<p>A Deep Dive Into deeplearning.ai
+- ## <a href="/grandjanitor/2019/06/22/aidl-weekly-23-elon-vs-musk/">Issue 23</a></p>
+<p>Elon vs Mark
+- ## <a href="/grandjanitor/2019/06/22/aidl-weekly-22-apple-new-ml-blog-elon-musk-the-alarmist-and-hassabis-view-on-aineuroscience/">Issue 22</a></p>
+<p>Apple New ML Blog, Elon Musk The Alarmist, and Hassabis' View on AI+Neuroscience
+- ## <a href="/grandjanitor/2019/06/22/aidl-weekly-issue-21-google-gradients-microsoft-research-ai-and-baidu-nvidia-alliance/">Issue 21</a></p>
+<p>Google Gradients, Microsoft Research AI and Baidu-Nvidia Alliance
+- ## Issue 20</p>
+<p>Did DeepMind Fail to Comply Data Protection Law?
+- ## <a href="/grandjanitor/2019/06/17/aidl-weekly-issue-19-fact-checking-does-facebook-ai-create-its-own-language/">Issue 19</a></p>
+<p>Fact-Checking - Does Facebook AI Create Its Own Language?
+- ## <a href="/grandjanitor/2019/06/13/aidl-weekly-issue-18-andrej-karpathy-prof-bengios-ms-advisory-and-the-goldberg-debate/">Issue 18</a></p>
+<p>Andrej Karpathy, Prof. Bengio's MS Advisory and The Goldberg Debate
+- ## <a href="/grandjanitor/2019/06/13/aidl-weekly-issue-17-andrew-ngs-first-interview-after-baidu-and-more/">Issue 17</a></p>
+<p>Andrew Ng's First Interview After Baidu, and More</p>
+</li>
+<li>
+<h2 id="issue-16"><a href="/grandjanitor/2019/06/11/aidl-weekly-16-apple-neural-engine-neuromorphics-and-alphagos-retirement/">Issue 16</a><a class="headerlink" href="#issue-16" title="Permanent link">&para;</a></h2>
+<p>Apple Neural Engine, Neuromorphics and AlphaGo's Retirement
+- ## <a href="/grandjanitor/2019/06/05/aidl-weekly-15-alphago-vs-the-world/">Issue 15</a></p>
+<p>AlphaGo vs The World
+- ## <a href="/grandjanitor/2019/06/05/aidl-weekly-issue-14-google-io-2017-amd-vega-and-review-of-five-basic-deep-learning-class/">Issue 14</a></p>
+<p>Google I/O 2017, AMD Vega and Review of Five Basic Deep Learning Class
+- ## <a href="/grandjanitor/2019/06/05/aidl-weekly-13-special-issue-on-gtc-2017/">Issue 13</a></p>
+<p>Special Issue on GTC 2017
+- ## <a href="/grandjanitor/2019/05/30/aidl-weekly-issue-12-lyrebird-recursion-pharmaceuticals-and-campas/">Issue 12</a></p>
+<p>Lyrebird, Recursion Pharmaceuticals, and Campas
+- ## <a href="/grandjanitor/2019/05/29/aidl-weekly-issue-11-groq-a-company-no-one-is-talking-about/">Issue 11</a></p>
+<p>Groq: A Company No One is Talking About
+- ## <a href="/grandjanitor/2019/05/28/aidl-weekly-issue-10-f8-brain-computer-interface-apples-sdc-permit/">Issue 10</a></p>
+<p>F8, Brain-Computer Interface, Apple's SDC Permit
+- ## <a href="/grandjanitor/2019/05/27/aidl-weekly-issue-9-titan-xp-or-not-federated-learning-and-last-battle-of-alphago/">Issue 9</a></p>
+<p>Titan Xp or Not? Federated Learning and Last Battle of AlphaGo(?)
+- ## <a href="/grandjanitor/2019/05/27/aidl-weekly-issue-8-googles-tpu-cs224n-2017-april-fools-jokes-roundups-apr-7th-2017/">Issue 8</a></p>
+<p>Google's TPU, cs224n 2017, April Fools' Jokes Roundups
+- ## <a href="/grandjanitor/2019/05/24/aidl-weekly-issue-7-the-last-imagenet-openais-evolution-strategy-and-ai-misinformation-epidemic/">Issue 7</a></p>
+<p>The Last Imagenet, OpenAI's Evolution Strategy and AI Misinformation Epidemic</p>
+</li>
+<li>
+<h2 id="issue-6"><a href="/grandjanitor/2019/05/23/aidl-weekly-issue-6-ngs-departure-mask-rcnn-and-intels-aipg/">Issue 6</a><a class="headerlink" href="#issue-6" title="Permanent link">&para;</a></h2>
+<p>Ng's Departure, Mask-RCNN and Intel's AIPG
+- ## <a href="/grandjanitor/?s=Special+Issue+on+Self-Driving+Cars">Issue 5</a></p>
+<p>Special Issue on Self-Driving Cars
+- ## <a href="/grandjanitor/2019/05/23/aidl-weekly-issue-4-k-for-kaggle-jetson-tx2-and-deepstack/">Issue 4</a></p>
+<p>K for Kaggle, Jetson TX2 and DeepStack
+- ## I<a href="/grandjanitor/2019/05/21/1341/">ssue 3</a></p>
+<p>GTX 1080 Ti, Waymo vs Uber, and Fact-checking DeepCoder News
+- ## <a href="/grandjanitor/2019/05/21/aidl-weekly-issue-2-gamalonbatch-renormalizationtf-1-0oxford-deep-nlp/">Issue 2</a></p>
+<p>Gamalon/Batch Renormalization/TF 1.0/Oxford Deep NLP
+- ## <a href="/grandjanitor/2019/05/21/aidl-weekly-issue-1/">Issue 1</a></p>
+<p>First AIDL Weekly!</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

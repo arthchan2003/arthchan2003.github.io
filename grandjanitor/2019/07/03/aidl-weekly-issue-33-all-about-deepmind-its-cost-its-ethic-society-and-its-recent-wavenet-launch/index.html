@@ -1,0 +1,1293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/07/03/aidl-weekly-issue-33-all-about-deepmind-its-cost-its-ethic-society-and-its-recent-wavenet-launch/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue 33 - All About DeepMind - Its Cost, Its Ethic Society and Its Recent Wavenet Launch - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-33-all-about-deepmind-its-cost-its-ethic-society-and-its-recent-wavenet-launch" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue 33 - All About DeepMind - Its Cost, Its Ethic Society and Its Recent Wavenet Launch
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-33-all-about-deepmind-its-cost-its-ethic-society-and-its-recent-wavenet-launch">AIDL Weekly Issue 33 - All About DeepMind - Its Cost, Its Ethic Society and Its Recent Wavenet Launch<a class="headerlink" href="#aidl-weekly-issue-33-all-about-deepmind-its-cost-its-ethic-society-and-its-recent-wavenet-launch" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>We learnt more about DeepMind last week - we learn the hefty price to run it and its struggle to correct its image since the debacle of DeepMind Health-Royal Free event. But we also learnt that our beloved Wavenet is now in production within Google Assistant, and it's whopping 1000 times faster. This week, we'll cover DeepMind more in-depth. </p>
+<p>We also have an issue filled with contents: "Confession of AI researchers" is our favorite link. We answer our member question on how to come up with new AI idea in "Questions from Members". And we dive into an interesting paper: "Unsupervised Hypernym Detection by Distributional Inclusion Vector Embedding" by Haw-Shiuan et al.</p>
+<hr />
+<p>As always, if you like our newsletter, feel free to subscribe and forward it to friends!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="how-much-does-deepmind-cost"><a href="https://qz.com/1095833/how-much-googles-deepmind-ai-research-costs-goog/">How Much Does DeepMind Cost?</a><a class="headerlink" href="#how-much-does-deepmind-cost" title="Permanent link">&para;</a></h3>
+<p>As it turns out: it lost ~$162 million last year. It makes around $40 million, but mostly work for its parent company Alphabet. </p>
+<p><a href="https://qz.com/1095833/how-much-googles-deepmind-ai-research-costs-goog/">qz.com</a></p>
+<hr />
+<h3 id="deepmind-ethics-society"><a href="https://www.theguardian.com/technology/2017/oct/04/google-deepmind-ai-artificial-intelligence-ethics-group-problems">DeepMind Ethics &amp; Society</a><a class="headerlink" href="#deepmind-ethics-society" title="Permanent link">&para;</a></h3>
+<p>This Guardian piece is perhaps the best at describing the new DeepMind Ethics &amp; Society. At first, we thought that this is repurposing the older DeepMind Health <a href="https://deepmind.com/blog/independent-reviewers-annual-report-2017/">advisor panel</a> but then the piece clearly stated that it is a separate society. </p>
+<p>This move is in response to the previous year debacle of DeepMind on how to treat patient data. As we reported in <a href="http://aidl.io/issues/20#start">Issue #20</a>, an independent commissioner commented on the how DeepMind inappropriately treat patient data: "Just that you can, doesn't mean that you should." The whole event also cost 5 times the legal fee for DeepMind than previous year (see the previous piece on "How Much Does DeepMind Cost?").</p>
+<p><a href="https://www.theguardian.com/technology/2017/oct/04/google-deepmind-ai-artificial-intelligence-ethics-group-problems">theguardian.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="deepmind-launches-wavenet-in-google-assistant"><a href="https://deepmind.com/blog/wavenet-launches-google-assistant/">DeepMind Launches Wavenet In Google Assistant. </a><a class="headerlink" href="#deepmind-launches-wavenet-in-google-assistant" title="Permanent link">&para;</a></h3>
+<p>DeepMind launching Wavenet in production system is perhaps one of the most exciting news last week. What is amazing - it's <strong>1000</strong> times faster than <a href="original%20WaveNet%20blog%20post">one-year-old version</a> and it can run on a TPU. The speed up doesn't seem lossy - MOS around ~4.35 which human voice is not too far away: 4.67. </p>
+<p><a href="https://deepmind.com/blog/wavenet-launches-google-assistant/">deepmind.com</a></p>
+<hr />
+<h3 id="confession-as-an-ai-researcher-seeking-advice"><a href="https://www.reddit.com/r/MachineLearning/comments/73n9pm/d_confession_as_an_ai_researcher_seeking_advice/">Confession as an AI researcher; seeking advice</a><a class="headerlink" href="#confession-as-an-ai-researcher-seeking-advice" title="Permanent link">&para;</a></h3>
+<p>This is an interesting thread on how one could overcome the issue of lacking enough Mathematics background when doing research or reading AI papers. Well, 1) there's never enough Math and 2) everyone actually feels as inadequate as you do. Everyone has impostor syndrome except maybe for Geoffrey Hinton. </p>
+<p><a href="https://www.reddit.com/r/MachineLearning/comments/73n9pm/d_confession_as_an_ai_researcher_seeking_advice/">reddit.com</a></p>
+<hr />
+<h3 id="why-continuous-learning-is-the-key-towards-machine-intelligence"><a href="https://medium.com/@vlomonaco/why-continuous-learning-is-the-key-towards-machine-intelligence-1851cb57c308">Why Continuous Learning is the key towards Machine Intelligence</a><a class="headerlink" href="#why-continuous-learning-is-the-key-towards-machine-intelligence" title="Permanent link">&para;</a></h3>
+<p>Here is a good overview of continuous learning, its pros and cons, and some of its latest development. </p>
+<p><a href="https://medium.com/@vlomonaco/why-continuous-learning-is-the-key-towards-machine-intelligence-1851cb57c308">medium.com</a></p>
+<hr />
+<h3 id="nonlinear-computation-in-deep-linear-networks"><a href="https://blog.openai.com/nonlinear-computation-in-linear-networks/">Nonlinear Computation in Deep Linear Networks</a><a class="headerlink" href="#nonlinear-computation-in-deep-linear-networks" title="Permanent link">&para;</a></h3>
+<p>Here is an interesting article from OpenAI's Jakob Foerster, which we think it's a very cute idea - using the non-linearity of IEEE float, Foerster was able to use the a linear network to achieve non-linearity based on evolution strategy. </p>
+<p><a href="https://blog.openai.com/nonlinear-computation-in-linear-networks/">openai.com</a></p>
+<hr />
+<h3 id="blizzard-and-deepmind-cohost-starcraft-ii-ai-workshop"><a href="http://us.battle.net/sc2/en/blog/21048078/announcing-the-starcraft-ii-ai-workshop-10-4-2017">Blizzard and DeepMind cohost StarCraft II AI Workshop</a><a class="headerlink" href="#blizzard-and-deepmind-cohost-starcraft-ii-ai-workshop" title="Permanent link">&para;</a></h3>
+<p>Applied by Oct 11, happened at the same time of Blizzconf 2017. </p>
+<p><a href="http://us.battle.net/sc2/en/blog/21048078/announcing-the-starcraft-ii-ai-workshop-10-4-2017">battle.net</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="nihs-release-100k-anonymized-chest-x-ray-images"><a href="https://www.nih.gov/news-events/news-releases/nih-clinical-center-provides-one-largest-publicly-available-chest-x-ray-datasets-scientific-community">NIHS Release 100k Anonymized Chest X-Ray Images</a><a class="headerlink" href="#nihs-release-100k-anonymized-chest-x-ray-images" title="Permanent link">&para;</a></h3>
+<p>This is perhaps one of the largest dataset of the same type. </p>
+<p><a href="https://www.nih.gov/news-events/news-releases/nih-clinical-center-provides-one-largest-publicly-available-chest-x-ray-datasets-scientific-community">nih.gov</a></p>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<h3 id="cognitive-computational-neuroscience-2017"><a href="http://ccneuro.org/2017videos/">Cognitive Computational Neuroscience 2017</a><a class="headerlink" href="#cognitive-computational-neuroscience-2017" title="Permanent link">&para;</a></h3>
+<p>Here are all the videos of the first Cognitive Computational Neuroscience (CCN) conference. Perhaps the ones which interest us is the opening remark from <a href="https://www.youtube.com/watch?v=cWzi38-vDbE">Yann Lecun</a> and the closing remark from <a href="https://www.youtube.com/watch?v=W86H4DpFnLY">Yoshua Bengio</a>. </p>
+<p><a href="http://ccneuro.org/2017videos/">ccneuro.org</a></p>
+<h2 id="members-question">Member's Question<a class="headerlink" href="#members-question" title="Permanent link">&para;</a></h2>
+<h3 id="how-to-think-of-a-new-idea-in-ai-or-machine-learning"><a href="/grandjanitor/2017/10/05/how-to-think-of-new-idea-in-a-i/">How to Think of a New Idea in AI or Machine Learning.</a><a class="headerlink" href="#how-to-think-of-a-new-idea-in-ai-or-machine-learning" title="Permanent link">&para;</a></h3>
+<p>Answer (from Arthur): </p>
+<p>1, What other people are doing and is it possible to make a twist about it?</p>
+<p>2, What is a problem which <em>you</em> want to solve in your life. Then think, is there anyway AI/ML can help you? Everyone has some - e.g. I really like to make a the old-style Nintendo Final Fantasy style game. But then drawing the graphics of bitmap character takes insanely amount of time. So is there any way A.I. can help me? Yes, one potential idea is to create an image generator.</p>
+<p>Would these ideas work? Who knows? But that's how you come up with ideas. You ignore the feasibility part for the moment. If you feel it is really hard for you to come up with ideas, chances are you are too caught up with the technical field. Read some books, listen to music, make some art and daydream a bit. Then ideas will come.</p>
+<p>See the full discussion at this <a href="https://www.facebook.com/groups/DeepNetGroup/permalink/509996249393262/">thread</a></p>
+<p><a href="/grandjanitor/2017/10/05/how-to-think-of-new-idea-in-a-i/">thegrandjanitor.com</a></p>
+<h2 id="paperthesis-review">Paper/Thesis Review<a class="headerlink" href="#paperthesis-review" title="Permanent link">&para;</a></h2>
+<h3 id="unsupervised-hypernym-detection-by-distributional-inclusion-vector-embedding"><a href="https://arxiv.org/pdf/1710.00880.pdf">Unsupervised Hypernym Detection by Distributional Inclusion Vector Embedding</a><a class="headerlink" href="#unsupervised-hypernym-detection-by-distributional-inclusion-vector-embedding" title="Permanent link">&para;</a></h3>
+<p>Modified from my note at <a href="https://www.facebook.com/groups/aidl.ld/">here</a> </p>
+<p>Some notes and thoughts: 
+- This work is to model relationship such as "poodle is-a dog" or generally the word entailment problem in computational linguistic.
+- But what it follows is the more modern word-embedding-based approach. The hypernym problems are more often solved by Bag of Words (BOW) model. So this paper is perhaps one of the more earlier papers which used word embedding type of method on hypernym detection.
+- It's good to think of why this method works. So in the case of synonyms, we all know about the distributional hypothesis - or from Firth: "a word is characterized by the company it keeps".
+- What about hypernyms? the corresponding hypotheses are perhaps two "Distribution Informativeness Hypothesis" and "Distributional Inclusion Hypothesis". First stated that semantically general word occur more often. Second states that context sets of the words tends to be subset of the hypernym. So combining the two, "chihuahua" would occur less often than "dog", and adjective which can be applied to "chihuahua" can all be applied to "dog", but not necessarily vice versa.
+- Then there is DIVE. So in essence, it is a modification of Mikolov's skipgram but with two major modificiations: Non-negativity of skip-gram as well as weighting the negative sample with the inverse of how often a word appears. That's pretty much is what DIVE is.
+- Then there is another part about PMI (point-wise mutual information). In a nutshell, Levy and Goldberg proved that the skip-gram formulation is equivalent to matrix factorization with elements equals to PMI or (p(w,c)/p(w)p(c). The authors also give a similar formulation to DIVE. The nifty part is they also apply a filter to the PMI matrix if the occurring words are too small.
+- Then there is a fairly extensive evaluation on the technique which include 11 datasets. And the authors have tested their technique with breakdown such as with/without DIVE, with/without PMI filtering. There is a very good improvement from SBOW approach.</p>
+<p>Interesting enough. This doesn't seem to be picked by arxiv-sanity. Perhaps hypernym is more a side topic in linguistic. But it's certainly a good read. Let's see how other members think about this?</p>
+<p><a href="https://arxiv.org/pdf/1710.00880.pdf">arxiv.org</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

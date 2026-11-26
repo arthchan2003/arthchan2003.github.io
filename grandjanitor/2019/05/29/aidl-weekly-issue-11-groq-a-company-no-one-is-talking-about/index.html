@@ -1,0 +1,1298 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/05/29/aidl-weekly-issue-11-groq-a-company-no-one-is-talking-about/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue 11 - Groq: A Company No One is Talking About - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-11-groq-a-company-no-one-is-talking-about" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue 11 - Groq: A Company No One is Talking About
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-11-groq-a-company-no-one-is-talking-about">AIDL Weekly Issue 11 - Groq: A Company No One is Talking About<a class="headerlink" href="#aidl-weekly-issue-11-groq-a-company-no-one-is-talking-about" title="Permanent link">&para;</a></h1>
+<h1 id="issue-11-april-28th-2017"><a href="http://aidl.io/issues/11/index.html#start">Issue 11 <em>April 28th 2017</em> </a><a class="headerlink" href="#issue-11-april-28th-2017" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>Perhaps the biggest news last week is about Groq, a company started by Google's ex-employees who work on Tensor Processing Unit (TPU). We talk about the company and its current principals. </p>
+<p>Of course, ICLR 2017 also held last week. We have two links this issue focused on the conference.</p>
+<p>Other than Groq and ICLR 2017, we also cover: 
+1. Notes on Stanford cs228n, a Bayesian network class,
+2. a note from Athelas' Dhruv Parthasarathy on image segmentation,
+3. another criticism of Neuralink.</p>
+<p>As always, if you like AIDL Weekly, don't forget to subscribe and forward to your colleagues!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="sponsor">Sponsor<a class="headerlink" href="#sponsor" title="Permanent link">&para;</a></h2>
+<h3 id="screen-sharing-on-steroids"><a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">Screen Sharing on Steroids</a><a class="headerlink" href="#screen-sharing-on-steroids" title="Permanent link">&para;</a></h3>
+<p><a href="http://i.imgur.com/ds4FU08.gif">Collaborate fully</a> with your team. Works in your browser. No Download. No login. Get up and running in seconds. Integrated with Slack. Don't be like <a href="https://www.youtube.com/watch?v=DYu_bGbZiiQ">them</a>. Just <a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">#GetStuffDone</a> </p>
+<p><a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">cyclops.io</a></p>
+<h2 id="sponsor-aidl-weekly-and-reach-thousands-of-ai-deep-learning-researchers-and-developers"><a href="http://aidl.io/sponsorship/index.html">Sponsor AIDL Weekly and reach thousands of A.I. &amp; Deep Learning researchers and developers</a><a class="headerlink" href="#sponsor-aidl-weekly-and-reach-thousands-of-ai-deep-learning-researchers-and-developers" title="Permanent link">&para;</a></h2>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="groq"><a href="http://www.cnbc.com/2017/04/20/ex-googlers-left-secretive-ai-unit-to-form-groq-with-palihapitiya.html">Groq</a><a class="headerlink" href="#groq" title="Permanent link">&para;</a></h3>
+<p>According to the CNBC report, several ex-googlers, who are involved in the Google's <a href="https://en.wikipedia.org/wiki/Tensor_processing_unit">TPU</a> project, form the company Groq, </p>
+<p>So what do we know about Groq? Really. Not much. But let's see what we find...... 
+- Groq has a <a href="http://www.groq.com/">website</a>, it has a physical address, currently it is located in the same building of Palihapitiya's <a href="http://www.socialcapital.com/">Social and Capital</a>.
+- According to the <a href="https://www.sec.gov/Archives/edgar/data/1686725/000168672516000002/xslFormDX01/primary_doc.xml">SEC filing</a>, other than Palihapitiya, there are two more key personals in the companies. The first is CEO <a href="https://www.linkedin.com/in/dougwightman/">Douglas Wightman</a> who was at Google X, which focused on moonshot projects.
+- Then there is <a href="https://www.linkedin.com/in/jonathan-ross-12a95156/">Jonathan Ross</a>. He was listed as one of the authors of the paper <a href="https://arxiv.org/abs/1704.04760">"In-Data Center Performance Analysis of a Tensor Processing Unit"</a>.
+- According to the CNBC report, Palihapitiya claims that he hired 8 out of 10 original TPU engineers. Together with Ross' presence, it's no doubt that Groq is also building another TPU-like chip.</p>
+<p>So how should we see the event? One plausible explanation is that while TPU is an important project, it doesn't has enough traction within Google. That causes an exodus of developers. Groq happens to be able to capture them. The next question is would they succeed?</p>
+<p>Compare to software development, hardware engineering is known to be a much harder field to invest. In the case of TPU, what is its real-life use cases? Perhaps the first important direction is production-scale deep learning inference, which will be a huge bottleneck for years to go. If the company can really come up with a chip which has equivalent to TPU, then companies other Google can start to compete.</p>
+<p>Finally, would Groq pull another <a href="https://medium.com/waymo/a-note-on-our-lawsuit-against-otto-and-uber-86f4f98902a1">Otto</a>?. In the case of hardware engineering, without the previous design, it seems to be very difficult for Groq to pull off a new product soon. It's true that California's Law allow employee's work outside of work being protected from IP lawsuit. But how much of hardware work can be done outside Google? We doubt.</p>
+<p>It's no doubt to us though, this is just the dawn of the Great Chip War (See this fascinating write-up <a href="https://www.wired.com/2017/04/race-make-ai-chips-everything-heating-fast/">from Wired</a>).</p>
+<p><a href="http://www.cnbc.com/2017/04/20/ex-googlers-left-secretive-ai-unit-to-form-groq-with-palihapitiya.html">cnbc.com</a></p>
+<hr />
+<h3 id="another-criticism-on-musks-neuralink"><a href="https://www.technologyreview.com/s/604254/with-neuralink-elon-musk-promises-human-to-human-telepathy-dont-believe-it/">Another Criticism on Musk's Neuralink</a><a class="headerlink" href="#another-criticism-on-musks-neuralink" title="Permanent link">&para;</a></h3>
+<p>Here is a piece by Tech. Review's Antonio Regalado calls Musk's idea "isn't going to happen". His assumption is that Musk is going to use surgical implant on patients, which normally can cause life-risking complications. Of course, such experiments would be scrutinized by regulators. </p>
+<p>Compared to the IEEE piece we discussed in <a href="http://aidl.io/issues/10#start">Issue 10</a>. Regaldo's piece didn't quite consider the idea of <a href="https://www.quora.com/What-is-Neural-Lace-1">neuralace</a> in Neuralink. But he considered several recent results of BCI in his piece, which make his criticism worthwhile for your time.</p>
+<p><a href="https://www.technologyreview.com/s/604254/with-neuralink-elon-musk-promises-human-to-human-telepathy-dont-believe-it/">technologyreview.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<p><a href="https://twitter.com/egrefen/status/856498198495580162/photo/1"><em>[image not recovered: twenty_by_nine_extra_large_12bd8d6f-5a12-456a-9eb4-af4fa1cd032e.jpg]</em></a> </p>
+<h3 id="best-way-to-understand-regularization"><a href="https://twitter.com/egrefen/status/856498198495580162/photo/1">Best way to understand regularization</a><a class="headerlink" href="#best-way-to-understand-regularization" title="Permanent link">&para;</a></h3>
+<p>Enough said. Courtesy by Edward Grefenstette. </p>
+<p><a href="https://twitter.com/egrefen/status/856498198495580162/photo/1">twitter.com</a></p>
+<hr />
+<h3 id="cs228-notes"><a href="https://ermongroup.github.io/cs228-notes/">cs228 notes</a><a class="headerlink" href="#cs228-notes" title="Permanent link">&para;</a></h3>
+<p>This notes is for Stanford's Graphical Model class or cs228 2016-2017. As you know, the same course was taught by Daphne Koller back 5 years ago at <a href="https://www.coursera.org/learn/probabilistic-graphical-models">Coursera</a>, and it was known to be a very difficult class. So these notes are useful for learners who try to go through the class. </p>
+<p>One thing new about the 2016 class is its stress on how graphical model can be used in topics of deep learning. For example, the part about how to <a href="https://ermongroup.github.io/cs228-notes/extras/vae/">train variational autoencoders</a> would worth your time.</p>
+<p><a href="https://ermongroup.github.io/cs228-notes/">github.io</a></p>
+<hr />
+<h3 id="a-brief-history-of-cnns-in-image-segmentation-from-r-cnn-to-mask-r-cnn"><a href="https://blog.athelas.com/a-brief-history-of-cnns-in-image-segmentation-from-r-cnn-to-mask-r-cnn-34ea83205de4">A Brief History of CNNs in Image Segmentation: From R-CNN to Mask R-CNN</a><a class="headerlink" href="#a-brief-history-of-cnns-in-image-segmentation-from-r-cnn-to-mask-r-cnn" title="Permanent link">&para;</a></h3>
+<p>Image segmentation has always been a topic of computer vision. And recent advance of <a href="https://arxiv.org/abs/1703.06870">MaskRCNN</a> (discussed in <a href="http://aidl.io/issues/6#start">Issue 6</a>) brought a lot of excitement to the community. This piece from Dhruv Parthasarathy, gives a fairly concise history of MaskRCNN from its origin of RCNN, and is widely circulated within Facebook and Twitterverse. </p>
+<p>Btw, another good source of learning about image segmentation is Kapathy's cs231n Lecture 8 and 13. Johnson has done a very nice job to describe relationship between object segmentation and detection models such as the RCNN family.</p>
+<p><a href="https://blog.athelas.com/a-brief-history-of-cnns-in-image-segmentation-from-r-cnn-to-mask-r-cnn-34ea83205de4">athelas.com</a></p>
+<hr />
+<h3 id="iclr-2017"><a href="https://research.googleblog.com/2017/04/research-at-google-and-iclr-2017.html">ICLR 2017</a><a class="headerlink" href="#iclr-2017" title="Permanent link">&para;</a></h3>
+<p>ICLR 2017 was held at Toulon France from Apr 24 to 26. The link points to a list of Google's papers, which include two best papers. I (Arthur) found that <a href="https://openreview.net/group?id=ICLR.cc/2017/conference">openreview.net forum</a> has more interesting discussion. But if you are want to see summaries, check out <a href="https://smerity.com/articles/2016/iclr_2017_submissions.html">here</a> [here] and some statistics <a href="https://prlz77.github.io/iclr2017-stats/">here</a>. </p>
+<p><a href="https://research.googleblog.com/2017/04/research-at-google-and-iclr-2017.html">googleblog.com</a></p>
+<hr />
+<h3 id="the-gan-zoo"><a href="https://deephunt.in/the-gan-zoo-79597dc8c347">The GAN Zoo</a><a class="headerlink" href="#the-gan-zoo" title="Permanent link">&para;</a></h3>
+<p>Here is list of GANs, collected by Avinash Hindupur, it seems to be one of most comprehensive lists we've seen so far. Another companion literature list could be <a href="https://github.com/nightrome/really-awesome-gan">really-awesome-ganhttps</a>. </p>
+<p><a href="https://deephunt.in/the-gan-zoo-79597dc8c347">deephunt.in</a></p>
+<hr />
+<h3 id="deepmind-ceo-on-kasparov"><a href="http://www.nature.com/nature/journal/v544/n7651/full/544413a.html">DeepMind CEO on Kasparov</a><a class="headerlink" href="#deepmind-ceo-on-kasparov" title="Permanent link">&para;</a></h3>
+<p>Deep Mind CEO, Demis Hassabis, review the book <a href="https://www.amazon.com/Deep-Thinking-Machine-Intelligence-Creativity/dp/161039786X">Deep Thinking</a> written by Gary Kasparov, which would be released in May 2, 2017. Hassabis, himself a world-class chess player (with Elo Rating 2300 when he was 13), wrote about Kasparov's chess prowess, and his later embrace of the technology which defeat him. </p>
+<p>In these days, any chess engine in your pocket can beat Magnus Carlsen. But it still left you in wonder extraordinary humans like Kasparov can intuit how super-engineered machine works and tell us more about its limitation. That's why we are looking forward for his book and you should definitely check out Hassabis' review.</p>
+<p><a href="http://www.nature.com/nature/journal/v544/n7651/full/544413a.html">nature.com</a></p>
+<hr />
+<h3 id="ethics-nlps-accepted-papers"><a href="http://www.ethicsinnlp.org/accepted-papers">Ethics NLP's accepted papers. </a><a class="headerlink" href="#ethics-nlps-accepted-papers" title="Permanent link">&para;</a></h3>
+<p>This happened about 3 weeks ago, but we found it interesting enough to bring up - Ethics in NLP is a conference with focused on ethical challenges in NLP. So some sample paper includes "Gender and Dialect Bias in YouTube’s Automatic Captions" and it could be helpful for researchers who want to understand intrinsic bias of machine learning algorithms. </p>
+<p><a href="http://www.ethicsinnlp.org/accepted-papers">ethicsinnlp.org</a></p>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<h3 id="iclr-2017-facebook-page-videos"><a href="https://www.facebook.com/iclr.cc/">ICLR 2017 Facebook Page (+Videos)</a><a class="headerlink" href="#iclr-2017-facebook-page-videos" title="Permanent link">&para;</a></h3>
+<p>Here is a page for ICLR 2017 conference, and you will find all live-stream videos in the page. </p>
+<p><a href="https://www.facebook.com/iclr.cc/">facebook.com</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

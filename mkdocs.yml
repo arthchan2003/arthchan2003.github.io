@@ -40,7 +40,22 @@ nav:
       - learning-dl-top5.md
       - book-recommendations.md
   - Blog: blog/index.md
-        
+  - The Grand Janitor (archive):
+      - grandjanitor/index.md
+      - 2020: grandjanitor/archive/2020.md
+      - 2019: grandjanitor/archive/2019.md
+      - 2018: grandjanitor/archive/2018.md
+      - 2017: grandjanitor/archive/2017.md
+      - 2016: grandjanitor/archive/2016.md
+      - 2015: grandjanitor/archive/2015.md
+      - 2013: grandjanitor/archive/2013.md
+      - 2012: grandjanitor/archive/2012.md
+      - 2011: grandjanitor/archive/2011.md
+      - 2010: grandjanitor/archive/2010.md
+      - 2009: grandjanitor/archive/2009.md
+      - 2007: grandjanitor/archive/2007.md
+      - 2006: grandjanitor/archive/2006.md
+
 
 extra_css:
   - assets/custom.css
@@ -53,4 +68,11 @@ markdown_extensions:
   - admonition
   - pymdownx.superfences
   - pymdownx.details
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - assets/mathjax.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
 

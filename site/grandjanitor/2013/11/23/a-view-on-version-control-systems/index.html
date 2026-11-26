@@ -1,0 +1,1282 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2013/11/23/a-view-on-version-control-systems/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>A View on Version Control Systems - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-view-on-version-control-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A View on Version Control Systems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="a-view-on-version-control-systems">A View on Version Control Systems<a class="headerlink" href="#a-view-on-version-control-systems" title="Permanent link">&para;</a></h1>
+<p>Ask 10 persons about what is the best version control system, they will come up with 10 different answers. You might hate it, but some people still think rcs and cvs is the thing. Some believe since subversion is a drop-in replacement of cvs so it is the best. Some told me that that VisualSourceSafe is still their tool of the choice. "Because we are using Windows."</p>
+<p>No matter what people's choice are, version control always sticks to an organization for long long time. What should you learn as a programmer? My take: <em>All of them</em> and then use the one when appropriate.</p>
+<p>In another words, I was an agnostic user. So why my view is useful?</p>
+<p>Reason Number 1: If you work in software for a while, you always hear people here and there proclaim the superiority of their favorite programming language, IDE, platform. They give you a feeling that feel "damn good" about it. <em>I honestly don't</em>. Programming is fun and stuffs. But for most parts, I do it for living. So my criterion is that it has to be practical and efficient. Programmers who are very evangelical about their tools are great turn-off for me. Not to say, if there are institutional or political perspective when someone tries to push a tool, it only makes everyone suffocates.</p>
+<p>Reason Number 2: I am agnostic but I did make a choice at the end. Hopefully this article is more objective than many of those who feel "damn good" about their choice of tools.</p>
+<p>So this is my take and I hope this is helpful for you. Before I say anything about any systems, I will bring up a trivial choice about version control: </p>
+<h2 id="do-no-version-control">Do No Version Control<a class="headerlink" href="#do-no-version-control" title="Permanent link">&para;</a></h2>
+<p>"You should grow up."</p>
+<p>That's what I said to many seemingly intelligent people who wrote smart algorithms but never control the source code. They may be very experienced researchers who are in the position of having no need to write any program in their lives. They may be very talented programmers who can write 1000 lines of code without any mistakes. They may be actually smart and can discern small issues in 10000 lines of code with a glance. They might simply dislike the idea of check-in. They might feel their code is not perfect enough or they don't want to expose themselves to any responsibility</p>
+<p>But what they should do is to grow up.</p>
+<p>Why? Let me first give you some exceptions of when you can skip version control: 
+1. As a programmer, you only need to work alone for all of your life.
+2. If you could, in some method, be able to record all 1000 changes in previous years in some form. I think that's okay, I guess it's a bit tedious. You are still a very organized and when there are issues you should be able to look up your notes.
+3. You can remember all your changes. People who has eidetic memory can do such things.
+4. You only learn programming for around a year or so. You simply don't know better.</p>
+<p>If these 4 exceptions applied to you, I have nothing to say. Do whatever you like in programming. Version control is nothing important at all.</p>
+<p>But now, when you need to work with some other people and find it necessary to record your changes. You have some experience and certainly realize you can't remember every single thing like Sheldon Cooper. (Breaking exceptions 1,2,3 and 4 already.) Then version control becomes a necessity.</p>
+<p>For me, when I start to work on a decoder in Hong Kong, I found that I need to share the code. My paper record, already filled in 6 volumes of notebooks, can no longer caught up with complexity of my work. I certainly don't have photographic memory. That was when I realized version control is necessary. Here comes my version control system : CVS </p>
+<h2 id="cvs">CVS<a class="headerlink" href="#cvs" title="Permanent link">&para;</a></h2>
+<p>I was using CVS in the company Speechworks. Discovering CVS helps my programming and paper writing a lot. Many of my early papers were checked-in into a self-made CVS repository.</p>
+<p>If your programming is very simple and you don't expect too many changes in the directory structure. CVS is fine. "cvs co" checkout the code, "cvs update" update the code, "cvs commit" will check-in your code. Nice and easy.</p>
+<p>The simplicity stops there. Once you need to check-in a binary file. Your cvs add needs to add -kb. Weird? Isn't it? But that's what many people have been doing for decades? How about directory? Once you add a directory to your file structure. You can't version control the directory. If you want to change the directory location, you need to <em>manually</em>* do a mv in the repository*. Scary? If there are deadlocks, you need to ask your admin to remove a special lock file residing on the directory. Obviously you need to be lucky to see if you can connect to a cvs server.</p>
+<p>The reason is that CVS is essentially a hacked-up of an older version control system RCS, which doesn't even allow concurrency. (Therefore the 'C' in CVS, stands for concurrency.) RCS based its system using text files. There are many issues with such approach. Permission can be a problem. But then, as CVS was thought of a dropped-in replacement of RCS. So no big deal, a lot of people were using it.</p>
+<p>At the time when I first start using version control, there are not many free choices. So I went with CVS for 3.5 years. That's very closed to end of my employment from CMU. That was the time, couple of us realized CVS has too many issues to move forward with. All the small issues I mentioned can eat you up for a day. This makes a very scary trend for developers. Developers are either checking in too quickly. For fear anything they've done was lost. Or they refrain from check-in until things are very stable. Both are bad.</p>
+<p>That was the time I started to use SVN. </p>
+<h2 id="subversion">Subversion<a class="headerlink" href="#subversion" title="Permanent link">&para;</a></h2>
+<p>Subversion, was meant to be an improvement of CVS. In a way it is. It solves many of the problems I mentioned about CVS. Files can now checked in regardless of whether they are text or binary. You can version directory, you can version file removal. The thing I like most is that versioning become a package-based rather than a file-based business. It reduces much confusions when you need to work with a huge package.</p>
+<p>There are still issues. The major one is <em>speed.</em> I remember checking out a SVN project for around 1.5 year took 30 minutes. I remember my boss yelled at me as he couldn't check-in stuffs into subversion. I remember the guys ended up trying to write something on SVN and make sure all the tools can be used in practice.</p>
+<p>But the major issue is still <em>speed.</em> Here is why, let's say you are a working programmer, most of the time, your life really comes down to some suited dudes giving you 1) random tasks 2) with random length of completion 3) at a random time. So chances are while you were assigned to complete a feature which can take 2 weeks. Suited dudes will come by and say we need to fix a bug in the GUI today! ("And you can't have lunch!") So no matter what you do, being able to manipulate the source tree as quickly as you can is extremely crucial. My many late nights were caused by slow/broken connection to the SVN server. Doing certain things everyday is also impossible, e.g. do a clean check-out and test. It got stuck from time-to-time.</p>
+<p>Branching is also discouraged. SVN is better on this regard. But CVS is the worst. This ultimately makes SVN still not a perfect tool for version control. After all when you branch in SVN, unless you are careful, the check-out time will be longer. So of course, we end-up still having people who refrain from check-out/check-in. Despite their bosses are yelling at them, I can only offer them (and myself) sympathy. </p>
+<h2 id="my-denial-period">My Denial Period<a class="headerlink" href="#my-denial-period" title="Permanent link">&para;</a></h2>
+<p>After I used subversion, destiny treated me badly: I need to return to a CVS-based environment and I cursed every moment of it. But that was the time I heard about GIT. I've been to presentations by many intelligent people. They tried to convince me with thousands different reasons. e.g. They will tell you GIT, as a distributed system can use to mimic any centralized version control system. They will tell you branching is such a great thing when using GIT. They will tell you all the tools of GIT are very refined and much better than CVS and SVN.</p>
+<p>Now strangely, there was a period of time I don't really give too much thought on GIT at all. The reason is a little bit subtle: once you have been through couple of version control systems, you realized that version control is an imperfect business. True, you can't version control a directory in CVS. But oh well, you don't have start another directory all the time.......</p>
+<p>And with a new version control system, that means there are more changes to your environment. Quite frankly, every couple of years there would be a new system come up. Are we sure we really have something better?</p>
+<p>That's what I thought. So <em>shame on me</em>, for couple of years I was unconsciously <em>against</em> adopting GIT. But just like many prudent programmers, my reason is well calculated. Some people will say, "<em>You just need to read a little bit about GIT, you will learn that it's <strong>good</strong>".</em>  Well, when you are prudent, you probably have some stuffs to keep you busy! When is the time to read up?</p>
+<h2 id="git">GIT<a class="headerlink" href="#git" title="Permanent link">&para;</a></h2>
+<p>My bad, but my peer GIT evangelists did a bad job too. The truth is many programmers calculates like me before they pick up a new tool.</p>
+<p>So let me tell you <em>one and only one important reason</em> why GIT is a good choice for version control. It is a keyword I mentioned more than once in this article already:</p>
+<p><strong>SPEED!!!</strong></p>
+<p>Yes. Speed. Speed is the ultimate reason why any CVS and SVN user would want to switch to GIT. True, GIT can simulate a centralized system. <em>But who cares?</em> If system B can only simulate system A, why the hack do I care about system B at all? The ultimate answer is speed. GIT was first developed to improved transmission of other version control system. So a local check-out is usually much faster than SVN and CVS.</p>
+<p>How about check-in? Again, speed is faster in GIT. Because GIT is using distributed version control, check-in is fast and you mostly clean your system until you push to the centralized server. Disaster recovery is better.</p>
+<p>How about branching? Again, speed is faster in GIT. Because GIT branch by creating a pointer on the tree object. No big deal in making a branch. You can then frequently branch. It is <em>enjoyable</em> to branch. Branching even becomes part of your routine eventually!</p>
+<p>That's not because GIT is good at branching, it's because GIT is <em>fast</em> at branching.</p>
+<p>So the ultimate reason of why one wants to use GIT is <em>speed</em>. You can hold other point of view, but those views will make it very hard for your colleague to be convinced. You will also make the same mistakes I made: get too used to your own version control system. </p>
+<h2 id="some-final-notes">Some Final Notes<a class="headerlink" href="#some-final-notes" title="Permanent link">&para;</a></h2>
+<p>I am not the first person who advocate GIT. Nor I would be the last one. So the point of this article is really not about whether you should use GIT or not.</p>
+<p>I believe the point is this kind of story is that it teaches you <strong>why technical changes in an organization are that tough</strong>. Many people who have years of experience on the belt, end up refraining new and good changes. The worst thing is, just like me, they are have good-intention to be stubborn.</p>
+<p>Another point is that technical ideas are necessarily spread even if they are good. In my case, logic and experience, shielded me from using GIT. Chances are 10 years later when somebody told me about a new super-duper version control system, I will refrain from it too!</p>
+<p>How do I see my own mistakes? I guess my take is that before you make a decision on using/learning a certain tools, try to use the system at least once. Read at least one book is also useful. e.g. I read the following books on CVS, SVN and GIT: 
+1. CVS Book by Karl Fogel
+2. Version Control with Subversion by C. Michael Pilato, Ben Collins-Sussman, Brian W. Fitzpatrick
+3. Pro GIT by Scott Chacon</p>
+<p>In any case, thanks for reading this far.</p>
+<p>Arthur</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

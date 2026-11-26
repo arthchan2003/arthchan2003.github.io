@@ -1,0 +1,1325 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/07/25/aidl-weekly-85-agi-is-nowhere-near-according-to-prof-hinton/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly #85 - AGI is Nowhere Near - According to Prof. Hinton - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-85-agi-is-nowhere-near-according-to-prof-hinton" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly #85 - AGI is Nowhere Near - According to Prof. Hinton
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-85-agi-is-nowhere-near-according-to-prof-hinton">AIDL Weekly #85 - AGI is Nowhere Near - According to Prof. Hinton<a class="headerlink" href="#aidl-weekly-85-agi-is-nowhere-near-according-to-prof-hinton" title="Permanent link">&para;</a></h1>
+<p>Artificial Intelligence and Deep Learning Weekly - Issue 85</p>
+<p>The definitive weekly newsletter on A.I. and Deep Learning, published by <a href="http://bit.ly/2lhpKGC">Waikit Lau</a> and <a href="http://bit.ly/2mx0aiV">Arthur Chan</a>. Our background spans MIT, CMU, Bessemer Venture Partners, Nuance, BBN, etc. Every week, we curate and analyze the most relevant and impactful developments in A.I.</p>
+<p>We also run Facebook's <a href="http://bit.ly/2lPc6MX">most active A.I. group</a> with 191,000+ members and host a weekly <a href="https://goo.gl/kPTYc9">"office hour" on YouTube</a>.</p>
+<h1 id="issue-85-january-7th-2019"><a href="http://aidl.io/issues/85/index.html#start">Issue 85 <em>January 7th 2019</em> </a><a class="headerlink" href="#issue-85-january-7th-2019" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-curators">Thoughts From Your Curators<a class="headerlink" href="#thoughts-from-your-curators" title="Permanent link">&para;</a></h3>
+<p>We were on vacation during Christmas and we are back this week. We bring you several interesting links: 
+- How does Prof. Hinton think of AGI?
+- The MIT Course on deep learning, reinforcement learning and SDC,
+- 2018 in review.</p>
+<p><strong>Join our community for real-time discussions here:</strong> <a href="https://expertify.co">Expertify</a> </p>
+<hr />
+<p>This newsletter is published by <a href="https://twitter.com/waikit">Waikit Lau</a> and <a href="https://twitter.com/arthchan2003">Arthur Chan</a>. We also run Facebook's most active <a href="https://www.facebook.com/groups/DeepNetGroup">A.I. group</a> with 193,000+ members and host an occasional <a href="https://www.youtube.com/channel/UC3YM5TEbSqIpFGH85d6gjKg">"office hour"</a> on YouTube. To help defray our publishing costs, you may donate via <a href="http://paypal.me/aidlio/9">link</a>. Or you can donate by sending Eth to this address: 0xEB44F762c58Da2200957b5cc2C04473F609eAA65.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="pulse-of-ai-since-last-issue">Pulse of AI (Since Last Issue)<a class="headerlink" href="#pulse-of-ai-since-last-issue" title="Permanent link">&para;</a></h3>
+<p>Funding: 
+- <a href="https://venturebeat.com/2018/12/18/ada-raises-15-million-to-help-companies-develop-their-own-customer-service-chatbots/">Ada AI raised $14M</a>
+- <a href="https://techcrunch.com/2018/12/18/anthony-levandowski-prontoai-self-driving-trucks/?fbclid=IwAR2d1_qZCL5LOuJSnlXPcarXVtbV-kkJUDX2cFMG7siKbnVPPt4JCuAbfwU">Pronto.ai, at $4999 for "special introductory program"</a>
+- <a href="https://techcrunch.com/2018/12/19/dataiku-raises-101-million-for-its-collaborative-data-science-platform/">DataIku's $100M</a>
+- <a href="https://venturebeat.com/2019/01/03/baraja-raises-32-million-for-autonomous-vehicle-lidar-with-prism-like-optics/">Baraja $32M</a>
+- <a href="https://techcrunch.com/2019/01/04/sophia-genetics-bags-77m-series-e-with-850-hospitals-signed-up-to-its-data-driven-medicine/">Sophia Genetics Series E $77M</a></p>
+<p>Investment: 
+- <a href="https://www.ft.com/content/f991ee80-022c-11e9-99df-6183d3002ee1">MS and BMW invest in Graphcore</a></p>
+<p>Artificial Intelligence and Deep Learning Weekly </p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="peoples-anger-towards-sdc-is-real"><a href="https://www.nytimes.com/2018/12/31/us/waymo-self-driving-cars-arizona-attacks.html">People's Anger Towards SDC is Real</a><a class="headerlink" href="#peoples-anger-towards-sdc-is-real" title="Permanent link">&para;</a></h3>
+<p>Especially towards Waymo's SDC in Arizona. </p>
+<p><a href="https://www.nytimes.com/2018/12/31/us/waymo-self-driving-cars-arizona-attacks.html">nytimes.com</a></p>
+<hr />
+<h3 id="agi-is-nowhere-near-according-to-demis-hassabis-and-geoffrey-hinton"><a href="https://venturebeat.com/2018/12/17/geoffrey-hinton-and-demis-hassabis-agi-is-nowhere-close-to-being-a-reality/?fbclid=IwAR0-QD-ohh6yfwhOHbppJHTGmvODWI0DlEvs1LO0TuvGooY8L01rKSFPGF4">AGI is Nowhere Near, According to Demis Hassabis and Geoffrey Hinton</a><a class="headerlink" href="#agi-is-nowhere-near-according-to-demis-hassabis-and-geoffrey-hinton" title="Permanent link">&para;</a></h3>
+<p>In ML reporting, we often see VentureBeat outdoes itself from time to time. And this piece, though appears as a blog post, deserves your attention. </p>
+<p>There are two parts of the piece. First is how Hassabis think about AGI. As you know, DeepMind created a super-human level Go-engine with deep reinforcement learning. And in AlphaZero, researchers also found that they can configure engine to learn multiple board games such as Shogi to be super-human level . This should make you ask, can we use the same technology to create AGI as well?</p>
+<p>Hassabis says no: </p>
+<blockquote>
+<p>Despite DeepMind’s impressive achievements, Hassabis cautions that they by no means suggest AGI is around the corner — far from it. Unlike the AI systems of today, he says, people draw on intrinsic knowledge about the world to perform prediction and planning. Compared to even novices at Go, chess, and shogi, AlphaGo and AlphaZero are at a bit of an information disadvantage.</p>
+</blockquote>
+<p>Now let's look at Prof. Hinton's view, which is even more interesting. So say you create a robotic agent and put him into society. Now can't you just run a reinforcement learning algorithm to train the robot to be human? Or aka creating an AGI?</p>
+<p>Not that easy, you have a scalability issue. Because most real-life reward signal is weak. As Prof. Hinton said, </p>
+<blockquote>
+<p>“Every so often you get a scalar signal that tells you that you did good, and it’s not very often, and there’s not very much information, and you’d like to train the system with millions of parameters or trillions of parameters just based on this very wimpy signal,”</p>
+</blockquote>
+<p>So the kicker here is how do you solve such scalability issue in reinforcement learning. Prof. Hinton thinks that a hierarchy of goals could be the answer: </p>
+<blockquote>
+<p>"“By creating subgoals, and paying off people to achieve these subgoals, you can magnify these wimpy signals by creating many more wimpy signals,” he added."</p>
+</blockquote>
+<p>In any case this article has a lot of gems. So it deserves your time to take a closer look. We also think both Hassabis and Prof. Hinton's view are based on their extensive experienced in the existing deep learning. To us, their arguments are more convincing than .. say... pure futurists who blindly believe the coming of singularity.</p>
+<p><a href="https://venturebeat.com/2018/12/17/geoffrey-hinton-and-demis-hassabis-agi-is-nowhere-close-to-being-a-reality/?fbclid=IwAR0-QD-ohh6yfwhOHbppJHTGmvODWI0DlEvs1LO0TuvGooY8L01rKSFPGF4">venturebeat.com</a></p>
+<hr />
+<h3 id="2018-in-review">2018 in Review.<a class="headerlink" href="#2018-in-review" title="Permanent link">&para;</a></h3>
+<p>Here are couple of posts which reviews AI development in 2018. 
+- <a href="http://ruder.io/10-exciting-ideas-of-2018-in-nlp/?fbclid=IwAR0Lfzk-QaKnwjOqmsmYbZu1-vWLAH0vit_lrlNIcUVCH9L_K8sp6y6d0c8">10 Exciting Ideas of 2018 in NLP by Sebastian Ruder</a>
+- <a href="https://www.engadget.com/2018/12/29/2018-is-the-year-ai-got-its-eyes/">2018 is the Year AI Got Eyes</a></p>
+<p>Not exactly review, but this is a <a href="https://arstechnica.com/science/2018/12/how-computers-got-shockingly-good-at-recognizing-images/">good read about convolutional neural networks</a>. </p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<hr />
+<h3 id="mit-courses-on-deep-learning-reinforcement-learning-and-autonomous-vehicles"><a href="https://deeplearning.mit.edu/?fbclid=IwAR2Rl5-CrIP5M6iEtljMG5Grj8EQFMuzrAW0cPd5aVqIeBRHWaZDh9swiu8">MIT Courses on Deep Learning, Reinforcement Learning and Autonomous Vehicles</a><a class="headerlink" href="#mit-courses-on-deep-learning-reinforcement-learning-and-autonomous-vehicles" title="Permanent link">&para;</a></h3>
+<p>The very popular <a href="https://selfdrivingcars.mit.edu/">MIT course on SDC</a> is now expanded to three more classes which include the fundamental of deep learning and reinforcement learning. </p>
+<p><a href="https://deeplearning.mit.edu/?fbclid=IwAR2Rl5-CrIP5M6iEtljMG5Grj8EQFMuzrAW0cPd5aVqIeBRHWaZDh9swiu8">mit.edu</a></p>
+<hr />
+<h3 id="strang-on-deep-learning-activation-functions"><a href="https://sinews.siam.org/Details-Page/the-functions-of-deep-learning?fbclid=IwAR30kZ-ao8Qo_Cva0oEQ5LxcEZ2HVYxeO3SiMPcFB-A1sz4w8bN6t0y372k">Strang on deep learning activation functions. </a><a class="headerlink" href="#strang-on-deep-learning-activation-functions" title="Permanent link">&para;</a></h3>
+<p>We saw Prof. Strang's essay on deep learning activation functions, and of course we are excited about whatever he writes. But then more interestingly, Prof. Strang is also writing a new book called <a href="http://math.mit.edu/~gs/learningfromdata/">"Linear Algebra and Learning from Data"</a> and is going to publish soon. (!) It is interesting because there has always been a void on how to learn the mathematics of machine learning. That includes topics such as parameter estimation, or more basic techniques in matrix calculus. </p>
+<p>You may now order the book, and the publisher says they will confirm order in January.</p>
+<p><a href="https://sinews.siam.org/Details-Page/the-functions-of-deep-learning?fbclid=IwAR30kZ-ao8Qo_Cva0oEQ5LxcEZ2HVYxeO3SiMPcFB-A1sz4w8bN6t0y372k">siam.org</a></p>
+<hr />
+<h3 id="lexfridmancom"><a href="https://lexfridman.com/ai/?fbclid=IwAR2kf764jiGr-_3yNpd7yHv_MU9f14WD_BFwQJ-IWRGLjvkZlayiujDluN0">lexfridman.com</a><a class="headerlink" href="#lexfridmancom" title="Permanent link">&para;</a></h3>
+<p>AIDL Members frequently asked whether there are interesting podcasts. The answer is yes. One of our recommendations is Prof. Lex Fridman's "AI Podcast". All guests he invited are prominent researchers or developers who have contributed to AI. So what they said should interest you. </p>
+<p><a href="https://lexfridman.com/ai/?fbclid=IwAR2kf764jiGr-_3yNpd7yHv_MU9f14WD_BFwQJ-IWRGLjvkZlayiujDluN0">lexfridman.com</a></p>
+<hr />
+<h3 id="grow-your-expertise-with-these-5-out-of-field-reads"><a href="https://towardsdatascience.com/data-scientists-grow-your-expertise-with-these-5-out-of-field-reads-7dee32570630?fbclid=IwAR0DlGcPJEb9SJ18j-rRWut_OvRhXw_Bze0rVpoGikOeYcaWN2xYMOcNF7M">Grow your expertise with these 5 out-of-field reads</a><a class="headerlink" href="#grow-your-expertise-with-these-5-out-of-field-reads" title="Permanent link">&para;</a></h3>
+<p>AIDL member and Data Scientist, Briana Brownell, came up with 5 interesting reads which is supposed to be out-of-field. Yet, one you look at the list closely, all topics are deeply relevant to what MLEs and data scientist works on. </p>
+<p>The one we like most? Perhaps is Homo Deus by Yuval Noah Harari. We are reading his "Sapien" which is equally thought-provoking.</p>
+<p><a href="https://towardsdatascience.com/data-scientists-grow-your-expertise-with-these-5-out-of-field-reads-7dee32570630?fbclid=IwAR0DlGcPJEb9SJ18j-rRWut_OvRhXw_Bze0rVpoGikOeYcaWN2xYMOcNF7M">towardsdatascience.com</a></p>
+<hr />
+<h3 id="notable-ai-blog-posts">Notable AI Blog Posts<a class="headerlink" href="#notable-ai-blog-posts" title="Permanent link">&para;</a></h3>
+<p>Google: 
+- <a href="https://ai.googleblog.com/2018/12/exploring-quantum-neural-networks.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+blogspot%2FgJZg+%28Google+AI+Blog%29">Quantum Neural Networks</a>
+- <a href="https://android-developers.googleblog.com/2018/12/in-reviews-we-trust-making-google-play.html">Android review spam filter</a></p>
+<p>Artificial Intelligence and Deep Learning Weekly </p>
+<h2 id="other-news">Other News<a class="headerlink" href="#other-news" title="Permanent link">&para;</a></h2>
+<h3 id="other-news_1">Other News<a class="headerlink" href="#other-news_1" title="Permanent link">&para;</a></h3>
+<p>NYT wrote an <a href="https://www.nytimes.com/2019/01/02/obituaries/karen-sparck-jones-overlooked.html">obituary for Prof. Karen Sparck Jones</a> </p>
+<p>SDC 
+- <a href="https://www.nytimes.com/2018/12/18/technology/driverless-mini-car-deliver-groceries.html">Mini Car Delivery Groceries</a>
+- <a href="https://www.theverge.com/2018/12/18/18144506/audi-self-driving-car-volkswagen-luminar-lidar?fbclid=IwAR208k4TOq51-e5Xm2SCR3ymAdPqvzTqhAkg22qC1zC_XLz9ySobmvOSCSo">The Audi SDC Program</a>
+- <a href="https://www.theverge.com/2018/12/18/18147114/uber-self-driving-test-approved-restart-pennsylvania">Uber's SDC is heading back to Pennsylvania</a>
+- <a href="https://techcrunch.com/2018/12/21/self-driving-car-startup-zoox-gets-permit-to-transport-passengers-in-california/">SDC Zoox's get license</a>
+- <a href="https://www.theverge.com/2019/1/3/18166660/gm-cruise-doordash-test-self-driving-food-delivery">Cruise partnered with GM</a></p>
+<p>Alexa : 
+- <a href="https://www.cnet.com/news/alexa-guard-goes-live-lets-your-echo-listen-for-trouble-amazon-home-security/">First review of Alexa Guard</a>
+- <a href="https://www.wired.com/story/amazon-alexa-2018-machine-learning/?fbclid=IwAR2AdauNKId1eZunWR5hhqr3ru-nNNBATbL61VQPrhBrwlZ2uXc_nq0vR6A">Growth of Alexa</a></p>
+<p>Others: <a href="https://www.theinformation.com/briefings/3b2905?fbclid=IwAR3dwYGsdPnjJVJ-U2m9EXynKbPm7-1o1t-jQ92OaVvJp0PDsBut3Dxf_6M">Lighthouse is shutting down</a> . Also story of <a href="https://www.forbes.com/sites/parmyolson/2018/12/17/this-health-startup-won-big-government-dealsbut-inside-doctors-flagged-problems/#1109f58feabb">Babylon Health</a>.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="about-us">About Us<a class="headerlink" href="#about-us" title="Permanent link">&para;</a></h2>
+<p>This newsletter is published by <a href="https://twitter.com/waikit">Waikit Lau</a> and <a href="https://twitter.com/arthchan2003">Arthur Chan</a>. We also run Facebook's most active <a href="https://www.facebook.com/groups/DeepNetGroup">A.I. group</a> with 191,000+ members and host an occasional <a href="https://www.youtube.com/channel/UC3YM5TEbSqIpFGH85d6gjKg">"office hour"</a> on YouTube. To help defray our publishing costs, you may donate via <a href="http://paypal.me/aidlio/9">link</a>. Or you can donate by sending Eth to this address: 0xEB44F762c58Da2200957b5cc2C04473F609eAA65. </p>
+<p><strong>Join our community for real-time discussions here:</strong> <a href="https://expertify.co">Expertify</a></p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

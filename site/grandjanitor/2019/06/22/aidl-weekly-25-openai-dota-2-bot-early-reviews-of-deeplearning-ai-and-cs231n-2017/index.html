@@ -1,0 +1,1299 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/06/22/aidl-weekly-25-openai-dota-2-bot-early-reviews-of-deeplearning-ai-and-cs231n-2017/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly #25 - OpenAI DotA-2 Bot, Early Reviews of deeplearning.ai and cs231n 2017 - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-25-openai-dota-2-bot-early-reviews-of-deeplearningai-and-cs231n-2017" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly #25 - OpenAI DotA-2 Bot, Early Reviews of deeplearning.ai and cs231n 2017
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-25-openai-dota-2-bot-early-reviews-of-deeplearningai-and-cs231n-2017">AIDL Weekly #25 - OpenAI DotA-2 Bot, Early Reviews of deeplearning.ai and cs231n 2017<a class="headerlink" href="#aidl-weekly-25-openai-dota-2-bot-early-reviews-of-deeplearningai-and-cs231n-2017" title="Permanent link">&para;</a></h1>
+<h1 id="issue-25-august-18th-2017"><a href="http://aidl.io/issues/25/index.html#start">Issue 25 <em>August 18th 2017</em> </a><a class="headerlink" href="#issue-25-august-18th-2017" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>Woohoo! As deeplearning.ai launched last week, we started to see more reviews of the class. We will look at one by Arvind Naragaj. We will also zero in on one of the optional series within the class, called "Heroes of Deep Learning". This week, we will look at the Prof. Hinton interview by Prof Ng. </p>
+<p>Oh, how about the OpenAI DotA-2 bot? Has it conquered the world of DotA-2 yet? From what we gather so far it doesn't seem to be the case..... So let's take a look in our Fact-checking section.</p>
+<p>Other than deeplearning.ai and DotA-2, Stanford also just released the latest videos from cs231n 2017. So check out our Open Source Section!</p>
+<hr />
+<p>As always, if you like our newsletter, please subscribe/forward to your colleagues!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="prof-andrew-ng-is-also-raising-150m-ai-fund"><a href="https://techcrunch.com/2017/08/15/andrew-ng-is-raising-a-150m-ai-fund/amp/">Prof. Andrew Ng is Also Raising 150m AI Fund</a><a class="headerlink" href="#prof-andrew-ng-is-also-raising-150m-ai-fund" title="Permanent link">&para;</a></h3>
+<p>It doesn't come as a surprise to us as financing is a core component of building the AI ecosystem. We don't have much detail yet. Other have questioned how the fund will differentiate itself from other funds such as Element.AI or Gradient as the proliferation of AI-focused funds continues. </p>
+<p>We are of a different opinion - Prof. Andrew Ng is the secret sauce here. Having Prof. Ng as an investor is in itself a very positive signal that the AI is deep and real (as opposed to many startups that call themselves AI startups), and that would attract talent and follow-on investors.</p>
+<p><a href="https://techcrunch.com/2017/08/15/andrew-ng-is-raising-a-150m-ai-fund/amp/">techcrunch.com</a></p>
+<h2 id="factchecking">Factchecking<a class="headerlink" href="#factchecking" title="Permanent link">&para;</a></h2>
+<h3 id="openais-dota-2-bot-in-perspective">OpenAI's Dota 2 Bot In Perspective<a class="headerlink" href="#openais-dota-2-bot-in-perspective" title="Permanent link">&para;</a></h3>
+<p>One of the biggest news last week is perhaps an OpenAI bot was able to beat pro <a href="http://www.dota2.com/play/">Dota 2</a> player <a href="https://en.wikipedia.org/wiki/Dendi_%28Dota_player">Dendi</a>) (See Footnote 1). Public outlets rush to report the news and many of them reminded us how dangerous AI can become. And as you might also know, Elon Musk who launch OpenAI, <a href="https://twitter.com/elonmusk/status/896163163581825025?ref_src=twsrc%5Etfw&amp;ref_url=https%3A%2F%2Fwww.theverge.com%2F2017%2F8%2F14%2F16141938%2Fdota-2-openai-bots-elon-musk-artificial-intelligence">says</a>, </p>
+<blockquote>
+<p>OpenAI first ever to defeat world's best players in competitive eSports. Vastly more complex than traditional board games like chess &amp; Go.</p>
+</blockquote>
+<p>And remember in <a href="http://aidl.io/issues/24#start">Issue 24</a>, we looked at DeepMind/Blizaard Starcraft II environment, and we said [on using reinforcement learning on SCII], </p>
+<blockquote>
+<p>So far, DeepMind researchers are still perplexed by the problem - and all RL algorithms so far cannot beat the built in AI agents.</p>
+</blockquote>
+<p>So had we perceived the status of technology incorrectly? We are certainly not the only group who felt surprised. AI researcher, <a href="http://www.wildml.com/about/">Danny Britz</a> also feels the same. So is SalesForce researcher, <a href="https://twitter.com/Smerity/">Stephen Merity</a> </p>
+<p>Since this issue is already discussed quite well by Britz' <a href="http://www.wildml.com/2017/08/hype-or-not-some-perspective-on-openais-dota-2-bot/">blog post</a> and Merity's tweets' <a href="https://twitter.com/Smerity/status/897959187480625153">discussion</a>. The Verge <a href="https://www.theverge.com/2017/8/14/16143392/dota-ai-openai-bot-win-elon-musk">piece</a> is pretty good if you want a less technical piece. OpenAI researchers also wrote two messages on the task. (<a href="https://blog.openai.com/dota-2/">Part I</a> and <a href="https://blog.openai.com/more-on-dota-2/">Part II</a>)</p>
+<p>So we will just extract several important take-aways here: 
+1. A multiplayer online battle arena (MOBA) is not an real-time strategy (RTS) Game. e.g. League of Legends or Dota 2 are MOBA, whereas Starcraft I,II are RTS. They look the same, but computationally they can be very different. A MOBA has significantly fewer actions to choose from because you only control one single character. Whereas RTS require you to control not only the Heroes, and it requires you to control all the buildings.
+2. OpenAI bot is a 1v1 bot. And A MOBA 1v1 game is very different from a MOBA 5v5. Most tournament game in DotA-2 is actually 5v5, So the machine has to deal with a team of 5 coordinated players. So even OpenAI researchers opine in their <a href="https://blog.openai.com/more-on-dota-2/">post</a>: "1v1 is complicated, but 5v5 is an ocean of complexity." Also playing a MOBA 1v1 game usually mean you and your opponent will use the same lane, so reflex of the player will be the key. Of course, in this case machines have an huge edge.
+3. Then you should observe that DotA-2 API actually provide a lot of vital information which give advantage to the bot. For example, as the Verge piece points out - distance information can be easily access and give advantages to <a href="https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting">machines</a>, which human doesn't have such advantage.
+4. Consider all these, many also observe that Open-AI engine has many human element involved. The e.g. Heroes was chosen manually out of the 110+ choices. <a href="https://dota2.gamepedia.com/Shadow_Fiend">Shadow Fiend</a> was chosen. So the character picking is not done by machine. Then there is a key technique of creep blocking, which allows creep to reinforce a defense. Turns out it is trained separately.</p>
+<p>So all of these 4 points should make you convince that we seem to be quite far away from beating general RTS games, not to say making Skynet in general.</p>
+<p>So how do we see it? Our opinion is very similar to Britz - while that we believe popular outlets and Musk's comment are over the top. By its own, OpenAI DotA-2Bot is still an impressive engineering project. Their status is currently comparable to say DeepBlue before it met Kasparov. There are some known issues, such as many players rumored that they can beat the bot by a technique called <a href="https://dota2.gamepedia.com/Creep_control_techniques">creep-control</a>. But it may be a bug in the engine, and expect OpenAI researchers would fix it one day.</p>
+<p>On the other hand, you should still notice that beating DotA-2 in 5v5 and a general RTS game are still faraway from us. Hopefully saying so would stop your nightmares (and frankly, curb your enthusiasm) of an AI-powered doomsday machine.</p>
+<p>Footnote 
+1. If this is the first time you heard of DotA-2, check out this <a href="https://www.youtube.com/watch?v=HXayKdseygg">video</a> for the gameplay?</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="ai-heroes-of-deep-learning-geoffrey-hinton"><a href="/grandjanitor/2017/08/13/quick-impression-on-deeplearning-ai-heroes-of-deep-learning-geoffrey-hinton/?fref=gc">AI Heroes of Deep Learning - Geoffrey Hinton</a><a class="headerlink" href="#ai-heroes-of-deep-learning-geoffrey-hinton" title="Permanent link">&para;</a></h3>
+<p>This piece is Arthur's impression of the first video (long, 40 mins) of AI Heroes of Deep Learning which interviews of Geoffrey Hinton. Unlike other parts of deeplearning.ai class, "AI Heroes of Deep Learning" series has more research discussion, which is more suitable for working practitioners of deep learning. </p>
+<p><a href="/grandjanitor/2017/08/13/quick-impression-on-deeplearning-ai-heroes-of-deep-learning-geoffrey-hinton/?fref=gc">thegrandjanitor.com</a></p>
+<hr />
+<h3 id="early-review-of-deeplearningai-specialization"><a href="https://medium.com/towards-data-science/thoughts-after-taking-the-deeplearning-ai-courses-8568f132153">Early Review of Deeplearning.ai Specialization</a><a class="headerlink" href="#early-review-of-deeplearningai-specialization" title="Permanent link">&para;</a></h3>
+<p>This is an early review of deeplearing.ai from Arvind Nagaraj. It's also the first review of the class. The part we like is his comparison between fast.ai and the deeplearning.ai. In a nutshell, fast.ai is more top-down approach of teaching - it teaches you how to run the script first before describing the internals. Whereas Prof. Ng's deeplearning.ai is more a bottom-up approach - it first teaches you the internals, then build up from there. </p>
+<p>The specialization is still very new. So expect more reviews will come soon. Another good one we haven't cover is Gautam Karmarker's <a href="https://medium.com/@gautam.karmakar/my-experience-with-new-deep-learning-course-from-deeplearning-ai-coursera-585c6997401f">post</a>, but check it out!</p>
+<p><a href="https://medium.com/towards-data-science/thoughts-after-taking-the-deeplearning-ai-courses-8568f132153">medium.com</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="tensorflow-v13-released"><a href="https://github.com/tensorflow/tensorflow/releases/tag/v1.3.0">Tensorflow v1.3 Released</a><a class="headerlink" href="#tensorflow-v13-released" title="Permanent link">&para;</a></h3>
+<p>In our view, this is more a release with upgrades such as adding new estimators, and perhaps the last pre-build with cuDNN 6.0. (v1.4 will pre-build by cuDNN 7.0.) <a href="https://twitter.com/dustinvtran">Dustin Tran on twitter</a> also mentioned that this is the first time tf.distribution. According to Tran, so far it doesn't break his very interesting toolkit, <a href="http://edwardlib.org/">Edward</a>. </p>
+<p><a href="https://github.com/tensorflow/tensorflow/releases/tag/v1.3.0">github.com</a></p>
+<hr />
+<h3 id="stanford-cs231n-2017-videos"><a href="https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&amp;app=desktop">Stanford cs231n 2017 videos</a><a class="headerlink" href="#stanford-cs231n-2017-videos" title="Permanent link">&para;</a></h3>
+<p>cs231n 2017 is finally released to the public. Compare to the class at 2016, there are three new lectures sets: Lecture 13 on generative models, Lecture 14 on Deep Reinforcement learning and Lecture 16 on adversarial training. That makes it a must-watch sets of videos even if you have seen it once. </p>
+<p><a href="https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&amp;app=desktop">youtube.com</a></p>
+<hr />
+<h3 id="all-about-nlp"><a href="http://tangra.cs.yale.edu/newaan/">All About NLP</a><a class="headerlink" href="#all-about-nlp" title="Permanent link">&para;</a></h3>
+<p><a href="http://cpsc.yale.edu/people/dragomir-radev">Prof. Dragomir Radev</a> shared us a search engine by Yale <a href="https://yale-lily.github.io/">LILY group</a> which has all useful information you need to learn NLP. You can also upvote/downvote a resource. Sounds quite nifty, so check it out! </p>
+<p><a href="http://tangra.cs.yale.edu/newaan/">yale.edu</a></p>
+<h2 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h2>
+<h3 id="computer-vision-engineer-at-dishcraft-robotics"><a href="http://www.dishcraft.com/jobs/">Computer Vision Engineer at Dishcraft Robotics</a><a class="headerlink" href="#computer-vision-engineer-at-dishcraft-robotics" title="Permanent link">&para;</a></h3>
+<p>Bay Area-based startup Dishcraft looking for a machine learning engineer. Well-funded by tier-1 brand-name investors (led by First Round Capital) and are doing extremely well. For the right candidate, willing to relocate the person. Looking for basic traditional ML (SVM and boosting). Kaggle experience is a plus, Deep Learning for 2D images and 3D volumetric data (CNN focused), Tensorflow + Keras. Desirable computer vision skills: point cloud processing, signal and image processing, computational photography (familiarity with multi-view geometry and stereo vision, and color processing) </p>
+<p><a href="http://www.dishcraft.com/jobs/">dishcraft.com</a></p>
+<h2 id="have-a-deep-learning-related-position-you-need-to-fill"><a href="http://aidl.io/sponsorship/index.html">Have a Deep Learning related position you need to fill?</a><a class="headerlink" href="#have-a-deep-learning-related-position-you-need-to-fill" title="Permanent link">&para;</a></h2>
+<h2 id="paperthesis-review">Paper/Thesis Review<a class="headerlink" href="#paperthesis-review" title="Permanent link">&para;</a></h2>
+<h3 id="recent-trend-in-nlp"><a href="https://arxiv.org/abs/1708.02709v2">Recent trend in NLP</a><a class="headerlink" href="#recent-trend-in-nlp" title="Permanent link">&para;</a></h3>
+<p>In this survey paper from University of Singapore, the authors gave great explanation on several well-used techniques in current NLP application of deep learning. It also include several STOA results in several tasks such as POS tagging, translation etc. </p>
+<p><a href="https://arxiv.org/abs/1708.02709v2">arxiv.org</a></p>
+<hr />
+<h3 id="paper-version-of-tensorflow-playground"><a href="https://arxiv.org/pdf/1708.03788v1.pdf">Paper Version of Tensorflow Playground</a><a class="headerlink" href="#paper-version-of-tensorflow-playground" title="Permanent link">&para;</a></h3>
+<p>This is the paper version of the well-known <a href="http://playground.tensorflow.org/#activation=tanh&amp;batchSize=10&amp;dataset=circle®Dataset=reg-plane&amp;learningRate=0.03®ularizationRate=0&amp;noise=0&amp;networkShape=4,2&amp;seed=0.67194&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">Tensorflow Playground</a> which provides great visualization on neural network training. </p>
+<p><a href="https://arxiv.org/pdf/1708.03788v1.pdf">arxiv.org</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

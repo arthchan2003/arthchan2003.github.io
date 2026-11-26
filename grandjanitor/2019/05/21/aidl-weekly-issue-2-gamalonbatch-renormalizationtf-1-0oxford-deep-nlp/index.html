@@ -1,0 +1,1316 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/05/21/aidl-weekly-issue-2-gamalonbatch-renormalizationtf-1-0oxford-deep-nlp/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue 2 - Gamalon/Batch Renormalization/TF 1.0/Oxford Deep NLP - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-2-gamalonbatch-renormalizationtf-10oxford-deep-nlp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue 2 - Gamalon/Batch Renormalization/TF 1.0/Oxford Deep NLP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-2-gamalonbatch-renormalizationtf-10oxford-deep-nlp">AIDL Weekly Issue 2 - Gamalon/Batch Renormalization/TF 1.0/Oxford Deep NLP<a class="headerlink" href="#aidl-weekly-issue-2-gamalonbatch-renormalizationtf-10oxford-deep-nlp" title="Permanent link">&para;</a></h1>
+<h1 id="issue-2-february-24th-2017">Issue 2 <em>February 24th 2017</em><a class="headerlink" href="#issue-2-february-24th-2017" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>How to create a good A.I. newsletter? What first comes to everybody's mind is to simply aggregate a lot of links. This is very common in deep learning resource lists, say "Cool List of XX in Deep Learning". Our experience is that you usually have to sift through 100-200 links and decide which are useful.</p>
+<p>We believe there is a better way: In AIDL Weekly, we only choose important news and always provide detailed analysis on each of them. For example, here we take a look at newsworthy <a href="https://gamalon.com/">Gamalon</a>, it is known to use a ground-breaking method to outperform deep learning and win a defense contract recently. What is the basis of its technology? We cover this in a deep dive in the "News" section.</p>
+<p>Or you can take a look of the exciting development of batch renormalization that tackles its current shortcomings. Anyone who does normalization in training will likely benefit from the paper.</p>
+<p>Last week, we also saw the official release of Tensorflow 1.0 as well as the 2017 Official Tensorflow Summit. We prepared two good links so that you can follow. If you love deep learning with NLP, you might also want to check out the new course from Oxford.</p>
+<p>As always, check out <a href="https://www.facebook.com/groups/DeepNetGroup/">our FB group</a>, our <a href="https://www.youtube.com/channel/UC3YM5TEbSqIpFGH85d6gjKg">YouTube channel</a>, of course <a href="https://aidlweekly.curated.co/">subscribe this newsletter</a>.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="gamalon"><a href="https://www.technologyreview.com/s/603542/ai-software-juggles-probabilities-to-learn-from-less-data/">Gamalon</a><a class="headerlink" href="#gamalon" title="Permanent link">&para;</a></h3>
+<p><a href="https://gamalon.com/">Gamalon</a> stunned all of us last week by claiming the use of "Bayesian program synthesis" (BPS) is superior than Deep Learning. That's a bold claim, but how real is it? The Wired piece only gives us a glimpse. So let's take a closer look.</p>
+<p>While Gamalon's demo on recognizing drawing is impressive, we think the more telling example is Gamalon's <a href="https://gamalon.com/technology/">abbreviation modeling</a>. It clearly shows that BPS has better performance than LSTM-based seq2seq, especially when there is not enough training sample. Because despite the prowess of deep learning, it requires substantial amount of training data, and often, large amount of data is just unavailable. In a way, this is where Bayesian methods shine - data is just used an evidence to update a prior distribution. (For an intro, take a look of PRML Chapter 1.)</p>
+<p>Since Bayesian method was around for a while, what's the big deal with Gamalon then? We think it has a lot to do with <a href="https://en.wikipedia.org/wiki/Probabilistic_programming_language">probabilistic programming</a> which has been a buzzword lately. Probabilistic programming (PPL) (<a href="https://www.cs.cornell.edu/courses/cs4110/2016fa/lectures/lecture33.html">simple tutorial from Cornell</a>) promises to make statistical modeling much easier with pre-defined programming structures, and reduce the very complex programming task to much fewer lines (e.g. <a href="https://phys.org/news/2015-04-probabilistic-lines-code-thousands.html">this link</a>).</p>
+<p>PPL was conventionally related to Bayesian network and graphical models. We speculate that Gamalon is using PPL to code up some type of Bayesian method. <a href="https://www.linkedin.com/in/ben-vigoda-b4b0a61">Ben Vigoda</a>, Founder &amp; CEO of Gamalon, worked on probabilistic programming in his thesis.</p>
+<p>We hope that there will be more details published by either Vigoda or researchers from Gamalon. All-in-all, Gamalon is using an easier-for-developer paradigm (PPL) and a less data-hungry method (Bayesian method). If this approach works well generically across most/all use cases, then it could really push the envelope where training data is sparse which is almost always true in niche-er or less AI-mature fields where A.I. is just being applied.</p>
+<p>We believe this is a big pain point and part of an important and larger innovation theme in deep learning in the foreseeable future - how to solve the data sparseness problem. There are a few approaches - from the framework/algo side (Gamelon's) to training data acquisition and labelling as a service (<a href="https://mty.ai/">Mighty AI</a>) to just plain mechanical turk-ing. Unlike other disruptions that tend to favor upstarts, machine learning requires so much training data that today, the advantage is with the behemoths, given their troves of training data with full usage rights (Google, MSFT, etc.). We'll maybe dive a little deeper into these competitive dynamics in a different issue...</p>
+<p><a href="https://www.technologyreview.com/s/603542/ai-software-juggles-probabilities-to-learn-from-less-data/">technologyreview.com</a></p>
+<hr />
+<h3 id="batch-renormalization-classic-batch-normalization-paper-got-an-update"><a href="https://arxiv.org/pdf/1702.03275v1.pdf">Batch Renormalization: Classic Batch Normalization Paper Got an Update</a><a class="headerlink" href="#batch-renormalization-classic-batch-normalization-paper-got-an-update" title="Permanent link">&para;</a></h3>
+<p>A more DL-geeky news: Wow! Batch normalization is getting an update!</p>
+<p>As you might recall, <a href="https://arxiv.org/abs/1502.03167">BatchNorm</a> is a powerful method which normalize activations of a neural network. Such normalization stabilize the network and significantly improve training speed and performance. Of course, the cute part is the normalization can be used with backprop so it becomes a staple in convnet training.</p>
+<p>In Batch ReNormalization (batchrenorm), Sergey Ioffe tries to resolve the problem of batchnorm which is sensitive to small size batch. So why small size batch would be an issue then? A small mini-batch would cause a mis-estimation of the batch means and variance, which are crucial in the batchnorm's calculation.</p>
+<p>Can you simply use a running average of mean to reduce the misestimation? Turns out you cannot, loffe in the previous <a href="https://arxiv.org/abs/1502.03167">BatchNorm paper</a>, already observed that a trivial use of running average counteract normalization. It would lead to no update to the parameters. So you will have to use the means/variances from batchnorm.</p>
+<p>Ok, enough of a teaser - Ioffe does come up with a good idea in batchrenorm which trade off the running average of mean and the batch means. And again, it can run as part of backprop. That's a very exciting development.</p>
+<p>So I highly recommend you to read this new paper. Btw, the method is also useful to deal with non-i.i.d. mini-batch which is useful in <a href="http://cseweb.ucsd.edu/~naverma/talks/metric_learning_tutorial_verma.pdf">metric learning</a>. So check it out.</p>
+<p><a href="https://arxiv.org/pdf/1702.03275v1.pdf">arxiv.org</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="julia-evans-explains-cnn"><a href="https://jvns.ca/blog/2017/02/12/neural-style/">Julia Evans explains CNN</a><a class="headerlink" href="#julia-evans-explains-cnn" title="Permanent link">&para;</a></h3>
+<p><a href="https://twitter.com/b0rk">Julia Evans</a> has been one of my favorite bloggers last couple of years. In her blog, she explore wide range of topics including system programming and machine learning. In this <a href="https://jvns.ca/blog/2017/02/12/neural-style/">post</a>, she explains the basic principle of <a href="https://arxiv.org/abs/1508.06576">neural-style transfer</a> (not to be confused with <a href="http://cs231n.github.io/transfer-learning/">"transfer learning"</a>. She picked up <a href="https://arxiv.org/abs/1508.06576">the original paper by Leon Gatsys</a>.</p>
+<p>I appreciate her writing - the part I like most is that she emphasize that she does not quite understand why "style" in Gatys' paper was so-defined. If you read Gatys' paper, the most innovative part of the work is the definition of Gram's matrix, which is roughly an inner product of feature maps. Why does that constitute a "style"? For example, why wouldn't one element of the Gram's matrix be more important than the others to define an image? No one seems to have a clear answer. She is not alone, not even Karparthay was able to explain the concept in cs231n 2016.</p>
+<p>Perhaps that's why neural-style transfer is still a research topic, it gives us all these weird pictures, yet no one understand why.</p>
+<p><a href="https://jvns.ca/blog/2017/02/12/neural-style/">jvns.ca</a></p>
+<hr />
+<h3 id="aws-ai-blog"><a href="https://aws.amazon.com/blogs/ai/welcome-to-the-new-aws-ai-blog/">AWS AI Blog</a><a class="headerlink" href="#aws-ai-blog" title="Permanent link">&para;</a></h3>
+<p>New A.I. blog from Amazon, another power house of A.I. and deep learning. Recently Amazon starts a <a href="https://aws.amazon.com/marketplace/pp/B06VSPXKDX">deep learning AWS instance</a>. Of course Amazon is also great supporter of <a href="https://aws.amazon.com/mxnet/">MXNet</a>. Would this new A.I. blog become like <a href="https://research.googleblog.com/">Google Research Blog</a>? Which gives us the latest research papers of Amazon?</p>
+<p><a href="https://aws.amazon.com/blogs/ai/welcome-to-the-new-aws-ai-blog/">amazon.com</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="official-release-of-tensorflow-10"><a href="https://developers.googleblog.com/2017/02/announcing-tensorflow-10.html">Official Release of Tensorflow 1.0</a><a class="headerlink" href="#official-release-of-tensorflow-10" title="Permanent link">&para;</a></h3>
+<p>More and more, <a href="https://www.tensorflow.org/">Tensorflow</a> becomes more a gcc for deep learning. It is the most popular deep learning toolkit, perhaps only <a href="http://pytorch.org/">Pytorch</a> is close to its popularity.</p>
+<p>What should we expect from an official release of 1.0 then? To developers, hopefully it means a consolidation of API. As many TF developers would tell you, TF breaks backward compatibility from time to time, and it could be painful to forward-port your existing code. We can also expect 1.0's python API will keep <a href="https://www.tensorflow.org/programmers_guide/version_semantics">"API stability promises"</a></p>
+<p>I do find TF's development is healthy and they have systematically integrate quality packages. One example is to integrate <a href="https://keras.io/">Keras</a> as <a href="https://github.com/fchollet/keras/issues/5050">one of the official meta-layers</a>. I can't wait to see what new exciting development from TF this year.</p>
+<p><a href="https://developers.googleblog.com/2017/02/announcing-tensorflow-10.html">googleblog.com</a></p>
+<hr />
+<h3 id="pytorch-example"><a href="https://github.com/jcjohnson/pytorch-examples">PyTorch Example</a><a class="headerlink" href="#pytorch-example" title="Permanent link">&para;</a></h3>
+<p><a href="http://cs.stanford.edu/people/jcjohns/">Justin Johnson</a> delivers again. If you follow the software space of Torch, Johnson had upgraded <a href="https://github.com/karpathy/char-rnn">Andrej Karparthy's code on char-rnn</a> to <a href="https://github.com/jcjohnson/torch-rnn">torch-rnn</a>. He also came up with a <a href="https://github.com/jcjohnson/neural-style">fast implementation of neural-style transfer</a>. Of course, we welcome his new package on how to use <a href="http://pytorch.org/">pytorch</a> as well.</p>
+<p><a href="https://github.com/jcjohnson/pytorch-examples">github.com</a></p>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<h3 id="tensorflow-developer-summit-2017"><a href="https://www.youtube.com/watch?v=LqLyrl-agOw">TensorFlow Developer Summit 2017</a><a class="headerlink" href="#tensorflow-developer-summit-2017" title="Permanent link">&para;</a></h3>
+<p>Other than releasing 1.0, Tensorflow also holds its developer summit at Feb 15, here is the full video shared at YouTube with many power developers on the latest of TF.</p>
+<p>Contents (Timemarks originally from <a href="https://www.youtube.com/user/sect00rify">YouTube user BigBadWolf</a>) 
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=660s">11:00</a> Intro
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=720s">12:00</a> Jeff Dean on general info
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=1200s">20:00</a> Rajat Monga on TensorFlow 1.0, XLA
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=1680s">28:00</a> Megan Kacholia TensorFlow in Depth
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=2040s">34:00</a> Jeff Dean What people have been doing
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=2300s">38:20</a> commercial video
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=2540s">42:20</a> Intro to the next part
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=2580s">43:00</a> Chris on XLA and other tensorflow compilers
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=5490s">1:31:30</a> Dendelion on Tensorboard (good part)
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=6930s">1:55:30</a> Martin on TensorFlow High-Level API
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=7980s">2:13:00</a> Francois on Keras integration
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=10860s">3:01:00</a> Daniel from Deepmind Applied Why they choose TensorFlow and how they use it
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=12660s">3:31:00</a> Using Tensorflow on mobile and embedded devices (lunch)
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=18660s">5:11:00</a> Derek on Distributed TensorFlow
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=20470s">5:41:10</a> Jonathan on the TensorFlow EcoSystem
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=21570s">5:59:30</a> Noah on TensorFlow Serving
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=22730s">6:18:50</a>Ashish on ML Toolkit (scikit inspired)
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=25100s">6:58:20</a> Eugene on the RNN API in TensorFlow and dynamic calculations
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=27050s">7:30:50</a> Wide and Deep Learning
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=28120s">7:48:40</a> Magenta
+- <a href="https://www.youtube.com/watch?v=LqLyrl-agOw&amp;t=28860s">8:01:00</a> TensorFlow in Medicine</p>
+<p><a href="https://www.youtube.com/watch?v=LqLyrl-agOw">youtube.com</a></p>
+<hr />
+<h3 id="deep-learning-for-natural-language-processing-2016-2017"><a href="https://www.cs.ox.ac.uk/teaching/courses/2016-2017/dl/">Deep Learning for Natural Language Processing: 2016-2017</a><a class="headerlink" href="#deep-learning-for-natural-language-processing-2016-2017" title="Permanent link">&para;</a></h3>
+<p>For a long time, the only choice intro-class for "deep learning with NLP" would be Socher's <a href="http://cs224d.stanford.edu/">Stanford cs224d</a>. Now there is another choice. <a href="https://www.cs.ox.ac.uk/people/phil.blunsom/">Phil Blunsom</a> starts a new Oxford class on <a href="https://github.com/oxford-cs-deepnlp-2017/lectures">Deep NLP</a> and all lectures are available on-line.</p>
+<p>The material looks promising. For example, the material about conditional language model (by <a href="http://www.cs.cmu.edu/~cdyer/">Chris Dyer</a>) is new for an intro class.</p>
+<p><a href="https://www.cs.ox.ac.uk/teaching/courses/2016-2017/dl/">ox.ac.uk</a></p>
+<h2 id="members-question">Member's Question<a class="headerlink" href="#members-question" title="Permanent link">&para;</a></h2>
+<h3 id="question-from-a-aidl-member">Question from a AIDL Member<a class="headerlink" href="#question-from-a-aidl-member" title="Permanent link">&para;</a></h3>
+<p>** Q: (Rephrase) I am trying to learn the following languages, (...) to intermediate level, and the following languages, (...) to professional level. Would this be helpful for my career on Data Science/Machine Learning? I have a mind to work on deep learning."** </p>
+<p>This is a variation of a frequently asked question. In a nutshell, "how much programming should I learn if I want to work on deep learning?". The question itself shows misconceptions about programming and machine learning. So we include it in this issue. This is my (Arthur's) take: 
+1. First thing first, usually you first decide which package to work on, if the package use language X, then you go to learn-up language X. e.g. if I want to hack Linux kernel, I would need to know C and learn Linux system calls, and perhaps some assembly language. Learning programming is more like a means to achieve a goal. Echoing J.T. Bowlin's point, programming language is more like a language, you can always learn more, but there's a point it seems to be unnecessary.
+2. Then you ask what language should be used to work on deep learning. I will say <em>mathematics</em>, because once you understand the greek symbols, you can translate all these symbols to code (approximately). So if you ask me what you need to learn to hack tensorflow, "Mathematics" would be the first answer, yes, the package is written by Python/C++/C, but they won't be even close in my top-5 answers. Because if you don't know what Backprop is, knowing how C++ destructor works can't make you an expert of TF.
+3. The final thing is you mentioned the term "level". What does this "level" mean? So is it like chess-rating or go-rating that someone has higher rating, they will have a better career in deep learning? It might work for competitive programming...... but real-life programming doesn't work that way. Real-life programming means you can read/write a complex programs. e.g. in C++, you use a class instead of repeating a function implementation many times to reduce programming. Same as templates. That's why class and templates are important concept and people debate their usages a lot. How can you give "levels" to such skills?</p>
+<p>Lastly I would say if you seriously want to focus on one language, consider python, but always learn a new programming language yearly. Also pick up some side-projects, both your job and side-projects would usually give you ideas which language you should learn more.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<p>©2017-2019 Artificial Intelligence and Deep Learning Weekly | <a href="http://aidl.io/sponsorship/index.html">Sponsorship</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

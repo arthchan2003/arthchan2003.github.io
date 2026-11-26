@@ -1,0 +1,1309 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/05/23/aidl-weekly-issue-6-ngs-departure-mask-rcnn-and-intels-aipg/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue #6 - Ng's Departure, Mask-RCNN and Intel's AIPG - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-6-ngs-departure-mask-rcnn-and-intels-aipg" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue #6 - Ng's Departure, Mask-RCNN and Intel's AIPG
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-6-ngs-departure-mask-rcnn-and-intels-aipg">AIDL Weekly Issue #6 - Ng's Departure, Mask-RCNN and Intel's AIPG<a class="headerlink" href="#aidl-weekly-issue-6-ngs-departure-mask-rcnn-and-intels-aipg" title="Permanent link">&para;</a></h1>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>The biggest AI/DL news last week is definitely Andrew Ng's departure from Baidu so naturally it is the top news this issue. </p>
+<p>Other than Ng's departure, last week was filled with news on interesting researches and source code: 
+- OpenAI's research on multiple agents led to emergence of a simple language,
+- FAIR's Kaiming He proposed Mask-RCNN, which shatters previous records,
+- Distill, a new on-line journal for deep learning,
+- Google's Syntaxnet upgrade,
+- Google's new skip-thought model.</p>
+<p>Enjoy!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="andrew-ng-leaving-baidu"><a href="https://medium.com/@andrewng/opening-a-new-chapter-of-my-work-in-ai-c6a4d1595d7b#.x9b4oswqq">Andrew Ng Leaving Baidu</a><a class="headerlink" href="#andrew-ng-leaving-baidu" title="Permanent link">&para;</a></h3>
+<p>Perhaps the biggest news this week: Andrew Ng is leaving Baidu. As all of you know, Ng started Coursera, taught the perhaps most well-known MOOC, <a href="https://www.coursera.org/learn/machine-learning">Machine Learning</a>, found Google Brain, and later lead important researches in Baidu such as speech recognition. No one will doubt he is one of the giants in today's world of deep learning. So it comes to be a surprise for his departure and leave many speculations on his next move. He said in his Medium post, he would "explore new ways to support all of you in the global AI community". That makes you wonder, what can be bigger than Google or Baidu? </p>
+<p>Our speculation is that Ng might join an initiative such as OpenAI which is a joint effort from multiple companies, or he starts a new research initiative, similar to his own Coursera, or Fei-Fei Li's Imagenet project, both create tremendous values to the community.</p>
+<p>Regardless of his choice, we wish the good Professor well in his new journey. There are still many unsolved problems in machine learning. We are waiting for a world-class talent like Andrew to help solving them.</p>
+<p><a href="https://medium.com/@andrewng/opening-a-new-chapter-of-my-work-in-ai-c6a4d1595d7b#.x9b4oswqq">medium.com</a></p>
+<hr />
+<h3 id="intels-artificial-intelligence-product-groups"><a href="https://www.forbes.com/sites/patrickmoorhead/2017/03/23/intel-forms-new-ai-group-reporting-directly-to-ceo-brian-krzanich/#4c88e1ea462b">Intel's Artificial Intelligence Product Groups </a><a class="headerlink" href="#intels-artificial-intelligence-product-groups" title="Permanent link">&para;</a></h3>
+<p>As many of you know, Intel has been acquiring different deep learning startups such as <a href="https://www.nervanasys.com/">Nervanna</a> and <a href="http://www.mobileye.com/en-us/">Mobileye</a>. Now Intel is aligning all these efforts under one single group, Artificial Intelligence Product Groups (AIPG), which will be reporting directly to the CEO's Brian Krzanich. </p>
+<p>While Intel is behind from its competitors such as Nvidia in the deep-learning market. Their recent effort of rounding up helps through acquisition is impressive. Perhaps the more difficult technical problem here is how Intel would assimilate different diverse pieces of technology together. For example, it's thinkable that with technology of both Nervanna and Mobileye, we could have a very fast system on collision avoidance system. This will, in turn, gives room to further machine learning performance improvement, as slower methods are usually more accurate. All these interesting potential can only happen when multiple existing systems can work together. It would take Intel time and proper management to move things forward.</p>
+<p>It will also be interesting to see how Intel can wrest some marketshare away in the low-power embedded space from ARM which is rumored to be furiously building/buying their own AI stack. The AI future will likely be hybridized - with AI training and inference happening on both server and client side. There may be some network effects in ability to own both sides.</p>
+<p><a href="https://www.forbes.com/sites/patrickmoorhead/2017/03/23/intel-forms-new-ai-group-reporting-directly-to-ceo-brian-krzanich/#4c88e1ea462b">forbes.com</a></p>
+<hr />
+<h3 id="ubers-leaked-disengagement-report"><a href="https://www.recode.net/2017/3/16/14938116/uber-travis-kalanick-self-driving-internal-metrics-slow-progress">Uber's Leaked Disengagement Report</a><a class="headerlink" href="#ubers-leaked-disengagement-report" title="Permanent link">&para;</a></h3>
+<p>Recode obtained Uber's disengagement number last week, and we should feel alarmed by one statistics: miles per intervention. That is how often drivers need to disengage the self-driving system and intervene driving themselves. Uber has an alarmingly low number: 0.8miles. That is for less than 1 mile, the safety driver has to take over the driving. </p>
+<p>Compare this number from what we know about <a href="http://www.theverge.com/2017/2/1/14474790/google-waymo-self-driving-car-disengagement-dmv-california">Waymo</a>, it shows that Uber still has quite a catch up to do: Waymo's vehicles are now in the disengagement rate of 0.2 disengagement per 1000 miles. That means the safety driver only has take over every <em>5000 miles</em>.</p>
+<p>Btw, disengagement rate is in <a href="https://www.dmv.ca.gov/portal/dmv/detail/vr/autonomous/disengagement_report_2016">public record</a> in the State of California. I couldn't find similar reports at Pennsylvania yet, apparently some consumer groups has urged Uber to release such reports around <a href="http://www.consumerwatchdog.org/newsrelease/consumer-watchdog-tells-uber-make-robot-car-test-details-public-poses-10-key-questions">a year ago</a>.</p>
+<p><a href="https://www.recode.net/2017/3/16/14938116/uber-travis-kalanick-self-driving-internal-metrics-slow-progress">recode.net</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="distill"><a href="https://research.googleblog.com/2017/03/distill-supporting-clarity-in-machine.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed:+blogspot/gJZg+%28Official+Google+Research+Blog%29&amp;utm_content=Netvibes">Distill</a><a class="headerlink" href="#distill" title="Permanent link">&para;</a></h3>
+<p>Distill is a new on-line journal on deep learning. There are many superstar authors such as Andrej Kapathy and Chris Olah, both are known to explain with clarify and can produce great visualization of deep learning techniques. The effort is jointly supported by OpenAI and DeepMind so you can expect the best deep learning talent would publish on the site. </p>
+<p><a href="https://research.googleblog.com/2017/03/distill-supporting-clarity-in-machine.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed:+blogspot/gJZg+%28Official+Google+Research+Blog%29&amp;utm_content=Netvibes">googleblog.com</a></p>
+<hr />
+<h3 id="openai-learning-to-communicate-for-agents"><a href="https://openai.com/blog/learning-to-communicate/">OpenAI : Learning to Communicate for Agents</a><a class="headerlink" href="#openai-learning-to-communicate-for-agents" title="Permanent link">&para;</a></h3>
+<p>Similar to DeepMind, OpenAI has established itself to be a power house of deep learning research. My impression is that OpenAI is nurturing an environment of reinforcement learning, and this research is one example. </p>
+<p>What the authors try to do is see if a simple language can emerged through interactions of agents. It is one of these stories, if picked up by popular outlets, which can get sensationalized easily. So it deserves to take a closer look. For example, you would hope that if you feed in English words, then the agents would just automatically come up with an English sentence. That's not the case. OpenAI's researchers found that sometimes agent will use one single word to represent entire sentence. While this is very nice in term of efficiency, it is very difficult for human to interpret the meaning of the agent's language.</p>
+<p>Other than this technicality though, I(Arthur Chan) do find the work fascinating, it was inspired by the Nature's paper, <a href="http://www.nature.com/nature/journal/v404/n6777/full/404495a0.html">"the evolution of syntactic communication"</a>. Just from the sound-byte, if one go ahead to tweak the optimization criterion, it's possible to resolve the interpretability issue. Also check out the <a href="https://arxiv.org/pdf/1703.04908.pdf">arxiv paper</a>, it provides more detail on how the implementation is done, including using <a href="https://arxiv.org/abs/1611.01144">Grumbel-Softmax</a> trick in "soften" a categorical distribution.</p>
+<p><a href="https://openai.com/blog/learning-to-communicate/">openai.com</a></p>
+<hr />
+<p><a href="https://arxiv.org/abs/1703.06870"><em>[image not recovered: twenty_by_nine_extra_large_c9aa4803-8dce-4aa6-b80d-bf156ef43630.png]</em></a> </p>
+<h3 id="fairs-mask-rcnn-by-kaiming-he"><a href="https://arxiv.org/abs/1703.06870">FAIR's Mask RCNN by Kaiming He</a><a class="headerlink" href="#fairs-mask-rcnn-by-kaiming-he" title="Permanent link">&para;</a></h3>
+<p>Kaiming He, with the Resnet fame, surprised us again last week, by proposing yet another simple, but innovative Convnet architecture to the field. This time the game is instance segmentation. As we discussed in <a href="http://aidl.io/issues/4#start">Issue #4</a>, instance segmentation tries to come up with individual instances and mask for a particular object. That's different from semantic segmentation, in which a pixel-by-pixel decision is make on the regions of the image. </p>
+<p>If you have taken <a href="http://kaiminghe.com/">cs231n 2016</a> (Lecture 13), you would learn that most instance segmentation system have a very similar processing pipeline as object detection: conceptually the image first went through object proposals, and then classification layers would run upon the different regions of interest (RoI)s which come up with both the classification score and bounding box. That, as many of you know is the basic structure of <a href="https://arxiv.org/abs/1311.2524">RCNN</a>. Of course, the original authors later on come up with an end-to-end version of RCNN, <a href="https://arxiv.org/abs/1506.01497">Faster RCNN</a>, in which the object proposals were done by region proposal network (RPN).</p>
+<p>So most instance segmentation use very similar pipeline as Faster-RCNN, but the glitch is there is usually a further stage called "region refinement", e.g. as in <a href="https://biomedicalcomputervision.uniandes.edu.co/images/webpage/publications/hagm_eccv2014.pdf">"Simultaneous Detection and Segmentation"</a> by Bharath Hariharan. The purpose is to further refine the mask to fit the RoI. You can imagine doing so would slow down the speed of the system.</p>
+<p>Saying this much, the first thing you should appreciate He's architecture is that he has practically done away the region refinement stage, and make the mask to be trainable with the Faster-RCNN framework. This is surprisingly simple. So the next question is why such simple architecture never emerged until now?</p>
+<p>My guess is two, first is perhaps instance segmentation is still a relatively new task. Just like other tasks, people are still searching for a good end-to-end framework.</p>
+<p>The second one is perhaps more technical: Normal faster-RCNN inherit a hard quantized RoIpool layer from <a href="https://arxiv.org/pdf/1504.08083.pdf">fast-RCNN</a> which was found to be suitable for extracting a feature for each RoI. It was suitable in detection task, but it is perhaps too coarse for pixel-based decision. Th technical improvement from the authors is that they come up with a better layer RoIalign, this significantly improves the network performance for creating mask, yet only make the system slightly slower than Faster RCNN (now at 5 fps).</p>
+<p>Perhaps the most impressive part is its segmentation performance, it crushes all existing benchmarks on Coco. Let's wait for its github code release, and we will wait and see how such architecture would be used in the future.</p>
+<p><a href="https://arxiv.org/abs/1703.06870">arxiv.org</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="google-releases-new-skip-thought-model"><a href="https://github.com/tensorflow/models/tree/master/skip_thoughts">Google releases new skip thought model</a><a class="headerlink" href="#google-releases-new-skip-thought-model" title="Permanent link">&para;</a></h3>
+<p>Here is an interesting piece of code shared by Google, on the <a href="https://papers.nips.cc/paper/5950-skip-thought-vectors.pdf">skip thoughts model</a> first suggested by Kiros et al. The idea is similar to <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">skip-gram</a>, but in the sentence level. Given a sentence, a skip-thought model would predict a sentence which has the closest semantic and syntactical property. It's a powerful technique because a similar sentence can be used as an input to upper layer such as classification. More importantly, the resource can be unlabelled and much lower the cost. </p>
+<p>The Google's recipe contain a Tensorflow-based recipe which can train, evaluate your own skip-thought models.</p>
+<p><a href="https://github.com/tensorflow/models/tree/master/skip_thoughts">github.com</a></p>
+<hr />
+<h3 id="google-upgrade-syntaxnet"><a href="https://research.googleblog.com/2017/03/an-upgrade-to-syntaxnet-new-models-and.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+blogspot%2FgJZg+%28Official+Google+Research+Blog%29&amp;utm_content=Netvibes">Google upgrade SyntaxNet</a><a class="headerlink" href="#google-upgrade-syntaxnet" title="Permanent link">&para;</a></h3>
+<p>Syntaxnet is interesting piece of technology, it is a <a href="https://en.wikipedia.org/wiki/Dependency_grammar">dependency parser</a> and if you know a bit about NLP parsing technology, it gives great speed-accuracy trade-off in parsing. When I first learned it in <a href="https://www.coursera.org/learn/natural-language-processing">Dragomir Radev's Coursera class</a>, I found it fairly interesting because it allows using machine learning method to solve parsing. </p>
+<p>When Syntaxnet was first released, it was billed as "most accurate in the world". So there were many articles to put in context. The one I like most is from <a href="https://www.linkedin.com/in/honnibal/">Matthew Honnibal</a> of <a href="https://explosion.ai/">explosion.ai</a> who wrote the spaCY NLP library. One thing Honnibal pointed out is that <a href="https://explosion.ai/blog/syntaxnet-in-context">Syntaxnet only inch forward</a> from academic research. So what Google did was more the legwork to make such parser available to general public.</p>
+<p>So how should we see this upgrade of syntaxnet? I think my view is similar to Honnibal's one year ago. It looks like Google has done a good job to expand syntaxnet to train character-based model easier. This is crucial for morphologically rich languages such as Russian. Google dubbed models with such capability as <a href="https://github.com/tensorflow/models/blob/master/syntaxnet/g3doc/conll2017/README.md">ParseySaurus</a>. Google's result was tested at this year <a href="http://www.conll.org/">CoNLL</a> for 45 languages. Such capability is interesting, but probably not too far away from academic researchers. (I wonder what will Honniabal say now.)</p>
+<p>Regardless, I appreciate Google's continuous effort of open-sourcing their technology. So check it out and see how well you can parse Russian now. :)</p>
+<p><a href="https://research.googleblog.com/2017/03/an-upgrade-to-syntaxnet-new-models-and.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+blogspot%2FgJZg+%28Official+Google+Research+Blog%29&amp;utm_content=Netvibes">googleblog.com</a></p>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<h3 id="aidl-office-hour-session-with-dashbot-and-firefliesai-founders"><a href="https://www.youtube.com/watch?v=-8OaZI9sM9A">AIDL Office Hour session with Dashbot and Fireflies.ai founders.</a><a class="headerlink" href="#aidl-office-hour-session-with-dashbot-and-firefliesai-founders" title="Permanent link">&para;</a></h3>
+<p>This week we talked with <a href="https://bots.directory/slack/fireflies_ai">Fireflies</a> founder, <a href="https://www.linkedin.com/in/sudotong/">Sam Udotong</a> and <a href="https://www.dashbot.io/">Dashbot</a>'s founder <a href="https://www.linkedin.com/in/artemerritt/">Arte Meritt</a>. Waikit and I(Arthur Chan) came up with a lot of questions for Sam and Arte, and they proved to be very interesting panel. </p>
+<p>Some highlights: 
+- Fireflies uses deep NLP to classify if a certain message is task related or not.
+- Dashbot works with multiple platforms, and Arte gave many interesting insights on the difference between different platforms.
+- Waikit asked how both founders feel about the future of chatbots in the next 5 years.
+- Many of us working on chatbot because we want to achieve some kind of artificial general intelligence (AGI), but as we work on the problem for a while, we know it is infeasible in our time. So I asked towards the end of the video: "Anything other than AGI, what are the tasks you want to automate the most?" And I think both founders gave me good and practical answers.</p>
+<p><a href="https://www.youtube.com/watch?v=-8OaZI9sM9A">youtube.com</a></p>
+<h2 id="book-review">Book Review<a class="headerlink" href="#book-review" title="Permanent link">&para;</a></h2>
+<h3 id="deep-learning-by-ian-goodfellow-et-al">"Deep Learning" by Ian GoodFellow et al<a class="headerlink" href="#deep-learning-by-ian-goodfellow-et-al" title="Permanent link">&para;</a></h3>
+<p>I (Arthur) have some leisure lately to browse <a href="https://mitpress.mit.edu/books/deep-learning">"Deep Learning"</a> by Goodfellow for the first time. Since it is known as the bible of deep learning, I decide to write a short afterthought post, they are in point form and not too structured. 
+- If you want to learn the zen of deep learning, "Deep Learning" is the book. In a nutshell, "Deep Learning" is an introductory style text book on nearly every contemporary fields in deep learning. It has a thorough chapter covered Backprop, perhaps best introductory material on SGD, computational graph and Convnet. So the book is very suitable for those who want to further their knowledge after going through 4-5 introductory DL classes.
+- Chapter 2 is supposed to go through the basic Math, but it's unlikely to cover everything the book requires. PRML Chapter 6 seems to be a good preliminary before you start reading the book. If you don't feel comfortable about matrix calculus, perhaps you want to read "Matrix Algebra" by Abadir as well.
+- There are three parts of the book, Part 1 is all about the basics: math, basic ML, backprop, SGD and such. Part 2 is about how DL is used in real-life applications, Part 3 is about research topics such as E.M. and graphical model in deep learning, or generative models. All three parts deserve your time. The Math and general ML in Part 1 may be better replaced by more technical text such as PRML. But then the rest of the materials are deeper than the popular DL classes. You will also find relevant citations easily.
+- I enjoyed Part 1 and 2 a lot, mostly because they are deeper and fill me with interesting details. What about Part 3? While I don't quite grok all the Math, Part 3 is strangely inspiring. For example, I notice a comparison of graphical models and NN. There is also how E.M. is used in latent model. Of course, there is an extensive survey on generative models. It covers difficult models such as deep Boltmann machine, spike-and-slab RBM and many variations. Reading Part 3 makes me want to learn classical machinelearning techniques, such as mixture models and graphical models better.
+- So I will say you will enjoy Part 3 if you are 1) a DL researcher in unsupervised learning and generative model or 2) someone wants to squeeze out the last bit of performance through pre-training, 3) someone who want to compare other deep methods such as mixture models or graphical model and NN.</p>
+<p>Anyway, that's what I have now. May be I will summarize in a blog post later on, but enjoy these random thoughts for now. </p>
+<p>Original version from my (Arthur's) <a href="/grandjanitor/2017/03/10/some-quick-impression-of-browsing-deep-learning/">blog post</a>.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

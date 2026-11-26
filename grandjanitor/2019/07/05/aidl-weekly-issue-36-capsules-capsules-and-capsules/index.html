@@ -1,0 +1,1330 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/07/05/aidl-weekly-issue-36-capsules-capsules-and-capsules/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue 36 - Capsules, Capsules and Capsules - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-36-capsules-capsules-and-capsules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue 36 - Capsules, Capsules and Capsules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-36-capsules-capsules-and-capsules">AIDL Weekly Issue 36 - Capsules, Capsules and Capsules<a class="headerlink" href="#aidl-weekly-issue-36-capsules-capsules-and-capsules" title="Permanent link">&para;</a></h1>
+<h1 id="issue-36-november-5th-2017"><a href="http://aidl.io/issues/36/index.html#start">Issue 36 <em>November 5th 2017</em> </a><a class="headerlink" href="#issue-36-november-5th-2017" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>We were out last week. The hottest news this week is all about Prof. Hinton's capsule models! </p>
+<p>Prof. Hinton and students just released an arxiv paper on how the idea of capsule can be used and specifically how it can outperform MNIST as well as its more difficult cousins, affMNIST and MultiMNIST, which had distorted MNIST with affined transform and heavy overlapping. So we dedicate this issue on capsules. We provide our own analysis in the thesis/paper review section, highlight a popular link from Wired, and cover the latest developments. So far, we already know of two implementations which attempt to repeat the result.</p>
+<p>Other than that, check out other interesting links such as ex-Google Brain Resident David Ha's work on evolution strategy, and our piece on "Unsupervised Machine Translation Using Monolingual Corpora".</p>
+<hr />
+<p><strong>Join our community for real-time discussions with this iOS app here:</strong> https://itunes.apple.com/us/app/expertify/id969850760</p>
+<p>As always, if you like our newsletter, feel free to subscribe/share the letter to your colleagues.</p>
+<p>We will host our own show at the <a href="https://www.meetup.com/Boston-AIDL-Meetup/events/243474567/">AI World events: "Attack of the AI Startups"</a>. If you live in the New England area, feel free to join!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="sponsor">Sponsor<a class="headerlink" href="#sponsor" title="Permanent link">&para;</a></h2>
+<h3 id="attack-of-the-ai-startups"><a href="https://aiworld.com/sessions/mlai/">Attack of the AI Startups </a><a class="headerlink" href="#attack-of-the-ai-startups" title="Permanent link">&para;</a></h3>
+<p>We will be hosting an AIDL Meetup at the AI World Conference in Boston on Dec 12 at 6:15pm where some cutting-edge AI companies will present. We got FREE tickets for you all! Come join us in person if you can!! </p>
+<p>Attack of the AI Startups - https://aiworld.com/sessions/mlai/ at AI World - aiworld.com</p>
+<p>All attendees need to register to attend. To register, please go to: https://aiworld.com/live-registration/ To receive your FREE expo pass (thru Nov 15), use priority code: AIWMLAIX</p>
+<p>To receive a $200 discount off of your 1, 2 or 3 day VIP conference pass, use priority code: AIWMLAI200</p>
+<p>AI World is the industry's largest independent event focused on the state of the practice of enterprise AI and machine learning. AI World is designed to help business and technology executives cut through the hype, and learn how advanced intelligent technologies are being successfully deployed to build competitive advantage, drive new business opportunities, reduce costs and accelerate innovation efforts.</p>
+<p>The 3–day conference and expo brings together the entire applied AI ecosystem, including innovative enterprises, industry thought leaders, startups, investors, developers, independent researchers and leading solution providers. Join 100+ speakers and 75+ sponsors and exhibitors and thousands of attendees. Other than that, we also include some of our analyses on two paper as well as multiple interesting links for blogs and open source resources. So check it out!</p>
+<p>As always, if you like our newsletter, subscribe/forward it to your colleagues!</p>
+<p><a href="https://aiworld.com/sessions/mlai/">aiworld.com</a></p>
+<hr />
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="sony-aibo-is-back-and-powered-by-deep-learning"><a href="https://www.theverge.com/circuitbreaker/2017/10/31/16588878/sony-aibo-2017-announced-price-release-date">Sony AIBO is back! And Powered by Deep Learning!</a><a class="headerlink" href="#sony-aibo-is-back-and-powered-by-deep-learning" title="Permanent link">&para;</a></h3>
+<p>Deep learning is revitalizing one of the most iconic product: Sony AIBO. The new AIBO, priced at ~$1730, will have sensors and run deep learning algorithm to recognize images and sounds. </p>
+<p><a href="https://www.theverge.com/circuitbreaker/2017/10/31/16588878/sony-aibo-2017-announced-price-release-date">theverge.com</a></p>
+<hr />
+<h3 id="course-4-of-deeplearningai-is-here"><a href="https://www.coursera.org/learn/convolutional-neural-networks">Course 4 of deeplearning.ai is here!</a><a class="headerlink" href="#course-4-of-deeplearningai-is-here" title="Permanent link">&para;</a></h3>
+<p>Alright, ML nerds, Course 4 of deeplearning.ai is finally here! Course 4 looks good. It's all about image classification with Convnet, object detection and fun exercises such as transfer learning and face verification. </p>
+<p><a href="https://www.coursera.org/learn/convolutional-neural-networks">coursera.org</a></p>
+<hr />
+<h3 id="wireds-coverage-of-hintons-capsules-theory"><a href="https://www.wired.com/story/googles-ai-wizard-unveils-a-new-twist-on-neural-networks/">Wired's Coverage of Hinton's Capsules Theory</a><a class="headerlink" href="#wireds-coverage-of-hintons-capsules-theory" title="Permanent link">&para;</a></h3>
+<p>Here is a more popular account of Prof. Hinton's capsules theory. Notice that Wired assume the OpenReview paper is from students and Hinton as well. But at this point we really don't have any confirmation yet. </p>
+<p><a href="https://www.wired.com/story/googles-ai-wizard-unveils-a-new-twist-on-neural-networks/">wired.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<p><a href="http://research.nvidia.com/publication/2017-10_Progressive-Growing-of"><em>[image not recovered: twenty_by_nine_extra_large_f6a574fe-daef-466a-af49-734d4c7154ab.png]</em></a> </p>
+<h3 id="nvidias-progressive-growing-of-gan"><a href="http://research.nvidia.com/publication/2017-10_Progressive-Growing-of">Nvidia's Progressive Growing of GAN</a><a class="headerlink" href="#nvidias-progressive-growing-of-gan" title="Permanent link">&para;</a></h3>
+<p>Here is one very impressive results you probably saw last week - GAN is now able to generate very realistic celebrity images (trained using the CelebA-HQ database). So how does it work? </p>
+<p>Turns out it has a lot to do how the training is done. The authors start with using a GAN with both generator and discriminator with only 4 units. The training then progressively doubles the size of units and eventually increasing it to 1024 units. Doing so, the authors claims, helps to generate fine details.</p>
+<p>What else is in the recipe? There are two we spotted: 
+1. The authors used facial landmarks to crop an image in the CelebA-HQ dataset.
+2. Then the various normalization scheme</p>
+<p><a href="http://research.nvidia.com/publication/2017-10_Progressive-Growing-of">nvidia.com</a></p>
+<hr />
+<h3 id="the-state-of-ml-and-data-science-report-from-kaggle"><a href="https://www.kaggle.com/surveys/2017">The State of ML and Data Science Report from Kaggle</a><a class="headerlink" href="#the-state-of-ml-and-data-science-report-from-kaggle" title="Permanent link">&para;</a></h3>
+<p>This is a great survey by Kaggle on data scientists and ML experts. What is their demographics? What tool do they use? And what is their most favorite machine learning algorithm? They are all answered in the report. </p>
+<p><a href="https://www.kaggle.com/surveys/2017">kaggle.com</a></p>
+<hr />
+<h3 id="a-visual-guide-to-evolution-strategies"><a href="http://blog.otoro.net/2017/10/29/visual-evolution-strategies/">A Visual Guide to Evolution Strategies</a><a class="headerlink" href="#a-visual-guide-to-evolution-strategies" title="Permanent link">&para;</a></h3>
+<p>We often learned a lot just by reading what Google Resident David Ha share in his Facebook and LinkedIn feed. He has impressive experience in different sub-fields of machine learning. His seemingly casual experiments on reinforcement learning is one of the most interesting to read and understand. </p>
+<p>This time, David himself wrote an extensive guide on evolution strategies, which compares various methods such as genetic algorithm (GA), covariance matrix adaptation evolution strategy (CMA-ES), REINFORCE and even OpenAI <a href="https://blog.openai.com/evolution-strategies/">latest strategy</a>. It's certainly eye-opening for us. As in many of David's work: code is released. So Enjoy!</p>
+<p><a href="http://blog.otoro.net/2017/10/29/visual-evolution-strategies/">otoro.net</a></p>
+<hr />
+<h3 id="arthurs-full-review-of-deeplearningai-course-2"><a href="/grandjanitor/2017/10/28/review-of-ngs-deeplearning-ai-course-2-improving-deep-neural-networks/">Arthur's Full Review of deeplearning.ai Course 2</a><a class="headerlink" href="#arthurs-full-review-of-deeplearningai-course-2" title="Permanent link">&para;</a></h3>
+<p>Here is Arthur's review of deeplearning.ai Course 2. This time he focus on why learning the details of deep learning could be a good thing for beginners of DL. </p>
+<p><a href="/grandjanitor/2017/10/28/review-of-ngs-deeplearning-ai-course-2-improving-deep-neural-networks/">thegrandjanitor.com</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="implementation-of-capsnet"><a href="https://github.com/naturomics/CapsNet-Tensorflow">Implementation of CapsNet</a><a class="headerlink" href="#implementation-of-capsnet" title="Permanent link">&para;</a></h3>
+<p>Here is one of the first implementations which attempts to reimplement CapsNet. </p>
+<p><a href="https://github.com/naturomics/CapsNet-Tensorflow">github.com</a></p>
+<hr />
+<h3 id="a-pytorch-implementation"><a href="https://github.com/timomernick/pytorch-capsule">A PyTorch Implementation</a><a class="headerlink" href="#a-pytorch-implementation" title="Permanent link">&para;</a></h3>
+<p>And here is a PyTorch implementation. </p>
+<p><a href="https://github.com/timomernick/pytorch-capsule">github.com</a></p>
+<h2 id="paperthesis-review">Paper/Thesis Review<a class="headerlink" href="#paperthesis-review" title="Permanent link">&para;</a></h2>
+<h3 id="what-we-know-about-capsules-so-far"><a href="https://www.facebook.com/groups/aidl.ld/permalink/896377267193607/">What We Know About Capsules So Far</a><a class="headerlink" href="#what-we-know-about-capsules-so-far" title="Permanent link">&para;</a></h3>
+<p>We wrote the previous piece on Monday on our <a href="https://www.facebook.com/groups/aidl.ld/">Literature Discussion</a> group. But then it triggered very interesting discussion which we learnt couple of things: 
+1. Hinton and students might have published another paper on ICLR 2018. It's very likely to involve EM as the routing mechanism.
+2. There are already two available implementations of CapsNet. (See the Implementation Section.)</p>
+<p><a href="https://www.facebook.com/groups/aidl.ld/permalink/896377267193607/">facebook.com</a> </p>
+<hr />
+<h3 id="capsules"><a href="https://arxiv.org/abs/1710.09829v1">Capsules</a><a class="headerlink" href="#capsules" title="Permanent link">&para;</a></h3>
+<p>This is the Hinton's new invention of capsules algorithm. Here is a write up: It's TL;DR but we doubt we completely grok the idea anyway. 
+- The first mention of "capsule" is perhaps in the paper <a href="http://www.cs.toronto.edu/~fritz/absps/transauto6.pdf">"Transforming Auto-encoders"</a> which Hinton and students coauthored.
+- It's important to understand what capsules try to solve before you delve into the details. If you look at Hinton's papers and talks, capsule is really an idea which improve upon Convnet. Hinton has two major complaints.
+- First, the general settings of Convnet assumes that one filter is being used across different locations. This is also known as "location invariance". In this setting, the exact location of a feature doesn't matter. That has a lot to do with robust feature parameter estimation. It also drastically simplify backprop with weight sharing.
+- But then location invariance also removes one important information of an image: the apparent location.
+- Second assumption is max pooling. As you know, pooling usually removes a high percentage of information from the previous layer. In early architectures, usually pooling is the key to shrink the size of a representation down. Of course, later architectures had changed. But pooling is still an important component.
+- So the design of capsule has a lot of do to tackle problems of max pooling: Instead of losing information, can we "route" pixel values from previous layer correctly so that they are in optimal use?
+- Generally "capsule" represents a certain entity of an image, "such as pose (position, size, orientation), deformation, velocity, albedo, hue, texture etc". Notice that they are not hard-wired and automatically discovered.
+- Then there is how the low level information can "route" to higher level. The mechanism is intriguing in this current implementation:
+- First, your goal is to calculate a softmax in the form of exp(b<em ik>{ij} / Sum_k exp(b</em> is the output of lower level capsule i to a higher level capsule j. This is something you can train.
+- Then what you do is iteratively estimate b_{ij}. This appears in Procedure 1. The 4 steps are: a, calculate the softmax weight b. b, compute the prediction vector from a capsule i, then form a weighted sum, c, squash the weighted sum d, update softmax weight b based on the squash value and weighted sum.
+- So why the squash function, our guess is it is to normalize the value computed in b. According to Hinton, a good function is v_j = |s_j|^2 / (1 + |s_j|^2) * s_j / |s_j|
+- The rest of the architecture actually looks very much like a Convnet. The first layer was a Convnet with ReLU activation.
+- Would this work? The authors say yes. Not only it reaches the state of art benchmark of MNIST. It can also tackle more difficult tasks such as CIFAR-10, SVNH. In fact, the authors found that in both task they already achieve better results when first Convnet was first used to tackle these tasks.
+- It also works well for two tasks called affMNISt and multiMNIST. First is MNIST go through affine transform, second is MNIST regenerated with many overlappings. This is quite impressive, because you will need to use much data augmentation and effort of object detection to get these cases working.
+- The part, we have some doubts - is this model more complex than convnet? It's possible that we are just fitting a more complex model to get better results.
+- Nice thing about the implementation: it's in Tensorflow, so we can play with it in the near future. Have fun!} where b_{ij</p>
+<p><a href="https://arxiv.org/abs/1710.09829v1">arxiv.org</a> </p>
+<hr />
+<h3 id="unsupervised-machine-translation-using-monolingual-corpora"><a href="https://arxiv.org/abs/1711.00043">Unsupervised Machine Translation Using Monolingual Corpora </a><a class="headerlink" href="#unsupervised-machine-translation-using-monolingual-corpora" title="Permanent link">&para;</a></h3>
+<p>This is an impressive paper by FAIR authors which claims that one only need to use monolingual corpora to train a usable translation model. So how does it work? Here are some notes. 
+- For starter, indeed you don't need to use a parallel corpora, but you still need a bidirectional dictionary to generate translation. You also need to have monolingual corpora in both languages. That's why the title is about monolingual corpora (plural) but not monolingual corpus (singular).
+- Then, there is the issue of how you actually create translation. It's actually much simpler than you thought, first imagine there is a latent language which both your source and target languages mapped to.
+- How do you train? So let's just use the source language as an example first. What you can do is create an encoder-decoder architecture which translate your source to the latent space, then translate it back. Using BLEU score, you can then setup an optimization criteria.
+- Now this doesn't quite do the translation. Now you apply the same procedure on both source and target language. Don't you now have a common latent space? One you train up such common latent subspace, in actual translation, what you need to do is to first map the target language in the common latent space, then map it back to the source language.
+- Many of you might recognize that such encoder-decoder scheme which map the language to itself as very similar to autoencoder. Indeed, the authors in the paper actually use a version of autoencoder: <a href="http://deeplearning.net/tutorial/dA.html">denoising autoencoder(dA)</a> to train the model.
+- The final interesting idea I spot is to idea of iterative training. In this case, you can imagine that you can first train an initial translator, but then use its output as the truth and retrain another one. The authors found tremendous gain in BLEU score in the process.
+- The results are stunning if you consider no parallel corpus is involved. BLEU score is around 10 points lower, but do remember: deep learning has pretty much improved BLEU scores by absolute 7-8 points anyway from the classical phrased based translation models.</p>
+<p>Member Ben Davis also wrote a fairly good summary for the paper. Check it in our <a href="https://www.facebook.com/groups/aidl.ld/permalink/897911800373487/">thread</a>? </p>
+<p><a href="https://arxiv.org/abs/1711.00043">arxiv.org</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

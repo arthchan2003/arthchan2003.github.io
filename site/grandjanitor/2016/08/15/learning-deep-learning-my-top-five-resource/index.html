@@ -1,0 +1,1447 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2016/08/15/learning-deep-learning-my-top-five-resource/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Learning Deep Learning - My Top-Five List - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-deep-learning-my-top-five-list" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Learning Deep Learning - My Top-Five List
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="learning-deep-learning-my-top-five-list">Learning Deep Learning - My Top-Five List<a class="headerlink" href="#learning-deep-learning-my-top-five-list" title="Permanent link">&para;</a></h1>
+<p>Many people have been nagging me to write a beginner guide on deep learning. Geez, that's a difficult task - there are so many tutorials, books, lectures to start with, and the best way to start highly depends on your background, knowledge and skill sets. So it's very hard to give a simple guideline.</p>
+<p>In this post, I will do something less ambitious: I gather what I think is the top-5 most important resources which let you to start to learn deep learning. Check out the "Philosophy" section on why this list is different from other lists you saw. </p>
+<h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
+<p>There are many lists of resources of deep learning. To name a few, the "<a href="https://github.com/ChristosChristofidis/awesome-deep-learning">Awesome</a>" list, the <a href="https://www.reddit.com/r/MachineLearning/wiki/index">Reddit machine learning FAQ</a>. I think they are quality resources, and it's fair to ask why I started "Top-Five" a year ago.</p>
+<p>Unlike all the deep learning resource list you saw, "Top-Five" is not meant to be an exhaustive list. Rather it assumes you have only limited amount of time to study and gather resources while learning deep learning. For example, suppose you like to learn through on-line classes. Each machine/deep learning class would likely take you 3 months to finish. It will take you a year to finish all the classes. As a result, <em>having a priority</em> <em>is good.</em> For instance, without any guidance, reading Goodfellow's <em>Deep Learning</em> would confuse you. A book such as Bishop's <em>P**attern Recognition and Machine Learning</em> (PRML) would likely be a better "introductory book".</p>
+<p>Another difference between Top-Five list and other resource list is that the resource* are curated*. Unless specified, I have either finished the material myself. So for classes I have at least audit the whole lecture once. For books I probably browse it once. In a way, this is more an "Arthur's list", rather than some disorganized links. You also see a short commentary why (IMO) they are useful. </p>
+<h2 id="which-top-five">Which Top-Five?<a class="headerlink" href="#which-top-five" title="Permanent link">&para;</a></h2>
+<p>As the number of sections in my list grow, it's fair to ask what resources should you spend time on first. That's a tough question because humans differ in their preference of learning. My suggestion is start from the following, 
+1. Taking classes - by far I think it is the most effective way to learn. Listening+doing homework usually teach you a lot.
+2. Book Reading - this is important because usually lectures only summarize a subject. Only when you read through a certain subject, you start to get deeper understanding.
+3. Playing with Frameworks - This allows you to actually create some deep learning applications, and turn some your knowledge in real-life
+4. Blog Reading - this is useful but you better know which blogs to read (Look at the section "Blogs You Want To Read"). In general, there are just too many blog writers these days, and they might only have murky understanding of the topic. Reading those would only make you feel more confused.
+5. Joining Forums and ask questions - this is where you can dish out some of your ideas and ask for comments. Once again, the quality of the forum matters. So take a look of the section "Facebook Forums".</p>
+<h2 id="lecturescourses">Lectures/Courses<a class="headerlink" href="#lecturescourses" title="Permanent link">&para;</a></h2>
+<h5 id="basic-deep-learning-also-check-out-the-basic-five">Basic Deep Learning (Also check out "<a href="/grandjanitor/2017/05/13/learning-deep-learning-the-basic-five-five-beginner-course-on-deep-learning/">The Basic-Five</a>")<a class="headerlink" href="#basic-deep-learning-also-check-out-the-basic-five" title="Permanent link">&para;</a></h5>
+<p>This are more the must-take courses if you want to learn the basic jargons of deep learning. Ng's, Karparthy's and Socher's class teach you basic concepts but they have a theme of building applications. Silver's class link deep learning concepts with reinforcement learning. So after these 4 classes, you should be able to talk deep learning well and work with some basic applications. 
+1. <a href="https://www.coursera.org/learn/machine-learning">Andrew Ng's Coursera Machine Learning class</a> 
+        - You need to walk before you run. Ng's class is the best beginner class on machine learning in my opinion. Check out this page for <a href="/grandjanitor/2015/11/11/for-the-not-so-uninitiated-review-of-ngs-coursera-machine-learning-class/">my review.</a>
+2. <a href="https://www.coursera.org/learn/neural-networks-deep-learning">Andrew Ng's deeplearning.ai Specialization</a> 
+        - In my view, the best transition class from Ng's Machine Learning class to more difficult classes such as cs231n and cs224n. See my full reviews of<a href="/grandjanitor/2017/10/14/review-of-ngs-deeplearning-ai-course-1-neural-networks-and-deep-learning/">Course 1</a> and <a href="/grandjanitor/2017/10/28/review-of-ngs-deeplearning-ai-course-2-improving-deep-neural-networks/">Course 2</a>. Also Check our my <a href="/grandjanitor/2017/08/09/quick-impression-on-deeplearning-ai/">quick impressions at here</a> and review of one of the <a href="/grandjanitor/2017/08/13/quick-impression-on-deeplearning-ai-heroes-of-deep-learning-geoffrey-hinton/">"Heros of Deep Learning" with Prof. Geoffrey Hinton</a>.
+3. <a href="http://cs231n.stanford.edu/">Fei-Fei Li and Andrew Karpathy's Computer Vision class</a> (Stanford cs231n 2015/2016) 
+        - I listen through the lectures once. Many people just call this a Karpathy's class, but it is also co-taught by another experienced graduate student, Justin Johnson. For the most part this is the class for learning CNN, it also brings you to the latest technology of more difficult topics such as image localization, detection and segmentation.
+4. <a href="http://cs224d.stanford.edu/">Richard Socher's Deep Learning and Natural Language Processing</a> (Standard cs224d) 
+        - I listen to the whole lecture once, the first few lectures were very useful for me when I tried to understand RNN and LSTM. This might also be the best set of lecture to learn Socher's recursive neural network. Compare to Karpathy's class, Socher's place more emphasis on mathematical derivation. So if you are not familiar with matrix differentiation, this would be a good class to start with and get your hands wet.
+5. <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">David Silver's Reinforcement Learning</a> 
+        - This is a great class taught by the main programmer of <a href="http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html">AlphaGo</a>. It starts from the basic of reinforcement learning such as DP-based method, then proceeds to more difficult topic such as Monte-Carlo and TD method, as well as function approximation and policy gradient. It takes quite a bit of understanding even if you already background of supervised learning. As RL is being used more and more applications, this class should be a must-take for all of you.</p>
+<p>You should also consider: 
+- <a href="http://www.fast.ai/">Fast.ai</a>'s Deep Learning for Coders 
+        - a class which has generally good review. I would suggest you read <a href="https://medium.com/towards-data-science/thoughts-after-taking-the-deeplearning-ai-courses-8568f132153">Arvind Nagaraj's post</a> which compare deeplearning.ai and fast.ai.
+- <a href="https://www.researchgate.net/project/Theories-of-Deep-Learning">Theories of Deep Learning</a> 
+        - Or Stanford Stat 385, which is one of the theory class of deep learning.
+- <a href="http://info.usherbrooke.ca/hlarochelle/neural_networks/content.html">Hugo Larochelle's Neural Network class</a> 
+        - by another star-level innovator of the field. I only heard Larochelle's lecture in a deep learning class, but he is succinct and to the point than many.
+- <a href="http://selfdrivingcars.mit.edu/">MIT Self Driving 6.S094</a> 
+        - See the description in the session of Reinforcement Learning.
+- <a href="https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/">Nando de Freita's class on Machine/Deep Learning</a> 
+        - I don't have a chance to go through this one, but it is both for beginner and more advanced learners. It covers topics such as reinforcement learning and siamese network. I also think this is the class if you want to use Torch as your deep learning language.</p>
+<h5 id="intermediate-deepmachine-learning">Intermediate Deep/Machine Learning<a class="headerlink" href="#intermediate-deepmachine-learning" title="Permanent link">&para;</a></h5>
+<p>The intermediate courses are meant to be the more difficult sets of classes. They are much more difficult to finish - Math is necessary. There are also many confusing concepts even if you already have Master. 
+1. <a href="https://www.coursera.org/learn/neural-networks">Hinton's Neural Network Machine Learning</a> 
+        - While the topics are advanced, Prof. Hinton's class is probably the one which can teach you the most on the philosophical difference between deep learning and general machine learning. The first time I audit the class in 2016 October, his explanation on models based on statistical mechanical model blew my mind. I finished the course around 2017 April, which results in a popular <a href="/grandjanitor/2017/04/10/review-of-hintons-coursera-neural-network-and-machine-learning/">review post</a>. Unfortunately, due to the difficulty of the class, it was ranked lower in this list. (It was ranked 2nd, then 4th on the Basic Five, but I found that it requires deeper understanding than the Karparthy's, Socher's and Silver's. Later on when deeplearning.ai comes up, I shift Prof Hinton's course to one of the Intermediate classes. )
+2. <a href="https://www.coursera.org/learn/probabilistic-graphical-models">Daphne Koller's Probabilistic Graphical Model</a> 
+        - if you want to understand tougher concepts in models such as DBN, you want to have some background in Bayesian network as well. If that's the route you like, Koller's class is for you. But this class, just like Hinton's NNML, is notoriously difficult and not for faint of heart - you will be challenged on probability concepts (Course 1), graph theory and algorithm (Course ) and parameter estimation (Course 3).</p>
+<h5 id="reinforcement-learning">Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permanent link">&para;</a></h5>
+<p>Reinforcement learning has deep history by itself and you can think it has the heritage from both computer science and electrical engineering.</p>
+<p>My understanding of RL is fairly shallow so I can only tell you which are the easier class to take, but all of these classes are more advanced. Georgia Tech CS8803 should probably be your first. Silvers' is fun, and it's based on Sutton's book, but be ready to read the book in order to finish some of the exercises. 
+1. <a href="https://www.udacity.com/course/reinforcement-learning--ud600">Udacity's Reinforcement Learning </a> 
+        - This is a class which is jointly published by Georgia Tech and you can take it as an advanced course CS8803. I took Silver's class first, but I found the material this class provides a non-deep learning take and quite refreshing if you start out at reinforcement learning.
+2. <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">David Silver's Reinforcement Learning</a> 
+        - See description in the "Introductory Deep Learning" section.
+3. <a href="http://selfdrivingcars.mit.edu/">MIT Self Driving 6.S094</a> 
+        - A specialized class in self-driving. The course is mostly computer vision, but there is one super-entertaining exercise on self driving, which mostly likely you want to use RL to solve the problem. (Here is some <a href="/grandjanitor/2017/05/12/some-quick-impression-on-mit-dl4sdc-class-by-lex-friedman/">quick impression </a>about the class.)</p>
+<p>You should also consider: 
+- <a href="http://rll.berkeley.edu/deeprlcourse/#lecture-videos">Berkeley's Deep Reinforcement Learning</a> Potentially a third class about deep reinforcement learning (after Silver's and Schulmann's).</p>
+<h5 id="i-heard-good-things-about-them">I heard good things about them......<a class="headerlink" href="#i-heard-good-things-about-them" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://github.com/oxford-cs-deepnlp-2017/lectures">Oxford Deep NLP 2017 </a> 
+        - This is perhaps the second class of deep learning on NLP. I found the material interesting because it covers material which wasn't covered by the Socher's class. I haven't takem it yet. So I will comment later.</li>
+<li><a href="https://www.zabaras.com/statisticalcomputing">Statistical Computing by Nicholas Zabara </a> 
+        - looks super interesting and most material are actually ML-based.</li>
+<li><a href="https://www.youtube.com/user/neubig/playlists">CMU CS11-747 Neural Networks and NLP</a> 
+        - A great sets of lecture by Graham Neubig. Neubig has written few useful tutorial on DL in NLP. So I add his as more promising candidate here as well.</li>
+<li><a href="http://cilvr.cs.nyu.edu/doku.php?id=deeplearning:slides:start#week_1">NYU Deep Learning class at 2014</a> 
+        - Prof. Yann LeCun. To me this is an important class, with similar importance as Prof. Hinton's class. Mostly because Prof. LeCun is one of the earliest experimenters on BackProp and SGD. Unfortunately these NYU's lecture was removed. But do check out the slides though.</li>
+<li>Also from Prof. Yann LeCun, <a href="https://www.college-de-france.fr/site/en-yann-lecun/course-2015-2016.htm">Deep Learning inaugural lectures</a>.</li>
+<li>Berkely's Seminar on Deep Learning: by Prof. **** <a href="http://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov</a>, an early researcher on unsupervised learning.</li>
+<li><a href="http://uvadlc.github.io/">University of Amsterdam Deep Learning</a> 
+        - If you have already audit cs231n and cs224d, perhaps the material here is not too new, but I found it useful to have a second source when I look at some of the material. I also like the presentation of back-propagation, which is more mathematical than most beginner class.</li>
+<li><a href="https://berkeley-deep-learning.github.io/cs294-131-s17/">Special Topics in Deep Learning</a> 
+        - I found it great resource if you want to drill on more exoteric topics in deep learning.</li>
+<li><a href="https://telecombcn-dl.github.io/2017-dlsl/">Deep Learning for Speech and Language</a> 
+        - of my own curiosity on speech recognition. This course is perhaps is the only one I can find on DL on ASR. If you happen to stumble this paragraph, I'd say most software you find on-line are not really too applicable in real-life. The only exceptions are discussed in <a href="/grandjanitor/2013/11/17/learning-asr-through-coding/">this very old article of mine</a>.</li>
+</ul>
+<h5 id="for-reference">For reference<a class="headerlink" href="#for-reference" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://computing.ece.vt.edu/~f15ece6504/">Virginia Tech Deep Learning at 2015</a></li>
+<li><a href="https://uwaterloo.ca/data-analytics/">University of Waterloo by Prof Ali Ghodsi</a></li>
+<li><a href="http://introtodeeplearning.com/index.html">MIT 6.S191 Introduction to Deep Learning</a></li>
+<li><a href="https://katefvision.github.io/">Deep RL and Control from CMU </a></li>
+<li><a href="https://classroom.udacity.com/courses/ud730">Udacity Deep Learning</a> and Deep Learning NanoDegree.</li>
+</ul>
+<h5 id="great-preliminaries">Great Preliminaries<a class="headerlink" href="#great-preliminaries" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">Linear Algebra By Prof. Gilbert Strang</a></li>
+<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/index.htm">Probabilistic System and Applied Probability By Prof. John Tsitsiklis</a></li>
+</ul>
+<h5 id="more-on-basic-machine-learning-unsorted">More on Basic Machine Learning (Unsorted)<a class="headerlink" href="#more-on-basic-machine-learning-unsorted" title="Permanent link">&para;</a></h5>
+<ul>
+<li>ColumbiaX: <a href="https://www.edx.org/course/machine-learning-columbiax-csmm-102x-1">CSMM.102x</a></li>
+<li><a href="http://www.dataschool.io/15-hours-of-expert-machine-learning-videos/">ESL</a></li>
+<li><a href="https://work.caltech.edu/telecourse.html">Caltech Machine Learning</a>.</li>
+<li><a href="https://www.youtube.com/playlist?list=PLA89DCFA6ADACE599">Andrew Ng's Machine Learning 2008</a></li>
+<li><a href="http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml">Tony Mitchell's Machine Learning 2011</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLE6Wd9FR--Ecf_5nCbnSQMHqORpiChfJf">Nando De Freita's Machine Learning 2012</a></li>
+</ul>
+<h5 id="more-ai-than-machine-learning-unsorted">More AI than Machine Learning (Unsorted)<a class="headerlink" href="#more-ai-than-machine-learning-unsorted" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="http://ai.berkeley.edu/lecture_videos.html">Berkley CS 188</a></li>
+<li><a href="http://web.stanford.edu/class/cs221/">Stanford cs221</a></li>
+<li><a href="https://www.edx.org/course/artificial-intelligence-ai-columbiax-csmm-101x-0">edX AI</a></li>
+<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/">MIT AI Courseware - lectures by Patrick Winston</a></li>
+<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-868j-the-society-of-mind-fall-2011/">Prof. Marvin Minsky's The Society of Minds </a></li>
+</ul>
+<h5 id="more-about-the-brain">More about the Brain:<a class="headerlink" href="#more-about-the-brain" title="Permanent link">&para;</a></h5>
+<p>I don't have much, but you can take a look of my another list on <a href="/grandjanitor/2017/04/10/list-of-neuroscience-mooc/">Neuroscience MOOCs</a>. </p>
+<h2 id="books">Books<a class="headerlink" href="#books" title="Permanent link">&para;</a></h2>
+<p>I wrote quite a bit on the <a href="/grandjanitor/2017/10/09/repost-recommended-books-in-machine-learningdeep-learning/">Recommended Books Page</a>. In a nutshell, I found that classics such as PRML and Duda and Hart are still must-reads in the world of deep learning. But if you still want a list, alright then...... 
+1. <a href="http://neuralnetworksanddeeplearning.com/">Michael Nielson's Deep Learning Book</a>: or NNDL, highly recommended by many. This book is very suitable for beginners who want to understand the basic insights of simple feed forward networks and their setups. Unlike most text books, it doesn't quite go through the Math until it gives you some intuition. While I only went through recently, I highly recommend all of you to read it. Also see <a href="/grandjanitor/2016/10/02/reading-michael-nielsons-neural-networks-and-deep-learning/">my read on the book</a>.
+2. PRML : I love PRML! Do go to read my <a href="/grandjanitor/2017/10/09/repost-recommended-books-in-machine-learningdeep-learning/">Recommended Books Page</a> to find out why.
+3. Duda and Hart: I don't like it as much as PRML, but it's my first machine learning Bible. Again, go to my <a href="/grandjanitor/2017/10/09/repost-recommended-books-in-machine-learningdeep-learning/">Recommended Books Page</a> to find out why.
+4. T<a href="http://www.deeplearningbook.org/">he Deep Learning Book</a> by Ian Goodfellow, Yoshua Bengio and Aaron Courville: This is <em>the</em> book for deep learning, but it's hardly for beginner. I recently browse through the book. Here is <a href="/grandjanitor/2017/03/10/some-quick-impression-of-browsing-deep-learning/">some quick impression</a>.
+5. <a href="http://arxiv.org/abs/1511.07916">Natural Language Understanding with Distributed Representation</a> by Kyung Hyun Cho. This is mainly for NLP people, but it's important to note how different that NLP is seen from a deep learning point of view.</p>
+<p>Others: Check out my <a href="/grandjanitor/2017/10/09/repost-recommended-books-in-machine-learningdeep-learning/">Recommended Books Page</a>. For beginner, I found Mitchell's and Domingo's books are quite interesting. </p>
+<h2 id="frameworks">Frameworks<a class="headerlink" href="#frameworks" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://www.tensorflow.org/">Tensorflow</a> : most popular, and could be daunting to install, also check out <a href="http://tflearn.org/">TFLearn</a>. <a href="https://keras.io/">Keras</a> became the de-facto high-level layer lately.</li>
+<li><a href="http://torch.ch/">Torch</a> : very easy to use even if you don't know Lua. It also leads you to great tutorials. Also check out <a href="https://github.com/pytorch/pytorch">PyTorch</a>.</li>
+<li><a href="http://deeplearning.net/software/theano/">Theano</a> : grandfather of deep learning frameworks, also check out <a href="http://github.com/Lasagne/Lasagne">Lasagne</a>.</li>
+<li><a href="http://caffe.berkeleyvision.org/">Caffe</a> : probably the fastest among the generic frameworks. It takes you a while to understand the setup/syntax.</li>
+<li><a href="https://github.com/NervanaSystems/neon">Neon</a> : the very speedy neon, it's optimized on modern cards. I don't have a benchmarking between caffe and neon yet, but its MNIST training feels very fast.</li>
+</ol>
+<p>Others: 
+- <a href="https://deeplearning4j.org/">deeplearning4j</a>: obviously in java, but I heard there are great support on enterprise machine learning.</p>
+<h2 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="http://deeplearning.net/tutorial/">Theano Tutorial</a>: a great sets of tutorials and you can run it from CPU.</li>
+<li><a href="https://www.tensorflow.org/versions/r0.10/tutorials/image_recognition/index.html">Tensorflow Tutorial</a> : a very comprehensive sets of tutorial. I don't like it as much as Theano's because some tasks require compilation, which could be fairly painful.</li>
+<li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">char-rnn</a>: not exactly a tutorial but if you want to have <em>fun</em> with deep learning. You should train at least one char-rnn. Note that word-based version is available. The package is also optimized now as torch-rnn. I think char-rnn is also a great starting code for intermediate learners to learn Torch.</li>
+<li>Misc: generally running the examples of a package can teach you a lot. Let's say this is one item.</li>
+</ol>
+<p>Others: I also found <a href="http://yerevann.com/a-guide-to-deep-learning/">Learning Guide from YeravaNN's lab</a> to be fairly impressive. There is ranked resource list on several different topics, which is similar to the spirit of my list. </p>
+<h2 id="mailing-lists">Mailing Lists<a class="headerlink" href="#mailing-lists" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="http://aidl.io/">(Shameless Plug) AIDL Weekly</a> Curated by me and <a href="https://www.linkedin.com/in/waikit-lau-89129">Waikit Lau</a>, AIDL weekly is a tied-in newsletter of the <a href="https://www.facebook.com/groups/DeepNetGroup/">AIDL Facebook group</a>. We provide in-depth analysis of weekly events of AI and deep learning.</li>
+<li><a href="https://jack-clark.net/2017/03/06/import-ai-issue-31-evolution-meets-deep-learning-busting-ai-hype-and-the-automatic-analysis-of-cities/">Mapping Babel</a> Curated by Jack Clark. I found it entertaining and well-curated. Clark is more in the journalism space and I found his commentary thoughtful.</li>
+<li><a href="https://tinyletter.com/datamachina">Data Machina</a> This is a link only letter. The links are quite quality.</li>
+</ol>
+<p>Of course, there are more newsletter than these three. But I don't normally recommend them. One reason is many "curators" don't always read the original sources before they share the links, which sometimes inadvertently spread faked news to the public. In Issue <a href="http://aidl.io/issues/4#start">#4 of AIDL Weekly</a>, I described one of such incidences. So you are warned! </p>
+<h2 id="facebook-forums">Facebook Forums<a class="headerlink" href="#facebook-forums" title="Permanent link">&para;</a></h2>
+<p>That's another category I am going to plug shamelessly. It has to do with most Facebook forums have too much noise and administrator pay too little attention to the group. 
+1. (Shameless Plug) <a href="https://www.facebook.com/groups/DeepNetGroup/">AIDL</a> This is a forum curated by me and <a href="https://www.linkedin.com/in/waikit-lau-89129">Waikit</a>. We like our forum because we actively curate it, delete spam and facilitate discussion within the group. As a result it become one of the most active group. It has 10k+ members. As of this writing, we have a tied-in mailing list as well as a weekly show.
+2. <a href="https://www.facebook.com/groups/DeepLearnng/">Deep Learning</a> Deep Learning has comparable size as AIDL, but less active, perhaps because the administrators use Korean. I still find some of the links interesting and use the group a lot before administering AIDL.
+3. <a href="https://www.facebook.com/groups/1738168866424224/">Deep Learning/AI</a> Curated by <a href="https://www.facebook.com/sid027">Sid Dharth</a> and <a href="https://www.facebook.com/ish.girwan?fref=pb_other">Ish Girwan</a>. DLAI follows very similar philosophy and Sid control posting tightly. I think his group will be one of the up-and-coming group next year.
+4. <a href="https://www.facebook.com/groups/strongartificialintelligence/">Strong Artificial Intelligence </a> This is less about deep learning, but more on AI. It is perhaps the biggest FB group on AI, its membership stabilized but posting is solid and there are still some life in discussion. I like the more philosophical ends of the posts which AIDL usually refrained from.</p>
+<h2 id="non-trivial-mathematics-you-should-know">Non-trivial Mathematics You should Know<a class="headerlink" href="#non-trivial-mathematics-you-should-know" title="Permanent link">&para;</a></h2>
+<p>Due to popular demand, this section is what I would say a bit on the most relevant Math which you need to know. Everyone knows that Math is useful, and yes, stuffs like Calculus, Linear Algebra, Probability and Statistics are super useful too. But then I think they are too general, so I will name several specific topics which turns out to be very useful, but not very well taught in school. 
+1. Bayes' Theorem: Bayes' theorem is important not only as a simple rule which you will use it all the time. The high school version usually just ask you to reverse the end of probabilities. But once it is apply in reasoning, you will need to be very clear how to interpret terms such as likelihood and priors. It's also very important what the term Bayesian really means, and why people see it as better than frequentist. All these thinking if you don't know Bayes' rules, you are going to get very confused.
+2. Properties of Multi-variate Gaussian Distribution: The one-dimensional Gaussian distribution is an interesting mathematical quantity. If you try to integrate it, it will be one of the integrals you quickly you can't integrate it in trivial way. That's the point you want to learn the <a href="/grandjanitor/2016/01/04/the-probability-integral-2/">probability integral</a> and how it was integrated. Of course, once you need to work on multi-variate Gaussian, then you will need to learn further properties such as diagonalizing the covariance matrix and all the jazz. Those are non-trivial Math. But if you master them, it will helps you work through more difficult problems in PRML.
+3. Matrix differentiation : You can differentiate all right, but once it comes to vector/matrix, even the notation seems to be different from your college Calculus. No doubt, matrix differentiation is seldom taught in school. So always refer to useful guide such as <a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">Matrix Cook Book</a>, then you will be less confused. (<a href="http://www.ee.ic.ac.uk/hp/staff/dmb/matrix/intro.html">Matrix reference manual</a> is also good. )
+4. Calculus of Variation: If you want to find the best value which optimize a function you use Calculus, if you want to find the best function/path which optimize a functional, you use Calculus of Variation. For the most part, <a href="https://en.wikipedia.org/wiki/Calculus_of_variations#Euler.E2.80.93Lagrange_equation">Euler-Langrange equation</a> is what you need.
+5. Information theory: information theory is widely used in machine learning. More importantly the reasoning and thinking can be found everywhere. e.g. Why do you want to optimize cross-entropy, instead of square error? Not only<a href="https://jamesmccaffrey.wordpress.com/2013/11/05/why-you-should-use-cross-entropy-error-instead-of-classification-error-or-mean-squared-error-for-neural-network-classifier-training/">square error over-penalize incorrect outputs</a>. You can also think of cross-entropy is learning from the <em>surprise</em> of a mistake.</p>
+<h1 id="blogs-you-should-read">Blogs You Should Read<a class="headerlink" href="#blogs-you-should-read" title="Permanent link">&para;</a></h1>
+<ol>
+<li><a href="http://colah.github.io/">Chris Olah's Blog</a> Olah has great capability to express very difficult mathematical concepts to lay audience. I greatly benefit from his articles on LSTM and computational graph. He also makes me understand learning topology is fun and profitable.</li>
+<li><a href="http://karpathy.github.io/">Andrew Karparthy's Blog </a> If you hadn't read "<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">The Unreasonable Effectiveness of Recurrent Neural Networks</a>", you should. Karparthy's articles show both great enthusiasm on the topic and very good grasp on the principle. I also like his article on reinforcement learning.</li>
+<li><a href="http://www.wildml.com/about/">WildML</a> Written by Danny Britz, he is perhaps less well-known than either Olah or Karparthy, but he enunciate many topics well. For example, I enjoy his explanation on GRU/LSTM a lot.</li>
+<li><a href="http://www.computervisionblog.com/">Tombone's Computer Vision Blog</a> Written by Tomasz Malisiewicz. This is the first few blogs I read about computer vision, Malisiewicz has great insight on machine learning algorithms and computer vision. Many of his articles give insightful comments on relationship between ML techniques.</li>
+<li><a href="http://blog.shakirm.com/">The Spectactor </a>written by Shakir Mohamad. This is my goto page on mathematical statistics as well as theoretial basis of deep learning techniques. Check out his thought on what make a ML technique deep, as well as his tricks in machine learning.</li>
+</ol>
+<p>That's it for now. Check out this page and I might update with more contents. Arthur</p>
+<p>This post is first published at <a href="/grandjanitor/2016/08/15/learning-deep-learning-my-top-five-resource/">http://thegrandjanitor.com/2016/08/15/learning-deep-learning-my-top-five-resource/</a>.</p>
+<p>You might also like <a href="/grandjanitor/2016/05/21/learning-machine-learning-some-personal-experience/">Learning Machine Learning, Some Personal Experience</a>.</p>
+<p>If you like this message, subscribe the Grand Janitor Blog's RSS feed. You can also find me at <a href="https://twitter.com/arthchan2003">twitter</a>, <a href="https://www.linkedin.com/in/arthchan2003">LinkedIn</a>, <a href="https://plus.google.com/">Plus</a>, <a href="https://clarity.fm/arthurchan">Clarity.fm</a>. Together with <a href="https://www.linkedin.com/in/waikit-lau-89129?authType=OPENLINK&amp;authToken=ECvg&amp;locale=en_US&amp;srchid=32591551472085290618&amp;srchindex=1&amp;srchtotal=1&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId%3A32591551472085290618%2CVSRPtargetId%3A58285%2CVSRPcmpt%3Aprimary%2CVSRPnm%3Atrue%2CauthType%3AOPENLINK">Waikit Lau</a>, I maintain the <a href="https://www.facebook.com/groups/DeepNetGroup/">Deep Learning Facebook forum</a>. Also check out my awesome employer: <a href="https://www.linkedin.com/company/9382025?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A9382025%2Cidx%3A2-1-2%2CtarId%3A1472085172997%2Ctas%3Avoci">Voci</a>.</p>
+<p>(20160817): I change the title couple of times, because this is more like a top-5 list of a list. So I retitled the post as "top-five resource", "top-five", now I settled to use "top-five list", which is a misnomer but close enough.</p>
+<p>(20160817): Fixed couple of typos/wording issues.</p>
+<p>(20160824): Add a section on important Math to learn.</p>
+<p>(20160826): Fixed Typos, etc.</p>
+<p>(20160904): Fixed Typos</p>
+<p>(20161002): Changed the section on books to link to my article on NNDL. Added a section on must-follow blogs.</p>
+<p>(20170128): As I go deep on Socher's lectures, I boost up his class ranking to number 3. I also made Karparthay's lecture into rank number 2. I think Silver's class is important but the material is too advanced, and perhaps less of importance for deep learning learners. (It is more about reinforcement learning when you look at it closely.) Hinton's class is absolutely crucial but it requires more mathematical understanding than Karparthay's class. Thus the ranking.</p>
+<p>I also 2 more classes (NYU, MIT) to check out and 2 more as references (VTech and UA).</p>
+<p>(20161207): Added descriptions of Li, Karparthy and Johnson's class, Added description of Silver's class.</p>
+<p>(20170310): Add "Philosophy", "Top-Five of Top-Five", "Top-Five Mailing List", "Top-Five Forums". Adjusted description on Socher's class, linked a quick impression on GoodFellow's "Deep Learning".</p>
+<p>(20170312): Add Oxford NLP class, Berkeley's Deep RL into the mix.</p>
+<p>(20170319): Add the Udacity's course into the mix. I think next version I might have a separate section on reinforcement learning.</p>
+<p>(20170326): I did another rewrite last two weeks mainly because there are many new lectures released during Spring 2017. Here is a summary: </p>
+<ul>
+<li>I separate all "Courses/Lectures" session to two tracks: "Basic Deep Learning" and "Reinforcement Learning". It's more a decluttering of links. I also believe reinforcement learning should be separate track because it requires more specialized algorithms.</li>
+<li>On the "Basic Deep Learning" track, ranking has change. It was Ng's, cs231n, cs224d, Hinton's, Silver's, now it becomes Ng's, cs231n, cs224d, Silvers's, Hinton's. As I go deep into Hinton's class, I found that it has more difficult concepts. Both Silver's and Hinton's class are more difficult than the first 3 IMO.</li>
+<li>I also gives some basic description on the U. of Amsterdam's class. I don't know much about it yet, but it's refreshing because it gives different presentation from the "Basic 5" I recommend.</li>
+</ul>
+<p>(20170412): I finished Hinton's NNML, added Berkley CS294-131 into the mix.</p>
+<p>(20170620): Links up "Top-5" List with "Basic 5". Added a list of AI, added link to my MOOC list.</p>
+<p>(20170816): Added deeplearning.ai into Basic 5. It becomes the new official recommendation to AIDL newcomers.</p>
+<p>(20171126): Added several ML classes. Added Stats 385 into the considered list.</p>
+<p>Appendix: Links to process: http://ai.berkeley.edu/lecture_videos.html</p>
+<hr />
+<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h2>
+<p><strong>grandjanitor</strong> (2017-09-20):</p>
+<p>Hey Khayrat,</p>
+<p>I genuinely hope that my articles help you. The strength of the top-5 list I'd say is that its suggested course sequence of learning is quite reasonable for anyone who has college-level calculus. And I'd assume with persistence, you can go quite far just by taking classes.</p>
+<p>In any case, I hope you have good luck.</p>
+<p>Thanks, Arthur</p>
+<p><strong>Khayrat Glende</strong> (2017-09-18):</p>
+<p>Hi Arthur, thank you for sharing your insights. I'm a beginner to ML and fulltime developer with basic math. I've just finished Andrew Ng's ML-course for the second time with an interruption of 3 years where I tried to learn the math, but sadly get confused with where to start and what to learn in which order and made little progress. Also I could follow the explanations in the Andrew's course quit easily, I felt I need more insight. Now is my second attempt to ML and I plan to learn the needed math along the way. Now I was looking for how to proceed . I was thinking about Yaser Abu-Mostafi's course at edx and then turn to the new deeplearning.ia from Andrew. But after reading your advise I think the best way to proceed as you suggested. Best Regards, Khayrat</p>
+<p><strong>Anilkumar ES</strong> (2017-08-18):</p>
+<p>Really Very useful information. Thanks a lot! But I am not able to subscribe for new letter. Could you please check it once.</p>
+<p>Thank you Anil</p>
+<blockquote>
+<p><strong>grandjanitor</strong> (2017-08-18):</p>
+<p>Yeah.. My own blog's newsletter subscription is kind of broken. So I might want to remove the options.</p>
+<p>I would suggest you to subscribe<a href="http://www.aidl.io">AIDL Weekly</a>, which is also written by me. Thanks!</p>
+</blockquote>
+<p><strong>grandjanitor</strong> (2017-08-17):</p>
+<p>Sure. I will take a look. Thanks!</p>
+<p><strong>TanDo</strong> (2017-08-17):</p>
+<p>Awesome reviews and suggestion. Thank you for your article. But I can not subscribe to your blog. Could you please check it ?</p>
+<p><strong>grandjanitor</strong> (2016-08-26):</p>
+<p>People adapt NN differently in different applications. e.g. ReLU is usually used in CNN but seldom used in RNN. That's because the ReLU, together with the multiplicative nature of errors could easily blow up the training. On architecture, you may also find that the optimal architecture is application-based and is driven by experiments heavily.</p>
+<p>Saying so it doesn't mean you can't use RNN on image recognition , nor you can't use CNN on NLP. It just requires very special care of how you model.</p>
+<p><strong>grandjanitor</strong> (2017-04-12):</p>
+<p>You are welcome, chetan. Hope this is useful for you.</p>
+<p><strong>chetan</strong> (2017-04-12):</p>
+<p>Thanks for sharing this detailed information about Deep Learning. I am pretty thankful to have you in my network over Fb and thanks again for helping people with your knowledge around the globe.</p>
+<p><strong>johan</strong> (2016-08-26):</p>
+<p>this is so awesome resource. thank you for sharing this. i have also just begun my masters (post-grad) research in machine learning (neural networks). i have background of bachelors in electrical engineering.</p>
+<p>i have a question of 'how to' nature for research. should the optimization in the neural network algorithm be application specific or should it be general? so for-example, should the application dictate which function of the algorithm be optimized to achieve better results or should one optimize the algorithm in general and then compare it for any application?</p>
+<p><strong>unkle</strong> (2016-08-16):</p>
+<p>You should check out https://www.kadenze.com/courses/creative-applications-of-deep-learning-with-tensorflow/info for some really impressive videos and the related course github: https://github.com/pkmital/CADL/ - with complete lecture transcripts in python notebooks.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

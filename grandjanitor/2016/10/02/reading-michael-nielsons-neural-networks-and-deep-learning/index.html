@@ -1,0 +1,1268 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2016/10/02/reading-michael-nielsons-neural-networks-and-deep-learning/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Reading Michael Nielsen's "Neural Networks and Deep Learning" - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reading-michael-nielsens-neural-networks-and-deep-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reading Michael Nielsen's "Neural Networks and Deep Learning"
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="reading-michael-nielsens-neural-networks-and-deep-learning">Reading Michael Nielsen's "Neural Networks and Deep Learning"<a class="headerlink" href="#reading-michael-nielsens-neural-networks-and-deep-learning" title="Permanent link">&para;</a></h1>
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>Let me preface this article: after I wrote <a href="/grandjanitor/2016/08/15/learning-deep-learning-my-top-five-resource/">my top five list on deep learning resources</a>, one oft-asked question is "What is the Math prerequisites to learn deep learning?" My first answer is Calculus and Linear Algebra, but then I will qualify certain techniques of Calculus and Linear Algebra are more useful. e.g. you should already know gradient, differentiation, partial differentiation and <a href="https://en.wikipedia.org/wiki/Lagrange_multiplier">Lagrange multipliers</a>, you should know <a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">matrix differentiation</a> and preferably <a href="http://nonconditional.com/2012/06/the-trace-trick-for-gaussian-log-likelihood/">trace trick</a> , <a href="https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix">eigen-decomposition</a> and such. If your goal is to understand machine learning in general, then having good skills in integrations and knowledge in analysis helps. e.g. 1-2 stars problems of Chapter 2 at <a href="https://www.microsoft.com/en-us/research/people/cmbishop/">PRML</a> [1] requires some knowledge of advanced function such as gamma, beta. Having some Math would help you go through these questions more easily. </p>
+<p>Nevertheless, I find that people who want to learn Math first before approaching deep learning miss the point. Many engineering topics was not motivated by pure mathematical pursuit. More often than not, an engineering field is motivated by a physical observation. Mathematics is more like an aid to imagine and create a new solution. In the case of deep learning. If you listen to <a href="https://en.wikipedia.org/wiki/Geoffrey_Hinton">Hinton</a>, he would often say he tries to first come up an idea and makes it work mathematically later. His insistence of working on neural networks at the time of kernel method stems more from his observation of the brain. "If the brain can do it, how come we can't?" should be a question you ask every day when you run a deep learning algorithm. I think <em>these observations are fundamental</em> to deep learning. And you should go through arguments of why people think neural networks are worthwhile in the first place. Reading classic papers from<a href="http://hubel.med.harvard.edu/papers/HubelWiesel1962Jphysiol.pdf">Wiesel and Hubel</a> helps. <a href="http://www.andreykurenkov.com/writing/a-brief-history-of-neural-nets-and-deep-learning/">Understanding the history of neural network </a>helps. Once you read these materials, you will quickly grasp the big picture of much development of deep learning.</p>
+<p>Saying so, I think there are certain topics which are fundamental in deep learning. They are not necessarily very mathematical. For example, I will name back propagation [2] as a very fundamental concept which you want to get good at. Now, you may think that's silly. "I know backprop already!" Yes, backprop is probably in every single machine learning class. It will easily give you an illusion that you master the material. But you can always learn more about a fundamental concept. And back propagation is important theoretically and practically. You will encounter back propagation either as a user of deep learning tools, a writer of a deep learning framework or an innovator of new algorithm. So a thorough understanding of backprop is very important, and one course is not enough.</p>
+<p>This very long digression finally brings me to the great introductory book <a href="http://neuralnetworksanddeeplearning.com/">Michael Nielson's <em>Neural Network and Deep Learning</em></a> (NNDL) The reason why I think Nielson's book is important is that it offers an alternative discussion of back propagation as an algorithm. So I will use the rest of the article to explain why I appreciate the book so much and recommend nearly all beginning or intermediate learners of deep learning to read it. </p>
+<h1 id="first-impression">First Impression<a class="headerlink" href="#first-impression" title="Permanent link">&para;</a></h1>
+<p>I first learned about "Neural Network and Deep Learning" (NNDL) from going through Tensorflow's tutorial. My first thought is "ah, another blogger tries to cover neural network". i.e. I didn't think it was promising. At that time, there were already plenty of articles about deep learning. Unfortunately, they often repeat the same topics without bringing anything new. </p>
+<h1 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">&para;</a></h1>
+<p>Don't make my mistake! NNDL is a great introductory book which balance theory and practice of deep neural network. The book has 6 chapters: 
+1. <a href="http://neuralnetworksanddeeplearning.com/chap1.html">Using neural network to recognize digits</a> - the basic of neural network, a basic implementation using python (network.py)
+2. <a href="http://neuralnetworksanddeeplearning.com/chap2.html">How the backpropagation algorithm works</a> - various explanation(s) of back propagation
+3. <a href="http://neuralnetworksanddeeplearning.com/chap3.html">Improving the way neural networks learn</a> - standard improvements of the simple back propagation, another implementation in python (network2.py)
+4. <a href="http://neuralnetworksanddeeplearning.com/chap4.html">A visual proof that neural nets can compute any function</a> - universal approximation algorithm without the Math, plus fun games which you can approximate function yourself
+5. <a href="http://neuralnetworksanddeeplearning.com/chap5.html">Why are deep neural networks hard to train?</a> - practical difficultie of using back propagation, <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">vanishing gradients</a>
+6. <a href="http://neuralnetworksanddeeplearning.com/chap6.html">Deep Learning</a> - <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">convolution neural network </a>(CNN), the final implementation based on Theano (network3.py), recent advances in deep learning (circa 2015).</p>
+<p>The accompanied python scripts are the gems of the book. network.py and network2.py can run in plain-old python. You need Theano on network3.py, but I think the strength of the book really lies on network.py and network2.py (Chapter 1 to 3) because if you want to learn CNN, <a href="http://cs231n.github.io/convolutional-networks/">Kaparthy's lectures </a>probably gives you bang for your buck. </p>
+<h1 id="why-i-like-nielsens-treatment-of-back-propagation">Why I like Nielsen's Treatment of Back Propagation?<a class="headerlink" href="#why-i-like-nielsens-treatment-of-back-propagation" title="Permanent link">&para;</a></h1>
+<p>Reading Nielson's exposition of neural network is the sixth time I learn about the basic formulation of back propagation [see footnote 3]. So what's the difference between his treatment and my other reads then?</p>
+<p>Forget about my first two reads because I didn't care enough neural networks enough to know why back propagation is so named. But my latter reads pretty much give me the same impression of neural network: "a neural network is merely a stacking of logistic functions. So how do you train the system? Oh, just differentiate the loss functions, the rest is technicalities." Usually the books will guide you to verify certain formulae in the text. Of course, you will be guided to deduce that "error" is actually "propagating backward" from a network. Let us call this view <em>network-level</em> view. In a <em>network-level</em> view, you really don't care about how individual neurons operate. All you care is to see neural network as yet another machine learning algorithm.</p>
+<p>The problem of network level view is that it doesn't quite explain a lot of phenomena about back propagation. * Why is it so slow some time? Why certain initialization schemes matter?*  Nielsen does an incredibly good job to break down the standard equations into 4 fundamental equations (BP1 to BP4 in Chapter2). Once interpret them, you will realize "Oh, saturation is really a big problem in back propagation" and "Oh, of course you have to initialize the weights of neural network with non-zero values. Or else nothing propagate/back propagate!" These insights, while not mathematical in nature and can be understood with college calculus, is deeper understanding about back propagation.</p>
+<p>Another valuable part about Nielsen's explanation is that it comes with a accessible implementation. His first implementation (network.py) is a 74 lines python in idiomatic python. By adding print statements on his code, you will quickly grasp on a lot of these daunting equations are implemented in practice. For example, as an exercise, you can try to identify how he implement BP1 to BP4 in network.py. It's true that there are books and implementations about neural network, but the description and implementation don't always come together. Nielsen's presentation is a rare exception. </p>
+<h1 id="other-small-things-i-like">Other Small Things I Like<a class="headerlink" href="#other-small-things-i-like" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Nielsen correctly point out the Del symbol in machine learning is more like a convenient device rather than its more usual meaning like the Del operator in Math.</li>
+<li>In Chapter 4, Nielson mentioned universal approximation of neural network. Unlike standard text book which points you to a bunch of papers with daunting math, Nielsen created a javascript which allows you to approximate functions (!), which I think those are great ways to learn intuition behind the theorem.</li>
+<li>He points out that it's important to differentiate <em>activation</em> and the <em>weighted input</em>. In fact, this point is one thing which can confuse you when reading a derivation of back propagation because textbooks usually use different symbols for activation and weighted input.</li>
+</ul>
+<p>There are many of these insightful comments from the book, I encourage you to read and discover them. </p>
+<h1 id="things-i-dont-like">Things I don't like<a class="headerlink" href="#things-i-dont-like" title="Permanent link">&para;</a></h1>
+<ul>
+<li>There are many exercises of the book. Unfortunately, there is no answer keys. In a way, this make Nielson more an old-style author which encourage readers to think. I guess this is something I don't always like because spending time to think of one single problem forever doesn't always give you better understanding.</li>
+<li>Chapter 6 gives the final implementation in Theano. Unfortunately, there is not much introductory material on Theano within the book. I think this is annoying but forgivable, as Nielson pointed out, it's harder to introduce Theano and introductory book. I would think anyone interested in Theano should probably go through the standard Theano's tutorial at <a href="http://deeplearning.net/software/theano/tutorial/">here</a> and <a href="http://deeplearning.net/tutorial/">here</a>.</li>
+</ul>
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<p>All-in-all, I highly recommend <em><a href="http://neuralnetworksanddeeplearning.com/chap2.html">Neural Network and Deep Learning </a></em> to any beginning and intermediate learners of deep learning. If this is the first time you learn back propagation, NNDL is a great general introductory book. If you are like me, who already know a thing or two about neural networks, NNDL still have a lot to offer.</p>
+<p>Arthur</p>
+<p>[1] In my view, PRML's problem sets have 3 ratings, 1-star, 2-star and 3-star. 1-star usually requires college-level of Calculus and patient manipulation, 2-star requires some creative thoughts in problem solving or knowledge other than basic Calculus. 3-star are more long-form questions and it could contain multiple 2-star questions in one. For your reference, I solved around 100 out of the 412 questions. Most of them are 1-star questions.</p>
+<p>[2] The other important concept in my mind is gradient descent, and it is still an active research topic.</p>
+<p>[3] The 5 reads before "learnt" it once back in HKUST, read it from Mitchell's book, read it from Duda and Hart, learnt it again from Ng's lecture, read it again from PRML. My 7th is to learn from Karparthy's lecture, he present the material in yet another way. So it's worth your time to look at them.</p>
+<p>If you like this message, subscribe the Grand Janitor Blog's RSS feed. You can also find me (Arthur) at <a href="https://twitter.com/arthchan2003">twitter</a>, <a href="https://www.linkedin.com/in/arthchan2003">LinkedIn</a>, <a href="https://plus.google.com/">Plus</a>, <a href="https://clarity.fm/arthurchan">Clarity.fm</a>. Together with <a href="https://www.linkedin.com/in/waikit-lau-89129?authType=OPENLINK&amp;authToken=ECvg&amp;locale=en_US&amp;srchid=32591551472085290618&amp;srchindex=1&amp;srchtotal=1&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId%3A32591551472085290618%2CVSRPtargetId%3A58285%2CVSRPcmpt%3Aprimary%2CVSRPnm%3Atrue%2CauthType%3AOPENLINK">Waikit Lau</a>, I maintain the <a href="https://www.facebook.com/groups/DeepNetGroup/">Deep Learning Facebook forum</a>. Also check out my awesome employer: <a href="https://www.linkedin.com/company/9382025?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A9382025%2Cidx%3A2-1-2%2CtarId%3A1472085172997%2Ctas%3Avoci">Voci</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

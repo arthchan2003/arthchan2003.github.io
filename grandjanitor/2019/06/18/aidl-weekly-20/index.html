@@ -1,0 +1,1322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/06/18/aidl-weekly-20/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly #20: Did DeepMind Fail to Comply Data Protection Law? - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-20-did-deepmind-fail-to-comply-data-protection-law" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly #20: Did DeepMind Fail to Comply Data Protection Law?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-20-did-deepmind-fail-to-comply-data-protection-law">AIDL Weekly #20: Did DeepMind Fail to Comply Data Protection Law?<a class="headerlink" href="#aidl-weekly-20-did-deepmind-fail-to-comply-data-protection-law" title="Permanent link">&para;</a></h1>
+<p>Artificial Intelligence and Deep Learning Weekly - Issue 20 <a href="http://aidl.io/issues/20/index.html#start">Issue 20 <em>July 7th 2017</em> </a></p>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="patient-privacy-and-deepmind-thoughts-from-your-humble-curators">Patient Privacy and DeepMind - Thoughts from Your Humble Curators<a class="headerlink" href="#patient-privacy-and-deepmind-thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>It's summer! One of us is on vacation, so we have a shorter issue in terms of items (only 8). Yet, there are two long articles. The first is our investigation on the matter of whether DeepMind and Royal Free have violated patient privacy. We will examine both reports from the Independent Commissioner as well as DeepMind's Independent Review Panel.</p>
+<p>The second is a closer look of the growth of Skills on Amazon Alexa. Why are they growing so quickly? Are they real? We will dig into Amazon's current and July's promotion strategy to understand it more.</p>
+<p>Other than the two pieces on DeepMind and Amazon, we also cover 5 blog pages with topics ranged from Kaggle's Adversarial Attack Challenges to Spectrum's piece of "Brain as a Computer".</p>
+<p>As always, if you like our newsletter, please subscribe and forward it to your colleagues!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="sponsor">Sponsor<a class="headerlink" href="#sponsor" title="Permanent link">&para;</a></h2>
+<h3 id="screen-sharing-on-steroids"><a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">Screen Sharing on Steroids</a><a class="headerlink" href="#screen-sharing-on-steroids" title="Permanent link">&para;</a></h3>
+<p><a href="http://i.imgur.com/ds4FU08.gif">Collaborate fully</a> with your team. Works in your browser. No Download. No login. Get up and running in seconds. Integrated with Slack. Don't be like <a href="https://www.youtube.com/watch?v=DYu_bGbZiiQ">them</a>. Just <a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">#GetStuffDone</a></p>
+<p><a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">cyclops.io</a></p>
+<h2 id="sponsor-aidl-weekly-and-reach-thousands-of-ai-deep-learning-researchers-and-developers"><a href="http://aidl.io/sponsorship/index.html">Sponsor AIDL Weekly and reach thousands of A.I. &amp; Deep Learning researchers and developers</a><a class="headerlink" href="#sponsor-aidl-weekly-and-reach-thousands-of-ai-deep-learning-researchers-and-developers" title="Permanent link">&para;</a></h2>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="ico-to-deepmind-just-that-you-can-doesnt-mean-that-you-should"><a href="https://deepmind.com/blog/ico-royal-free/">ICO to DeepMind : "Just That You Can, Doesn't Mean That You Should."</a><a class="headerlink" href="#ico-to-deepmind-just-that-you-can-doesnt-mean-that-you-should" title="Permanent link">&para;</a></h3>
+<p>This week, UK's Independent Commissioner's Office (ICO) said that DeepMind and UK's National Health Service (NHS) "failed to comply the protection law".</p>
+<p>Back in September 2015, DeepMind and The Royal Free London NHS Foundation Trust ("Royal Free") entered into an agreement where Royal Free transferred 1.6 Million records of patient data to DeepMind. In February 2016, such data enabled DeepMind to launch an application called <a href="https://deepmind.com/applied/deepmind-health/working-nhs/how-were-helping-today/">Stream</a>. One objective of Stream is that it can identify and treat <a href="https://www.thinkkidneys.nhs.uk/">acute kidney injury (AKI)</a>.</p>
+<p>In April 2016, New Scientist get hold of the <a href="https://drive.google.com/file/d/0BwQ4esYYFC04NFVTRW12TTFFRFE/view?usp=sharing">agreement</a> and <a href="https://www.newscientist.com/article/2086454-revealed-google-ai-has-access-to-huge-haul-of-nhs-patient-data/">reported the event</a>. They found that the data included sensitive patient information, such as if the patient HIV-positive or drug overdose.</p>
+<p>As a consequence, not only ICO was formed to investigate if DeepMind violates any laws. Another watchdog group, <a href="https://www.gov.uk/government/organisations/national-data-guardian">National Data Guard (NDG)</a> was also investigating the matter, and it concluded in May that DeepMind's handling of 1.6 Million record data has <a href="https://www.theguardian.com/technology/2017/may/16/google-deepmind-16m-patient-record-deal-inappropriate-data-guardian-royal-free">"inappropriate legal basis"</a>.</p>
+<p>That brings us to ICO's decision this Monday. But that's not the end of the story! A turn of event happened two days later - an <a href="https://www.buzzfeed.com/tomchivers/googles-ai-company-didnt-break-the-law-over-nhs-data-report?utm_term=.wwEBBWAD8#.ro1DDno8V">independent review panel decides that DeepMind didn't breach the Data Protection Act</a>. They found "that DMH had acted only as a data processor on behalf of the Royal Free, which has remained the data controller." (<a href="https://deepmind.com/applied/deepmind-health/transparency-independent-reviewers/independent-reviewers/">Source</a>) Yet ICO thinks DeepMind is less absolved.. (quoted from <a href="https://ico.org.uk/media/action-weve-taken/undertakings/2014353/undertaking-cover-letter-revised-04072017-to-first-person.pdf">ICO letter</a>) </p>
+<blockquote>
+<p>The processing of patient records by DeepMind significantly differs from what data subjects might reasonably have expected to happen to their data when presenting at the Royal Free for treatment.</p>
+</blockquote>
+<p>For example, patients present due to accidents or receiving radiology, had no prior agreement with Royal Free to share their data. In the view of ICO, it violated UK <a href="https://en.wikipedia.org/wiki/Data_Protection_Act_1998">Data Protection Act</a>'s Principle One: Personal data shall be processed fairly and lawfully. Similarly, the ICO found that there are 3 more principles from the Act were violated by DeepMind.</p>
+<hr />
+<p>While <a href="https://www.buzzfeed.com/tomchivers/googles-ai-company-didnt-break-the-law-over-nhs-data-report?utm_term=.wwEBBWAD8#.ro1DDno8V">some experts commended</a> the effort of DeepMind setting up an independent panel, the ICO's investigation gave an impression that the DeepMind-Royal Free deal was hastily done and were in violation.</p>
+<p>Given the size of data and the prominence of the group, one would think the brilliant DeepMind decision makers would be more careful here e.g. Shouldn't they check if the patient has consent of their data being used? Shouldn't the patient be informed if their record is shared? It didn't seem to be the case.</p>
+<p>Perhaps more frustrating is that many DeepMind's development on patient privacy seems to all happen after the fact. e.g. the <a href="https://deepmind.com/blog/trust-confidence-verifiable-data-audit/">confidential patient record based on blockchain</a> happened only this year after the probing.</p>
+<p>When it comes to applying machine learning on healthcare, the whole DeepMind-Royal Free incident reminds us that patient data is very different than other types of data. We share the view of the Information Commissioner, <a href="https://iconewsblog.wordpress.com/category/Elizabeth-Denham/">Elizabeth Denham</a>. Really, <a href="https://iconewsblog.wordpress.com/2017/07/03/four-lessons-nhs-trusts-can-learn-from-the-royal-free-case/">"It’s not a choice between privacy or innovation"</a>, if DeepMind didn't rush, they could have come up with a fool-proof solution.</p>
+<p>As a final word and rephrasing Denham's another lesson - Just that you can do Deep Learning, <strong>doesn't mean you should.</strong></p>
+<p>Acknowledgement: We thank AIDL member Stuart Gray for bringing up the issue to the forum.</p>
+<p>Reference: 
+- <a href="https://www.newscientist.com/article/2086454-revealed-google-ai-has-access-to-huge-haul-of-nhs-patient-data/">New Scientist's Original Article Back in April 2016</a>
+- <a href="https://socialdialogue.gov.mt/en/Documents/Entities/data-protection-principles.pdf">UK Data Protection Principle</a>
+- <a href="https://www.theguardian.com/technology/2017/may/16/google-deepmind-16m-patient-record-deal-inappropriate-data-guardian-royal-free">National Data Guard's take of the matter</a>
+- <a href="https://ico.org.uk/about-the-ico/news-and-events/news-and-blogs/2017/07/royal-free-google-deepmind-trial-failed-to-comply-with-data-protection-law/">ICO decision</a>
+- <a href="https://ico.org.uk/media/action-weve-taken/undertakings/2014353/undertaking-cover-letter-revised-04072017-to-first-person.pdf">ICO letter</a>
+- <a href="https://ico.org.uk/media/action-weve-taken/undertakings/2014352/royal-free-undertaking-03072017.pdf">ICO undertaking</a>
+- <a href="https://iconewsblog.wordpress.com/2017/07/03/four-lessons-nhs-trusts-can-learn-from-the-royal-free-case/">ICO Forth Lessons Learn</a>
+- <a href="https://deepmind.com/blog/ico-royal-free/">DeepMind Response to ICO</a>
+- <a href="https://deepmind.com/applied/deepmind-health/transparency-independent-reviewers/independent-reviewers/">DeepMind Independent Reviewers</a>
+- <a href="https://deepmind.com/documents/85/DeepMind%20Health%20Independent%20Review%20Annual%20Report%202017.pdf">DeepMind Independent Reviewers' Annual Report</a>
+- <a href="https://deepmind.com/blog/trust-confidence-verifiable-data-audit/">DeepMind's Verifiable Data Audit</a></p>
+<p><a href="https://deepmind.com/blog/ico-royal-free/">deepmind.com</a></p>
+<hr />
+<h3 id="closer-look-at-amazon-skills-growth-number"><a href="https://techcrunch.com/2017/07/03/amazons-alexa-passes-15000-skills-up-from-10000-in-february/">Closer Look at Amazon Skills Growth Number. </a><a class="headerlink" href="#closer-look-at-amazon-skills-growth-number" title="Permanent link">&para;</a></h3>
+<p>Amazon has grown its Skills from 10000 to 15000 in the past few short months.</p>
+<p>What do the numbers mean? We will use this <a href="https://www.wired.com/2017/02/amazon-alexa-hits-10000-skills-plenty-room-grow/">Wired piece</a> as the basis of our analysis. 
+- First of all, skills were first reported around the end of 2015 with 135 skills, but at the end of 2016, the number grew to ~7000 skills. So we are talking about ~600 skills/month growth.
+- Yet we also know that in January 2017, 3000 more skills appeared. That brought the skills number to 10000 in the Wired piece.
+- Now there are 4 calendar months from February to June. So we know that the growth in last 4 months is ~1250 skills/month.</p>
+<p>So the first conclusion you may draw is that "Wow! Skill's growth in the last 4 months is faster than the average growth last year!" That's very tempting. But then smart <a href="https://www.facebook.com/groups/DeepNetGroup/">AIDL members</a> remind us that in June, Amazon was running a promotion to <a href="https://github.com/alexa/skill-sample-nodejs-fact">give away 2500 Echoes for developers who publish a new Skill</a>. So let's assume each developer publish 1 skill and we discount exactly 2500 skills from the Feb-Jun numbers, we are really talking about ~600 skills/month, which doesn't seem to be too different from the numbers from 2016.</p>
+<p>Now one question you should also ask is did Amazon run any other promotions before June? Yes there was, from our discussion with members who are developers, Amazon gave out Echo Dot to hackathons if you publish several Skills. There are also incentives for top-performing <a href="https://techcrunch.com/2017/05/16/amazon-begins-rewarding-top-performing-alexa-skill-developers-with-direct-payments/">Skill developers</a>. But it's hard to imagine their effect is bigger than the 2500-Echo give away.</p>
+<p>Btw, Amazon is giving out <a href="https://developer.amazon.com/alexa-skills-kit/alexa-developer-skill-promotion">5000 Echoes</a> in July too. They also provide templates for developers to speed up the process. So perhaps, next month we will see the number of Skills swell to ...... 15000+5000=20000.</p>
+<p>In terms of numbers, Amazon has seemingly huge advantage of number of Skills compare to Google's and Microsoft's. Such number is boosted by on-going marketing campaign. In our view, this is classical vanity metric marketing, like when iOS reported 1M apps in the App Store but it works as it gets coverage. Coverage begets legitimacy in the eyes of consumers.</p>
+<p>Acknowledgement: We thank AIDL member Stuart Gray for mentioning Amazon's June promotion to us.</p>
+<p><a href="https://techcrunch.com/2017/07/03/amazons-alexa-passes-15000-skills-up-from-10000-in-february/">techcrunch.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="nips-2017-non-targeted-adversarial-attack"><a href="https://www.kaggle.com/c/nips-2017-non-targeted-adversarial-attack">NIPS 2017: Non-targeted Adversarial Attack</a><a class="headerlink" href="#nips-2017-non-targeted-adversarial-attack" title="Permanent link">&para;</a></h3>
+<p>Woohoo! Google Brain is organizing a new Kaggle challenge, called Non-targeted Adversarial Attack Challenges (NAAC) on adversarial images. Of the three tasks, two is about creating images which can attack an existing system. The other is about defend against adversarial attack. The task is part of the NIPS 2017 competition track and it will last for three months.</p>
+<p>Why would Brain want to organize such a task? Perhaps the elephant in the room is that adversarial attack is a sore point of all known deep learning systems, and some of the adversarial images can be embarrassingly different from the recognized class. In the past, such images are usually generated by the researchers, but in the scale of Google, it's possible that they might be observing some of these images in the wild.</p>
+<p><a href="https://www.kaggle.com/c/nips-2017-non-targeted-adversarial-attack">kaggle.com</a></p>
+<hr />
+<h3 id="the-brain-as-a-computer"><a href="http://spectrum.ieee.org/computing/hardware/the-brain-as-computer-bad-at-math-good-at-everything-else">The Brain as a Computer</a><a class="headerlink" href="#the-brain-as-a-computer" title="Permanent link">&para;</a></h3>
+<p>Here's one interesting article describing various efforts of brain-inspired chip development by Prof. <a href="https://www.kip.uni-heidelberg.de/user/meierk/?lang=en">Karlheinz Meier</a> who is also co-director of the <a href="https://www.humanbrainproject.eu/en/">Human Brain Project (HBP)</a>.</p>
+<p>Let's back up a little bit, why would people want to simulate the brain then? For the most part, understanding the brain.</p>
+<p>Our understanding of brain is still fairly primitive. That's why quite a portion of neuroscientists believe to further understand brain, a full simulation of brain is necessary. That's what <a href="https://www.humanbrainproject.eu/en/">Human Brain Project (HBP)</a> supposed to do. But unlike other big science projects such as Human Genome Project, HBP is more controversial because the resource required is huge. As you can read from the article, it takes a <a href="http://www.riken.jp/en/pr/press/2013/20130802_1/">supercomputer to simulate 1.73 billion nerve cells connected by 10.4 trillion synapses couple of year ago</a>. This is only ~2% of all number of cells in the brain (the latest number is <a href="http://www.riken.jp/en/pr/press/2013/20130802_1/">86 billion</a> and the model is crude. Is it worthwhile to dedicate such resource? That's a great question many people are pondering.</p>
+<p>Regardless, perhaps one important benefit of learning about brain structure is that we might be able to emulate the brain structure with circuits. In this piece, Prof. Meier discussed three neuromorphic systems, SpiNNaker, TrueNorth and BrainScaleS. I think it is very educational for people who try to learn the "next big thing" in the ANN world.</p>
+<p><a href="http://spectrum.ieee.org/computing/hardware/the-brain-as-computer-bad-at-math-good-at-everything-else">ieee.org</a></p>
+<hr />
+<h3 id="the-ai-imposter"><a href="https://www.linkedin.com/pulse/ai-impostor-h-r-tizhoosh?trk=v-feed&amp;lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BcZJtBIk1FIUlDgt85t2nfQ%3D%3D">The AI Imposter</a><a class="headerlink" href="#the-ai-imposter" title="Permanent link">&para;</a></h3>
+<p>One of our active Forum members, <a href="https://www.facebook.com/keith.aumiller">Keith Aumiller</a>, once remarked that all our "Humble" posts, like "Humble Administrators" and the current "Humble Curators" (aka AIDL Weekly Editorial) are not that humble at all. That's true and not true. For the most part, while we have a lot of experience working on ML problems and starting new AI companies, we are nowhere on par with professors and researchers who had been pushing the envelope on ML/AI. So calling ourselves "Humble" always feel appropriate to us.</p>
+<p>That brings us to this post: Prof. Tizhoosh's warning about AI Imposter is real. You might see a lot of posts from so-called "Deep Learning Consultants", or the "Influencers" lately. They might be bright in their own field, but their "success" in AI seems overnight. Their "deep understanding" comes from no where. You know when you press them on the detail, "How SMT BLEU scores improve with deep learning?" "How does GAN actually work? Do we really know?" "What is depth in Convnet?" "What do you when you can't use deep learning?" They are tongue-tied and try to switch topics. Or online, they would just come up with controversial posts/comments to hype up their like counts.</p>
+<p>We only agree Prof Tizhoosh's post in principle only, and as AIDL members opine - if experts only confined PhD with 10 years of experience. The bar is just too high to cross. Of course, we also feel that the whole "Turing Imposter test" is weird.</p>
+<p>But to AIDL Members: Beware of AI Imposters. In particular, when you brought up a technical subject in AI, make sure you do know it enough to opine. And for others' sake, <strong>may you be humble too</strong>. You want to help other people for sure. You want to build up your own reputation for sure. But if you don't know something, just say you don't know. The world will become a better place if we present ourselves truthfully.</p>
+<p><a href="https://www.linkedin.com/pulse/ai-impostor-h-r-tizhoosh?trk=v-feed&amp;lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BcZJtBIk1FIUlDgt85t2nfQ%3D%3D">linkedin.com</a></p>
+<hr />
+<h3 id="why-cant-you-guys-comment-your-fking-code"><a href="https://www.reddit.com/r/MachineLearning/comments/6l2esd/d_why_cant_you_guys_comment_your_fucking_code/">Why can't you guys comment your f*king code?</a><a class="headerlink" href="#why-cant-you-guys-comment-your-fking-code" title="Permanent link">&para;</a></h3>
+<p>In this angry post from a redditer, source code of facebook's recent research <a href="https://code.facebook.com/posts/1686672014972296/deal-or-no-deal-training-ai-bots-to-negotiate/end-to-end-negotiator">"Deal or no deal? Training AI bots to negotiate"</a> was harshly criticized. It results in a storm of ~500 comments discussion at Reddit.</p>
+<p>Here is one insightful comment from pdehaan: </p>
+<blockquote>
+<p>I've struggled with some of these issues myself (I'm a programmer first, with an interest in ML). Some general thoughts I've encountered: 
+- Academic papers are by their nature often the wrong place to look if you're trying to grok ideas. Space is at a premium in many publications, so authors are incentivized to write papers that are information dense.
+- A lot of researchers aren't "programmers first". By that I mean they often approach code as a one-off means to an end, not something they're sticking into a real system and responsible for maintaining indefinitely.
+- Related to the above, the audience they're used to communicating to often have similar experience. What's obvious to them (and thus not elaborated on) isn't always going to align with what's obvious to you.</p>
+<p>...that's not to say things shouldn't be improved. Some of the ideas coming out are immensely useful, and improving usability is a valuable activity. This is an area where developers shine - code is what they deal with every day. If you spend time working through shitty uncommented code, improve it.</p>
+<p>Worst case you have better code to work from, but the feedback can also be useful for helping authors to write better code in the future. If they're publishing code, there's at least a decent chance they'll take feedback to heart. Most people don't want to put shitty code out there, but that's not necessarily their area of expertise.</p>
+</blockquote>
+<p>Well said! In our experience, part of your job as a developer is to decode cryptic machine learning source code. Sadly, such skill is one your value proposition as a ML programmer. :)</p>
+<p><a href="https://www.reddit.com/r/MachineLearning/comments/6l2esd/d_why_cant_you_guys_comment_your_fucking_code/">reddit.com</a></p>
+<hr />
+<h3 id="deepmind-edmonton-office"><a href="https://deepmind.com/blog/deepmind-office-canada-edmonton/">DeepMind Edmonton Office</a><a class="headerlink" href="#deepmind-edmonton-office" title="Permanent link">&para;</a></h3>
+<p>Not only Prof. Richard Sutton is the new director, DeepMind also hires 6 researchers who published the <a href="https://www.deepstack.ai/">DeepStack paper</a>. It does sound fairly exciting, may be DeepMind can keep its on-going streak on beating various games in championship level.</p>
+<p><a href="https://deepmind.com/blog/deepmind-office-canada-edmonton/">deepmind.com</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

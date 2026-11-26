@@ -1,0 +1,1313 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/05/28/aidl-weekly-issue-10-f8-brain-computer-interface-apples-sdc-permit/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue 10 - F8, Brain-Computer Interface, Apple's SDC Permit - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-10-f8-brain-computer-interface-apples-sdc-permit" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue 10 - F8, Brain-Computer Interface, Apple's SDC Permit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-10-f8-brain-computer-interface-apples-sdc-permit">AIDL Weekly Issue 10 - F8, Brain-Computer Interface, Apple's SDC Permit<a class="headerlink" href="#aidl-weekly-issue-10-f8-brain-computer-interface-apples-sdc-permit" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>The next big platform everyone will be fighting over is your mind. Check out Elon Musk's Neuralink and Facebook's brain-typing and skin-hearing. </p>
+<p>Last week also featured F8, which happened on April 18th and 19th. F8 gave us another week filled with some far-out news: Augmented reality? Caffe2.ai? Brain computer interface? Check, check and check. We have 4 items in this issue which cover all these cool stuffs.</p>
+<p>We also had a very interesting live-streamed office hour with Sumit Gupta, VP of HPC, AI and Machine Learning at IBM. We went in-depth into what Sumit thinks are bottlenecks in Deep Learning today and other topics. Check out the video below.</p>
+<p>Other than F8 and the IBM interview, we also cover: 
+- Development of SDC, by Apple and Baidu,
+- <a href="https://techcrunch.com/2017/04/20/elon-musks-neuralink-wants-to-turn-cloud-based-ai-into-an-extension-of-our-brains/">Neuralink</a> and its criticism.</p>
+<p>As always, if you like our newsletter, subscribe and forward it to your colleagues!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="facebook-ai-in-augmented-reality"><a href="https://www.wired.com/2017/04/facebooks-augmented-reality-engine-brings-ai-right-phone/">Facebook AI in Augmented Reality</a><a class="headerlink" href="#facebook-ai-in-augmented-reality" title="Permanent link">&para;</a></h3>
+<p>FB is turning to the humble camera as the next platform. FB envisions AR to be universal from simple Snapchat style of face filter to "why buy a physical TV when you can buy a $1 app that <em>is</em> a TV projected in AR?". This path would require lots of visual detection, object recognition and SLAM-type techniques for virtual agents to check their own location and update mapping. As Mark Zuckerberg stressed that AR is Facebook's 2nd Act, AI will also be more the DNA within Facebook. </p>
+<p><a href="https://www.wired.com/2017/04/facebooks-augmented-reality-engine-brings-ai-right-phone/">wired.com</a></p>
+<hr />
+<h3 id="neuroscientists-weigh-in-on-neurolink"><a href="http://spectrum.ieee.org/the-human-os/biomedical/devices/5-neuroscience-experts-weigh-in-on-elon-musks-mysterious-neural-lace-company">Neuroscientists weigh in on Neurolink</a><a class="headerlink" href="#neuroscientists-weigh-in-on-neurolink" title="Permanent link">&para;</a></h3>
+<p>By now, we all learn about <a href="http://www.theverge.com/2017/3/27/15077864/elon-musk-neuralink-brain-computer-interface-ai-cyborgs">Neuralink</a> which is a new company by Elon Musk on creating new <a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface">brain-computer interface (BCI)</a>. If it is the first time you heard about BCI, it is more mature than you thought. For example, <a href="http://www.parkinson.org/understanding-parkinsons/treatment/surgery-treatment-options/Deep-Brain-Stimulation">one treatment of Parkinson's disease</a> is to surgically insert wire into thalamus of the brain and emulate a normal brain stimulus within the region. So far, there are around 150k Parkinson's patients received such treatment. Of course, there are also know cases <a href="https://www.technologyreview.com/s/603512/reached-via-a-mind-reading-device-deeply-paralyzed-patients-say-they-want-to-live/">where a mind-reading device could be implanted</a> to stroke's patients, which allow them to communicate with the outside world. </p>
+<p>On the other hand, any invasive procedures such as surgery can easily cause issues like infections. So usually any BCI technique is used a last resort. And new inventions are usually heavily regulated.</p>
+<p>Musk seems to have a different approach. In the past, one method he mentioned in various conferences/interview (see this <a href="https://twitter.com/elonmusk/status/824182237352562688?ref_src=twsrc%5Etfw&amp;ref_url=http%3A%2F%2Fwww.theverge.com%2F2017%2F3%2F27%2F15077864%2Felon-musk-neuralink-brain-computer-interface-ai-cyborgs">tweet</a>) is <a href="https://techcrunch.com/2017/02/13/elon-musk-reiterates-the-need-for-brain-computer-interfaces-in-the-age-of-ai/">neural lace</a>. Neural lace is more a sci-fi term, it could mean an extremely thin mesh that can be inserted from needle hole.</p>
+<p>How feasible is the plan? Spectrum found 5 experts on the field to discuss the matter. If you check out the links, there are academics who are working on ideas similar to Musk, there are also entrepreneur who has counter opinions, especially the potential medical issues of using neural lace.</p>
+<p>[Edit at 20170421, 3:00 p.m. Fixed a typo.]</p>
+<p><a href="http://spectrum.ieee.org/the-human-os/biomedical/devices/5-neuroscience-experts-weigh-in-on-elon-musks-mysterious-neural-lace-company">ieee.org</a></p>
+<hr />
+<h3 id="facebook-brain-computer-interface-brain-typing-and-skin-hearing"><a href="https://techcrunch.com/2017/04/19/facebook-brain-interface/">Facebook Brain Computer Interface : Brain-Typing and Skin-Hearing</a><a class="headerlink" href="#facebook-brain-computer-interface-brain-typing-and-skin-hearing" title="Permanent link">&para;</a></h3>
+<p>How real is Facebook's <a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface">Brain-Computer Interface</a> (BCI)? Here are several thoughts: 
+- As we mentioned in the Neuralink piece. BCI is already being used in practice and has many genuine applications: brain stimulus of <a href="http://www.parkinson.org/understanding-parkinsons/treatment/surgery-treatment-options/Deep-Brain-Stimulation">Parkinson's patients</a>, reading minds from <a href="https://www.technologyreview.com/s/603512/reached-via-a-mind-reading-device-deeply-paralyzed-patients-say-they-want-to-live/">patents with massive stroke</a>.
+- But what about ideas such as brain-typing or skin-reading? Those are more speculative technologies. For example, brain-typing is usually called <a href="https://en.wikipedia.org/wiki/Imagined_speech">"imagined speech recognition"</a> in literature. Due to the highly noisy nature of <a href="https://en.wikipedia.org/wiki/Electroencephalography">electroencephalogram</a> (EEG) signal, it is very tough to have a good working system. So many existing researches actually used <a href="https://en.wikipedia.org/wiki/Electrocorticography">Electrocorticogram</a>(ECog), which is an invasive procedure. As we discussed in the Neuralink piece, invasive procedure would likely cause complications. In the case of Ecog, around 10% of chance that the procedure would results in <a href="https://www.ncbi.nlm.nih.gov/pubmed/26921853">minor complications</a>. We are also far from complete mind reading - for example most applications are confined to recognize limited vocabularies.
+- Facebook's massive imaging software seems to be a way to resolve this issue. According to their <a href="https://www.facebook.com/careers/jobs/a0I1200000JXr3eEAD/">hiring page</a>, the new technique would base on "optical, RF, ultrasound, or other entirely non-invasive approaches". The issue perhaps is how to do such procedure real-time.
+- Skin-reading on the other hand requires new interface such as acoustic actuators on your skin, that probably requires advanced signal processing techniques such as beam-forming.</p>
+<p>So far, we can conclude that these efforts are more speculative and research in nature. I think both Facebook/Techcrunch seem to report as it is. Facebook stress that they are hiring neuroimaging engineers as well as start to a complete 2 year projects. So none of these details make me think Facebook is hyping it. </p>
+<p>You can contrast Facebook research to Neuralink from Musk, which is a lot more speculative, because it requires a non-invasive procedure to insert interface to the brain.</p>
+<p><a href="https://techcrunch.com/2017/04/19/facebook-brain-interface/">techcrunch.com</a></p>
+<hr />
+<h3 id="apples-official-permit-of-testing-self-driving-car"><a href="http://www.businessinsider.com/apple-officially-testing-self-driving-cars-california-dmv-confirms-2017-4?op=1">Apple's Official Permit of Testing Self-Driving Car</a><a class="headerlink" href="#apples-official-permit-of-testing-self-driving-car" title="Permanent link">&para;</a></h3>
+<p>It's an open secret that Apple is working on a self-driving car. After a well publicized cut-back <a href="http://www.businessinsider.com/apple-officially-testing-self-driving-cars-california-dmv-confirms-2017-4?op=1">last October</a>, Apple is in the game again. </p>
+<p>What should we expect from Apple SDC? 
+- While Google is getting more limelight in its deep learning technology, Apple is unlikely to be too behind. With a recent move of <a href="https://www.bloomberg.com/news/articles/2016-12-06/apple-to-start-publishing-ai-research-to-hasten-deep-learning">revamping its research effort</a>, we expect Apple has similar man-power as Google in deep learning.
+- Perhaps the issues is data. Google (Waymo) has invested a decade of research to collect road data. Remember several Apple's public PR disaster such as Map stemmed from insufficient amount of data.
+- Perhaps what we expect most is the design. Would it follow Johnathan Ive's series of iProducts?</p>
+<p>Interesting enough, we just learned this is also the week - Google is <a href="http://thehill.com/business-a-lobbying/328858-google-taps-new-lobbyist-for-self-driving-cars">hiring lobbyist</a> to push SDC through the administration. Of course, we learn that Baidu just announced <a href="http://www.marketwired.com/press-release/baidu-announces-project-apollo-opening-up-its-autonomous-driving-platform-nasdaq-bidu-2210437.htm">project Apollo</a>, which is the umbrella project of all Baidu hardware and software solutions for SDC. With 30+ players in the field, we will see who win the crown of SDC.</p>
+<p><a href="http://www.businessinsider.com/apple-officially-testing-self-driving-cars-california-dmv-confirms-2017-4?op=1">businessinsider.com</a></p>
+<hr />
+<h3 id="baidus-project-apollo"><a href="http://www.marketwired.com/press-release/baidu-announces-project-apollo-opening-up-its-autonomous-driving-platform-nasdaq-bidu-2210437.htm">Baidu's Project Apollo</a><a class="headerlink" href="#baidus-project-apollo" title="Permanent link">&para;</a></h3>
+<p>Yet another company disclosed their plan on SDC. Codenamed Apollo, Baidu's effort seems extensive: it includes open sourcing hardware and software solutions. On the software stack, Baidu promised to open code and capabilities in obstacle perception, trajectory planning, vehicle control, vehicle operating systems. </p>
+<p>While Baidu received a permit from California last September, it's reasonable to believe that its core market is China. We believe it is more challenging. China leads the on-road car <a href="http://www.worldatlas.com/articles/car-accidents-and-traffic-jams-in-china.html">accidents and causalities</a>, mostly because it has a strained highway infrastructure. Would SDC be operable in such challenging road-condition? It's still left to find out. But for now, California might be a better test bed for Baidu.</p>
+<p><a href="http://www.marketwired.com/press-release/baidu-announces-project-apollo-opening-up-its-autonomous-driving-platform-nasdaq-bidu-2210437.htm">marketwired.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="kaggles-cto-advice-on-studying-ml"><a href="http://blog.kaggle.com/2017/04/17/the-best-sources-to-study-machine-learning-and-ai-with-ben-hamner-kaggle-cto/">Kaggle's CTO advice on studying ML. </a><a class="headerlink" href="#kaggles-cto-advice-on-studying-ml" title="Permanent link">&para;</a></h3>
+<p>Kaggle's CTO, Ben Hamner, shares his view on how to study machine learning. His view echo with ours - you need a lot of practice in getting your ML skill sharpen in practice. </p>
+<p>I think in real-life, having good mathematical and theoretical foundation of machine learning is also important. On that realm, perhaps a reference book such as <a href="https://www.amazon.com/Pattern-Recognition-Learning-Information-Statistics/dp/0387310738">PRML</a> would be helpful.</p>
+<p><a href="http://blog.kaggle.com/2017/04/17/the-best-sources-to-study-machine-learning-and-ai-with-ben-hamner-kaggle-cto/">kaggle.com</a></p>
+<hr />
+<h3 id="reinforcement-learning-vs-evolutionary-strategies"><a href="https://medium.com/@awjuliani/reinforcement-learning-or-evolutionary-strategies-nature-has-a-solution-both-8bc80db539b3">Reinforcement Learning vs Evolutionary Strategies</a><a class="headerlink" href="#reinforcement-learning-vs-evolutionary-strategies" title="Permanent link">&para;</a></h3>
+<p>Arthur Juliani was a developer of Unity3d and currently a researcher in deep learning and cognitive neuroscience. In this interesting article, he argues that reinforcement learning (RL) and evolution strategy (ES) could be methods which coexists with each other. His point of view is purely based on animal's inter/intra-life learning. Which the former is more close the evolution and the latter is close to reinforcement learning, or Juliani refers as the "gradient-based methods". </p>
+<p>I (Arthur Chan) spread this article around. One criticism I heard from member <a href="https://www.facebook.com/StuartGray">Stuart Gray</a>, he found that Juliani seems to mix up current day genetic algorithm/evolutionary method with biological evolution. As you know ES-type of method these days are mostly about optimization in the agent life-time. So perhaps it can also be seen as intra-life learning?</p>
+<p>I think Stuart has a point. I got to agree though the article is interesting enough, because there might room for model which is first-trained by one strategy, and then retrained by others. Perhaps one potential thought is to first train a neural network, then evolve it using <a href="https://en.wikipedia.org/wiki/Neuroevolution">neuroevolution type of method</a>.</p>
+<p>In any case, I found Juliani an interesting author to follow. So go ahead to check out his article.</p>
+<p><a href="https://medium.com/@awjuliani/reinforcement-learning-or-evolutionary-strategies-nature-has-a-solution-both-8bc80db539b3">medium.com</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="caffe2ai"><a href="http://caffe2.ai/blog/2017/04/18/caffe2-open-source-announcement.html">Caffe2.ai</a><a class="headerlink" href="#caffe2ai" title="Permanent link">&para;</a></h3>
+<p>During F8, Facebook <a href="https://venturebeat.com/2017/04/18/facebook-open-sources-caffe2-a-new-deep-learning-framework/">launched a new deep learning framework caffe2</a>, so what's the deal? </p>
+<p>From the documentation so far, caffe2 is more a refactored version of caffe1 with backward compatibility. My first impression of the toolkit is simialr to <a href="https://twitter.com/dennybritz/status/854440840151744512">Denny Britz's</a>: </p>
+<blockquote>
+<p>I see reasons for using PyTorch over TF in certain research but I have a hard time seeing how to justify Caffe2 over TF for production.</p>
+</blockquote>
+<p>which is quite true. I don't see a strong reason why one has to use Caffe2 instead of TF in server environment. But then Facebook positions the framework as more mobile-friendly. For example, in <a href="http://caffe2.ai/blog/2017/04/18/caffe2-open-source-announcement.html">its blog message</a>, Facebook indicated that she has been working with several big companies including Qualcomm and Intel to facilitate caffe2's mobile deployment.</p>
+<p>As the package is still new, it's hard for us to speculate all details of the packages. Let's look for more developer reports in the near future, in particular we should watch out any speed/memory/model compression performance of caffe2.</p>
+<p><a href="http://caffe2.ai/blog/2017/04/18/caffe2-open-source-announcement.html">caffe2.ai</a></p>
+<h2 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h2>
+<h3 id="computer-vision-engineer-at-dishcraft-robotics"><a href="http://www.dishcraft.com/jobs/">Computer Vision Engineer at Dishcraft Robotics</a><a class="headerlink" href="#computer-vision-engineer-at-dishcraft-robotics" title="Permanent link">&para;</a></h3>
+<p>Bay Area-based startup Dishcraft looking for a machine learning engineer. Well-funded by tier-1 brand-name investors (led by First Round Capital) and are doing extremely well. For the right candidate, willing to relocate the person. Looking for basic traditional ML (SVM and boosting). Kaggle experience is a plus, Deep Learning for 2D images and 3D volumetric data (CNN focused), Tensorflow + Keras. Desirable computer vision skills: point cloud processing, signal and image processing, computational photography (familiarity with multi-view geometry and stereo vision, and color processing) </p>
+<p><a href="http://www.dishcraft.com/jobs/">dishcraft.com</a></p>
+<h2 id="have-a-deep-learning-related-position-you-need-to-fill"><a href="http://aidl.io/sponsorship/index.html">Have a Deep Learning related position you need to fill?</a><a class="headerlink" href="#have-a-deep-learning-related-position-you-need-to-fill" title="Permanent link">&para;</a></h2>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<h3 id="f8-keynote-by-mark-zuckerberg-and-more"><a href="https://www.youtube.com/watch?v=YtUye84PuFY">F8: Keynote by Mark Zuckerberg and More</a><a class="headerlink" href="#f8-keynote-by-mark-zuckerberg-and-more" title="Permanent link">&para;</a></h3>
+<p>We talk a lot of F8 this week. There you have it, everything you love from Facebook is here. All the AI stuffs, plus more. Enjoy! </p>
+<p><a href="https://www.youtube.com/watch?v=YtUye84PuFY">youtube.com</a></p>
+<hr />
+<h3 id="aidl-office-hour-episode-7-with-sumit-gupta"><a href="https://www.youtube.com/watch?v=U9pyTMDspWg">AIDL Office Hour Episode 7 With Sumit Gupta</a><a class="headerlink" href="#aidl-office-hour-episode-7-with-sumit-gupta" title="Permanent link">&para;</a></h3>
+<p>We had an awesome video "office hour" session with Sumit Gupta, VP of HPC, AI and Machine Learning at IBM. Sumit was very generous with his time and he shared what IBM is doing on the AI front with PowerAI, insights on where the bottlenecks on AI are today and how, as a beginner/intermediate practitioner, you should think about your career. </p>
+<p>Also, here are the links to what IBM is doing with PowerAI and the Galvanize-IBM hackathon in Bay Area: 
+- <a href="https://www.ibm.biz/powerai">PowerAI overview</a>
+- <a href="http://www.galvanize.com/event/cognitive-builder-faire-san-francisco-4-21-4-23/">Galvanize-IBM Cognitive Builder Faire</a> in SF this weekend</p>
+<p>Thanks Sumit!</p>
+<p><a href="https://www.youtube.com/watch?v=U9pyTMDspWg">youtube.com</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

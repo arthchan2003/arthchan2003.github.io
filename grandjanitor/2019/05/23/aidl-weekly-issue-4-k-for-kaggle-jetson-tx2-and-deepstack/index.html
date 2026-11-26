@@ -1,0 +1,1304 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/05/23/aidl-weekly-issue-4-k-for-kaggle-jetson-tx2-and-deepstack/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue 4: K for Kaggle, Jetson TX2 and DeepStack - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-4-k-for-kaggle-jetson-tx2-and-deepstack" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue 4: K for Kaggle, Jetson TX2 and DeepStack
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-4-k-for-kaggle-jetson-tx2-and-deepstack">AIDL Weekly Issue 4: K for Kaggle, Jetson TX2 and DeepStack<a class="headerlink" href="#aidl-weekly-issue-4-k-for-kaggle-jetson-tx2-and-deepstack" title="Permanent link">&para;</a></h1>
+<p>Thoughts From Your Humble Curators</p>
+<p>Three big news last week: 
+1. <a href="https://techcrunch.com/2017/03/07/google-is-acquiring-data-science-community-kaggle/">Google acquired Kaggle</a>
+2. <a href="https://blogs.nvidia.com/blog/2017/03/07/surrounded-by-ai-devices-that-do-everything-from-flying-to-farming-nvidia-launches-jetson-tx2/">Jetson TX2</a> was out,
+3. Just like its rival Libratus, <a href="http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/texas-holdem-ai-bot-taps-deep-learning-to-demolish-humans">DeepStack</a> made headlines for beating human poker pros.</p>
+<p>In this Editorial though, we want to bring to your attention is this little paper titled "Stopping GAN Violence: Generative Unadversarial Networks". After 1 minute of reading, you would quickly notice that it is a fake paper. But to our dismay, there are newsletters just treat the paper as a serious one. It's obvious that the "editors" hadn't really read the original paper.</p>
+<p>It is another proof point that the current deep learning space is a over-hyped. Similar happened to <a href="https://medium.com/the-mission/rocket-ai-2016s-most-notorious-ai-launch-and-the-problem-with-ai-hype-d7908013f8c9">Rocket AI</a>). You can get a chuckle out of it but if over-done, it could also over-correct when expectations aren't met.</p>
+<p>Perhaps more importantly, as a community we should spend more conscious effort to fact-check and research a source before we share. We at AIDL Weekly, follow this philosophy religiously and all sources we include are carefully checked - that's why our newsletter stands out in the crowd of AI/ML/DL newsletters.</p>
+<p>If you like what we are doing, check out <a href="https://www.facebook.com/groups/DeepNetGroup/">our FB group</a>, our <a href="https://www.youtube.com/channel/UC3YM5TEbSqIpFGH85d6gjKg">YouTube channel</a>.</p>
+<p>And of course, please <a href="http://ctt.ec/oecC4">share</a> this newsletter with friends so they can <a href="https://aidlweekly.curated.co/">subscribe</a> to this newsletter.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h3 id="google-is-acquiring-kaggle"><a href="https://techcrunch.com/2017/03/08/google-confirms-its-acquisition-of-data-science-community-kaggle/">Google is acquiring Kaggle</a><a class="headerlink" href="#google-is-acquiring-kaggle" title="Permanent link">&para;</a></h3>
+<p>First brought up by <a href="https://techcrunch.com/2017/03/07/google-is-acquiring-data-science-community-kaggle/">TechCrunch</a>, Google finally confirmed its acquisition of Kaggle. As you know, Kaggle is the most popular machine learning/data science competition platform. So this move of Google will make the Google's brand and frameworks more entrenched in the data science/machine learning community. We think this is a brilliant acquisition move that helps Google on many levels - recruiting, mindshare, framework dissemination, talent pipelining, etc. </p>
+<p><a href="https://techcrunch.com/2017/03/08/google-confirms-its-acquisition-of-data-science-community-kaggle/">techcrunch.com</a></p>
+<hr />
+<h3 id="jetson-tx2"><a href="https://blogs.nvidia.com/blog/2017/03/07/surrounded-by-ai-devices-that-do-everything-from-flying-to-farming-nvidia-launches-jetson-tx2/">Jetson TX2</a><a class="headerlink" href="#jetson-tx2" title="Permanent link">&para;</a></h3>
+<p>Credit-card sized Jetson TX2 is going to bring embedded deep learning to another level. TX2 has very similar layout as <a href="http://www.nvidia.com/object/embedded-systems-dev-kits-modules.html">TX1</a>. It has a better spec, most notably having 8G memory instead of 4G. So you can think of TX2 as the premium version of the Jetson line of Nvidia products.</p>
+<p>In the future, Nvidia is probably going to replace the old TX1 soon - it reflects from the pricing: TX2 is only $100 more expensive than TX1, at $599, but a volume order for 1000, would only cost $399, which would be $100 cheaper than TX1's retail price.</p>
+<p>One interesting question we may ask. Now that the Jetson line has more memory. How would it match up with cards such as GTX 1080 or even 1080 Ti? We are curious to look at benchmarking results soon.</p>
+<p><a href="https://blogs.nvidia.com/blog/2017/03/07/surrounded-by-ai-devices-that-do-everything-from-flying-to-farming-nvidia-launches-jetson-tx2/">nvidia.com</a></p>
+<hr />
+<p><a href="http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/texas-holdem-ai-bot-taps-deep-learning-to-demolish-humans"><em>[image not recovered: twenty_by_nine_extra_large_8312dc87-98aa-4bf5-9df5-9428b878cdf8.png]</em></a> </p>
+<h3 id="deepstack-demolish-pros"><a href="http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/texas-holdem-ai-bot-taps-deep-learning-to-demolish-humans">DeepStack Demolish Pros</a><a class="headerlink" href="#deepstack-demolish-pros" title="Permanent link">&para;</a></h3>
+<p>After Go, perhaps poker is the next frontier of A.I.. And out of all poker games, no-limit Texas Hold'em is perhaps the most important form for machines to master - it was well-known to be a game of psychology and requires complex strategy. </p>
+<p>As you might recall, <a href="http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/ai-learns-from-mistakes-to-defeat-human-poker-players">CMU's Libratus</a> was also able to beat the pros by 1.7 million US dollars. So how is DeepStack different then?</p>
+<p>For starter, Libratus based its play with end-game solving, which requires a supercomputer to run 15 million core hours. Whereas DeepStack only used a gaming laptop. It doesn't calculate all steps ahead but only few. Instead, what DeepStack doing is similar to <a href="http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html">AlphaGo</a>: As described in their <a href="https://arxiv.org/abs/1701.01724">January arxiv paper</a>, Information including pot size, public cards, and the player card ranges was fed to a 7-layer feedforward neural network. The output of the network is counterfactual values used in counterfactual regret minimization (CFR). DeepStack's FNN requires clustering of player card ranges. The last layer is used to enforce zero-sum properties.</p>
+<p>In layman's terms, this makes DeepStack having human-like intuition on how different card-combinations valued. It turns out such knowledge seems to be as powerful as computation-heavy end-game solving. DeepStack beats 10 out of 11 pros with a significant margin of victory.</p>
+<p>Last thing to mention, the workflow of Libratus requires human in the loop to remove repeated patterns daily. DeepStack doesn't have such requirements. So while DeepStack is less publicized, we found it at least as interesting as the Libratus effort.</p>
+<p>(Diagram Credit: p.9 of "DeepStack: Expert-Level Artificial Intelligence in Heads-Up No-Limit Poker" by Matej Moravcik et al)</p>
+<p><a href="http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/texas-holdem-ai-bot-taps-deep-learning-to-demolish-humans">ieee.org</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="tensorflow-xla-explained"><a href="https://developers.googleblog.com/2017/03/xla-tensorflow-compiled.html">Tensorflow XLA Explained</a><a class="headerlink" href="#tensorflow-xla-explained" title="Permanent link">&para;</a></h3>
+<p>As you might recall, <a href="http://venturebeat.com/2017/02/15/google-releases-tensorflow-1-0-with-new-machine-learning-tools/">Tensorflow 1.0 was released at mid-February</a>. One of the key features in Accelerated Linear Algebra <a href="https://www.tensorflow.org/versions/master/experimental/xla/">(XLA)</a>. In essence, what XLA does is to remove any duplicated calculation by analyzing a Tensorflow graph. So you may think of it as something similar to the optimization flag -O2 for gcc.</p>
+<p>XLA is still an experimental feature. (See the header of this <a href="https://www.tensorflow.org/versions/master/experimental/xla/">link</a>). So Tensorflow official document stresses that not all users will experience the benefit of such optimization. This makes sense because if you already specified a fairly optimized network manually, XLA wouldn't do too much for you anyway.</p>
+<p>So what's the significance of XLA? In recent years, there has been a lot of buzz on modularization of neural networks. It's possible that in the future we will just have several existing architectures and we just decide to merge them together. Then, having an automatic optimizer for computational graph would be very useful.</p>
+<p><a href="https://developers.googleblog.com/2017/03/xla-tensorflow-compiled.html">googleblog.com</a></p>
+<hr />
+<h3 id="on-the-origin-of-deep-learning"><a href="https://arxiv.org/abs/1702.07800">On the Origin of Deep Learning</a><a class="headerlink" href="#on-the-origin-of-deep-learning" title="Permanent link">&para;</a></h3>
+<p>This is a fairly extensive survey of deep learning. The first author, <a href="https://www.cs.cmu.edu/~haohanw/">Haohan Wang</a> is a PhD candidate at CMU's Language Technology Institute (LTI) and first-authored four papers in the domain of computational biology.</p>
+<p>I (Arthur) found the material in-depth. For example, treatment of <a href="https://en.wikipedia.org/wiki/Hopfield_network">Hopfield net</a> which starts from physical origin of the term "energy". And it is very helpful to understand the origin of Hopfield net. (Hinton's lecture helps, but I would be less confused to know "Oh, actually Hopfield network is <a href="https://page.mi.fu-berlin.de/rojas/neural/chapter/K13.pdf">isomorphic to the Ising model of magnetisim</a>!")</p>
+<p>Notice though, at this point, Wang is still constantly updating the arxiv version of the paper - the paper is now at version 4 after it was two weeks ago. I do find the paper quite enjoyable and it covers some less discussed concepts from standard on-line classes. So I recommend you all to read the paper.</p>
+<p><a href="https://arxiv.org/abs/1702.07800">arxiv.org</a></p>
+<hr />
+<h3 id="prank-of-the-week-stopping-gan-violence-generative-unadversarial-networks"><a href="https://arxiv.org/abs/1703.02528">Prank of the Week: "Stopping GAN Violence: Generative Unadversarial Networks"</a><a class="headerlink" href="#prank-of-the-week-stopping-gan-violence-generative-unadversarial-networks" title="Permanent link">&para;</a></h3>
+<p>Many AIDLer have shared the following paper to our forum. Just want to inform you. So FYI: this is a <strong>prank</strong>. Couple of very non-subtle hints: 
+1. Authorship: Samuel Albanie works for "Institute of Deep Statistical Harmony",
+2. "In this work, we quantify the financial, social, spiritual, cultural, grammatical and dermatological impact of this aggression and address the issue by proposing a more peaceful approach which we term Generative Unadversarial Networks (GUNs)" But then of course, there is no social data in the paper at all,
+3. The github is almost empty, with python scripts which generate a fake MNIST digits.
+4. And have you look at the experimental section?</p>
+<p>Seeing it as a joke, we lol after reading the "paper". Perhaps more hilarious to us is that some other sources treat this as a legit paper and treat it as "paper of the week"-type of the material.</p>
+<p>That just teaches all of us a lesson: faked writing is everywhere these days. So always read the paper/sources before you share them. This says for AI/DL, perhaps it also says for everything you read.</p>
+<p><a href="https://arxiv.org/abs/1703.02528">arxiv.org</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="audioset-a-sound-vocabulary"><a href="https://research.google.com/audioset/index.html">AudioSet: A sound vocabulary</a><a class="headerlink" href="#audioset-a-sound-vocabulary" title="Permanent link">&para;</a></h3>
+<p>Google released another impressive dataset - this time is audio-centric. In case you don't know, noise detection is very painful for tasks such as speech recognition. And if you want to use a model-based approach to solve such problem, you need to have good negative training data such as noise or general sound events. AudioSet fills in this gap.</p>
+<p>AudioSet is an effort stemmed from YouTube content analysis - which is perhaps the most difficult speech recognition task for humanity now. <a href="https://research.google.com/pubs/pub45857.html">Here</a> is a link to the original ICASSP 2017 paper. Again, Kudo to Google. We think AudioSet is a very useful resource for practitioners in speech and audio processing.</p>
+<p><a href="https://research.google.com/audioset/index.html">google.com</a></p>
+<hr />
+<h3 id="faiss"><a href="https://github.com/facebookresearch/faiss/blob/master/README.md">FAISS</a><a class="headerlink" href="#faiss" title="Permanent link">&para;</a></h3>
+<p>According to Prof. <a href="https://www.facebook.com/yann.lecun?fref=nf">Yann LeCun</a> FAISS is #1 in Github's "trending in open source" list of C++ projects (TensorFlow is #3). FAISS is a very fast implementation of nearest neighbor search for dense vector and can fully utilize system's memory.</p>
+<p><a href="https://github.com/facebookresearch/faiss/blob/master/README.md">github.com</a></p>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.youtube.com/watch?v=-O01G3tSYpU"><em>[image not recovered: twenty_by_nine_extra_large_b385c524-12c9-40f9-aae9-f5259e97fcd5.png]</em></a> </p>
+<h3 id="a-darpa-perspective-on-artificial-intelligence"><a href="https://www.youtube.com/watch?v=-O01G3tSYpU">A DARPA Perspective on Artificial Intelligence</a><a class="headerlink" href="#a-darpa-perspective-on-artificial-intelligence" title="Permanent link">&para;</a></h3>
+<p>Here is an educational video from DARPA which explains concepts of A.I. I found it a rare gem, because it starts from the days before statistical learning is used (what Launchbury called the "First Wave". It also doesn't dumb down in explanation. For example, John Launchbury explain machine learning with the Manifold Hypothesis, which is the key to understand why neural network is so powerful. He also talks about the challenges of the current days technology ("Second Wave"). E.g. adversarial examples, how difficult it is to come up with a general intelligent conversational system, or bot. So check it out, it only takes around 20 mins to listen it through. Finally he briefly discuss what should be the future of A.I. from DARPA's perspective ("The Third Wave"), which he defines as combining huge amount of data with context data. </p>
+<p><a href="https://www.youtube.com/watch?v=-O01G3tSYpU">youtube.com</a></p>
+<h2 id="members-question">Member's Question<a class="headerlink" href="#members-question" title="Permanent link">&para;</a></h2>
+<h3 id="question-from-an-aidl-member">Question from an AIDL Member<a class="headerlink" href="#question-from-an-aidl-member" title="Permanent link">&para;</a></h3>
+<p><strong>Q.</strong> (Rephrases from a question asked by <a href="https://www.facebook.com/flavioschuindt?hc_location=ufi">Flávio Schuindt</a>) I've been studying classification problems with deep learning and now I can understand quite well it. Activation functions, regularizeres, cost functions, etc. Now, I think its time to step forward. What I am really trying to do now is enter in the deep learning image segmentation world. It's a more complicated problem than classification (object occlusion, lightning variations, etc). My first question is: How can I approach this king of problem? [...]</p>
+<p><strong>A.</strong> You do hit one of the toughest (but hot) problem in deep-learning-based image processing. Many people confuse problems such as image detection/segmentation with image classification. Here are some useful notes. 
+1. First of all, have you watched <a href="http://cs231n.stanford.edu/">Karpathy's 2016 cs231n</a>'s lecture 8 and 13? Those lectures should be your starting points to work on segmentation. Notice that image localization/detection/ segmentation are 3 different things. Localization and detection find bounding boxes and their techniques/concepts can be helpful on "instance segmentation". "Semantic segmentation" requires downsampling/upsampling architecture. (see below.)
+2. Is your problem more a "semantic segmentation" problem of "instance segmentation" problem? (See cs231n's lecture 13) The former comes up with regions of different meaning, the latter comes up with instances.
+3. Are you identifying something which always appear? If that's the case you don't have to use flunky detection technique, treat it as a localization problem and you can solve by Backprop a simple loss function (as described in cs231n lecture 8). If it might or might not appear, then a detection-type of pipeline might be necessary.
+4. If you do need to use detection-type of pipeline. Does standard segment proposal techniques work for your domain? This is crucial, because at least the beginning of your segmentation research, you have to do find segment proposals.
+5. Lastly if you decide this is really a semantic segmentation problem, then most likely your major task is to adopt an existing pre-train network. Very likely your goal is to transfer learning. Of course check out my point 2 and see if this is really the case.</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

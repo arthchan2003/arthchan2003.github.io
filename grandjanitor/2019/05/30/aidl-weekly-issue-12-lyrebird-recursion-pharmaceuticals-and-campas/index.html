@@ -1,0 +1,1317 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/05/30/aidl-weekly-issue-12-lyrebird-recursion-pharmaceuticals-and-campas/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue #12 - Lyrebird, Recursion Pharmaceuticals, and Campas - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-12-lyrebird-recursion-pharmaceuticals-and-campas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue #12 - Lyrebird, Recursion Pharmaceuticals, and Campas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-12-lyrebird-recursion-pharmaceuticals-and-campas">AIDL Weekly Issue #12 - Lyrebird, Recursion Pharmaceuticals, and Campas<a class="headerlink" href="#aidl-weekly-issue-12-lyrebird-recursion-pharmaceuticals-and-campas" title="Permanent link">&para;</a></h1>
+<h1 id="issue-12-may-5th-2017"><a href="http://aidl.io/issues/12/index.html#start">Issue 12 <em>May 5th 2017</em> </a><a class="headerlink" href="#issue-12-may-5th-2017" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>We start to see how machine intelligence can be applied in controversial manner, two related pieces this week: 
+- Lyrebird - which astounded us by not only mimicking multiple politicians, but they claim only one minute of training data is enough.
+- Campas - which provides sentence judgement based on software.</p>
+<p>We also discuss Recursion Pharmaceuticals and what makes deep learning particularly useful in the company. </p>
+<p>As always, if you like our newsletter, remember to subscribe and forward to your colleagues!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="sponsor">Sponsor<a class="headerlink" href="#sponsor" title="Permanent link">&para;</a></h2>
+<h3 id="screen-sharing-on-steroids"><a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">Screen Sharing on Steroids</a><a class="headerlink" href="#screen-sharing-on-steroids" title="Permanent link">&para;</a></h3>
+<p><a href="http://i.imgur.com/ds4FU08.gif">Collaborate fully</a> with your team. Works in your browser. No Download. No login. Get up and running in seconds. Integrated with Slack. Don't be like <a href="https://www.youtube.com/watch?v=DYu_bGbZiiQ">them</a>. Just <a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">#GetStuffDone</a> </p>
+<p><a href="https://www.cyclops.io/?utm_source=AIDL-newsletter">cyclops.io</a></p>
+<h2 id="sponsor-aidl-weekly-and-reach-thousands-of-ai-deep-learning-researchers-and-developers"><a href="http://aidl.io/sponsorship/index.html">Sponsor AIDL Weekly and reach thousands of A.I. &amp; Deep Learning researchers and developers</a><a class="headerlink" href="#sponsor-aidl-weekly-and-reach-thousands-of-ai-deep-learning-researchers-and-developers" title="Permanent link">&para;</a></h2>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<h3 id="some-thoughts-on-lyrebird"><a href="https://techcrunch.com/2017/04/25/lyrebird-is-a-voice-mimic-for-the-fake-news-era/">Some Thoughts on Lyrebird</a><a class="headerlink" href="#some-thoughts-on-lyrebird" title="Permanent link">&para;</a></h3>
+<p>Lyrebird is perhaps the biggest news item last week. If you go to Lyrebird's <a href="https://lyrebird.ai/">web site</a>, you could click on several impressive demos, including a faked conversation between Obama, Clinton and Trump. </p>
+<p>Now Lyrebird claims that they can create a new voice sample with 1 minute of the voice. This sounds like an astounding claim. Is that really true? We believe the answer is <strong>yes</strong>. We can just recall <a href="https://deepmind.com/blog/wavenet-generative-model-raw-audio/">Wavenet</a>, a work done by DeepMind last year on using <a href="https://arxiv.org/pdf/1609.03499.pdf">casual convolution neural network</a> to model voice and music. The key of the paper, other than the interesting dilated network, lies on the fact that the model can be <em>conditioned</em>. That is you can use extra variables as inputs of the model and guide the generation.</p>
+<p>We brought up Wavenet because it is a simple way to understand such systems. Wavenet's principle is quite similar to our familiar image recognition systems. For example, similar to an image recognition, you can probably use little data to train a new model, you just have to apply <a href="http://cs231n.github.io/transfer-learning/">transfer learning</a>-type of techniques. That makes us believe Lyrebird's 1-minute training claim is feasible.</p>
+<p>What is Lyrebird's actual architecture then? Given the founder list, it's likely we are talking about <a href="https://mila.umontreal.ca/en/person/jose-sotelo/">Jose Sotelo</a>'s <a href="https://openreview.net/pdf?id=B1VWyySKx">char2wav</a>. which is more an attention-based encoder-decoder architecture with extension.</p>
+<p>char2wav is a fairly new work. Unlike Wavenet's paper, we don't quite see any mean-opinion score numbers yet in the author's ICLR 2017 paper. That might mean the authors do not have the most optimized system yet. This thought seems to add up. If you compare Lyre's demo with Wavenet's, while both are impressive, Lyrebird's demo still have certain chirpiness.</p>
+<p>For now, the Lyrebird's team is still preparing the API. Our guess is it would take the guys a while. For starter, you need to come up with the production logic of how to do transfer learning. For premium customers, you would guess Lyrebird would allow them to upload audios longer than one minute. So all are interesting, but hard to work out in coding. We will see how good the team is then?</p>
+<p>Oh, of course, there are privacy issues, but it is analyzed to the death. So we won't bring it up here. But hopefully through this blurb, you have a more a insider look of Lyrebird's controversial technology.</p>
+<p><a href="https://techcrunch.com/2017/04/25/lyrebird-is-a-voice-mimic-for-the-fake-news-era/">techcrunch.com</a></p>
+<hr />
+<h3 id="recursion-pharmaceutical"><a href="https://finance.yahoo.com/news/deep-learning-luminary-yoshua-bengio-143000537.html">Recursion Pharmaceutical</a><a class="headerlink" href="#recursion-pharmaceutical" title="Permanent link">&para;</a></h3>
+<p>One interesting trend in the last few months is how deep learning permeate fields other than the three conventional use-cases: speech recognition, computer vision and statistical machine translation. </p>
+<p>Health care is one of the fields which many luminaries think that deep learning would revolutionize next. For example, Prof. Geoffrey Hinton recently said, </p>
+<blockquote>
+<p>“I think that if you work as a radiologist you are like Wile E. Coyote in the cartoon. You’re already over the edge of the cliff, but you haven’t yet looked down. There’s no ground underneath.”</p>
+</blockquote>
+<p>Of course, many healthcare-related innovations so far is actually based on computer vision. For example, in radiology, deep learning is very useful in analyzing X-ray photos. In the case of Recursion, they use deep learning on huge amount of high-resolution cell-data. So that sounds like a good and well-defined use-cases for deep learning.</p>
+<p>Perhaps an interesting question here is other than image-processing type of applications such as radiology or brain imaging. Are there any other use cases for deep learning in health care? One interesting paper lately is on how to apply <a href="https://arxiv.org/abs/1703.05051">Convnet on EEG</a>, so the key is perhaps how you can re-cast a problem to some existing deep-learning use-cases, instead of investigating a new architecture from scratch.</p>
+<p><a href="https://finance.yahoo.com/news/deep-learning-luminary-yoshua-bengio-143000537.html">yahoo.com</a></p>
+<hr />
+<h3 id="sent-to-prison-by-an-algorithm"><a href="https://www.nytimes.com/2017/05/01/us/politics/sent-to-prison-by-a-software-programs-secret-algorithms.html">Sent to Prison by An Algorithm</a><a class="headerlink" href="#sent-to-prison-by-an-algorithm" title="Permanent link">&para;</a></h3>
+<p>This piece from NYT discusses the issue of using software in sentencing, it centers around a product called <a href="http://www.equivant.com/">Compas</a> by the company Northpointe Inc., which creates assessment reports for sentencing judges. </p>
+<p>The legal community seems to be divided on whether algorithmic sentencing is a good idea. We like Justice Bradley's view in the article: It makes sense to allow sentencing judges to use a algorithm sentencing but they should fully understand the software's limitation.</p>
+<p>Perhaps devils is in the details, understanding the limitation of a machine learning algorithm is a non-trivial problem. Just to ask how the algorithm was trained, how much data was used, how balanced are the classes requires quite some expertise and fair understanding of machine learning.</p>
+<p>In the case of Compas and many similar products, there is a further ramification: for IP reason, they refuse to open the algorithm. So practically the issue boils down to how you can blackbox-test an algorithm's fairness. It seems to us if the issue is not impossible, a very difficult one.</p>
+<p><a href="https://www.nytimes.com/2017/05/01/us/politics/sent-to-prison-by-a-software-programs-secret-algorithms.html">nytimes.com</a></p>
+<hr />
+<h3 id="richard-socher-profile"><a href="https://www.forbes.com/sites/gilpress/2017/05/01/emerging-artificial-intelligence-ai-leaders-richard-socher-salesforce/#33a27cbd7f9a">Richard Socher Profile</a><a class="headerlink" href="#richard-socher-profile" title="Permanent link">&para;</a></h3>
+<p>This Forbes's piece profile our beloved Lecturer of <a href="http://cs224d.stanford.edu/">cs224d</a>, Richard Socher, and his work so far in MetaMind and Salesforce. </p>
+<p><a href="https://www.forbes.com/sites/gilpress/2017/05/01/emerging-artificial-intelligence-ai-leaders-richard-socher-salesforce/#33a27cbd7f9a">forbes.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="updating-google-maps-with-deep-learning-and-street-view"><a href="https://research.googleblog.com/2017/05/updating-google-maps-with-deep-learning.html">Updating Google Maps with Deep Learning and Street View</a><a class="headerlink" href="#updating-google-maps-with-deep-learning-and-street-view" title="Permanent link">&para;</a></h3>
+<p>Reading Google blog articles often teaches you something new, and this new research on Google Maps is one of those. </p>
+<p>For starter, we can only appreciate how strong Google's classifier is - it can automatically update the address of a location and business name just by text on the wild, which is known to be a difficult problem given that view can be presented in different angles, and text can be blurry.</p>
+<p>Then there is the innovation of modeling on the deep learning front, as described by the <a href="https://arxiv.org/pdf/1704.03549.pdf">paper</a>, it presents a novel method on how to make a location-dependent attention mechanism.</p>
+<p>Finally, Google is kind enough to open the <a href="https://github.com/tensorflow/models/blob/master/street/README.md">database</a> to the public. That's the part I appreciate Google the most - Many companies would just do all these cutting edge research and keep the data set.</p>
+<p><a href="https://research.googleblog.com/2017/05/updating-google-maps-with-deep-learning.html">googleblog.com</a></p>
+<hr />
+<h3 id="liar-liar-pants-on-fire-a-new-benchmark-dataset-for-fake-news-detection"><a href="https://arxiv.org/abs/1705.00648">"Liar, Liar Pants on Fire": A New Benchmark Dataset for Fake News Detection</a><a class="headerlink" href="#liar-liar-pants-on-fire-a-new-benchmark-dataset-for-fake-news-detection" title="Permanent link">&para;</a></h3>
+<p>Here is a database related to faked news classification - LIAR, introduced by <a href="https://www.cs.ucsb.edu/~william/">William Wang</a>, the annotation is based on decade-long short sentences from Politifact.com. By now this is probably the bigger data set one can use for faked news classification research. In the paper, Wang also used a new algorithm which can integrate meta-text into a Convnet. </p>
+<p><a href="https://arxiv.org/abs/1705.00648">arxiv.org</a></p>
+<hr />
+<p><a href="https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318"><em>[image not recovered: twenty_by_nine_extra_large_fe255f8a-753f-41ff-b2c6-ba4ce491287a.png]</em></a> </p>
+<h3 id="history-of-object-detection-infographics"><a href="https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318">History of Object Detection - Infographics</a><a class="headerlink" href="#history-of-object-detection-infographics" title="Permanent link">&para;</a></h3>
+<p>This impressive graphic is created by <a href="https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318">Dang Ha The Hien</a>. You can hardly called it infographics, but more like a very condensed summary of object recognition in a poster. Of course, all goodies of object recognition such as Alexnet is here, but then the newer material such as <a href="https://arxiv.org/abs/1512.02325">SSD</a> and <a href="https://arxiv.org/abs/1703.06870">MaskRCNN</a> can also be found here. </p>
+<p><a href="https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318">medium.com</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="facebook-parlai-framework"><a href="https://github.com/facebookresearch/ParlAI">Facebook ParlAI Framework</a><a class="headerlink" href="#facebook-parlai-framework" title="Permanent link">&para;</a></h3>
+<p>As some of you might know, machine learning-based dialogue system is usually domain-specific. That makes the new ParlAI framework from Facebook interesting because it allows multiple dialogue data sets to be processed and evaluated. It sounds like a huge time-saver. </p>
+<p><a href="https://github.com/facebookresearch/ParlAI">github.com</a></p>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<h3 id="pytorch-in-5-minutes"><a href="https://www.youtube.com/watch?v=nbJ-2G2GXL0&amp;feature=youtu.be">PyTorch in 5 Minutes</a><a class="headerlink" href="#pytorch-in-5-minutes" title="Permanent link">&para;</a></h3>
+<p>Here is a great video from <a href="https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A">Siraj Raval</a> who discussed some cool features of PyTorch. We like Siraj because he can present difficult technical material to beginners. For example, in this 5-minute reading, Siraj teaches us how PyTorch and Tensorflow differ. And he also demonstrates a simple 2-layer network in his video. For researchers who are interested in working on neural network, PyTorch presents a great alternative to Tensorflow. So check it out! </p>
+<p><a href="https://www.youtube.com/watch?v=nbJ-2G2GXL0&amp;feature=youtu.be">youtube.com</a></p>
+<h2 id="members-question">Member's Question<a class="headerlink" href="#members-question" title="Permanent link">&para;</a></h2>
+<h3 id="difference-between-ml-engineer-and-data-scientist">Difference Between ML Engineer and Data Scientist?<a class="headerlink" href="#difference-between-ml-engineer-and-data-scientist" title="Permanent link">&para;</a></h3>
+<p>Q: (From <a href="https://www.facebook.com/gautam.karmakar.92">Gautam Karmaker</a>) <em>Guys, what is the difference between ML engineer and a data scientist? How they work together? How their work activity differ? Can you walk through with an use case example?"</em> </p>
+<p>A: (From Arthur, redacted)</p>
+<p>"Generally, it is hard to decide what a title means unless you know about the nature of the job, usually it is described in the job description. But you can asked what are these terms usually imply. So here is my take:</p>
+<p><em>ML</em> vs <em>data</em>: Usually there is the part of testing/integrating an algorithm and the part of analyzing the data. It's hard to say how much the proportion on both sides for each job. But high dimensional data is more refrained form simple exploratory analysis. So usually people would use the term "ML" more, which mostly means running/tuning an algorithm. But if you are looking at table-based data, then it's like to be "data" type of job. IMO, that means at least 40% of your job would be manually looking at trends yourself.</p>
+<p><em>Engineer</em> vs <em>scientist</em>: In larger organization, there is usually a difference between the one who come up with the mathematical model (<em>scientist</em>) vs the one who control the production platform (<em>engineer</em>). e.g. If you are solving a prediction problem, usually <em>scientist</em> is the one who train, say the regression models, but the <em>engineer</em> is the guy who turn your model to create the production system. So you can think of them as the "R" and the "D" in the organization.</p>
+<p>Both <em>scientist</em> and <em>engineer</em> are career tracks, and they are equally important. So you would find a lot of companies would have "junior", "senior", "principal", "director", "VP" prefixed the both track of the titles.</p>
+<p>You will sometimes see terms such as <em>programmer</em> or <em>architect</em> replacing "engineer"/"scientist". <em>Programmer</em> implies their job is more coding-related, i.e. the one who actual write code. <em>Architect</em> is rare, they usually oversee big picture issues among programmers, or act as a balance between R&amp;D organizations."</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<h2 id="about-us">About Us<a class="headerlink" href="#about-us" title="Permanent link">&para;</a></h2>
+<p>This newsletter is published by <a href="https://twitter.com/waikit">Waikit Lau</a> and <a href="https://twitter.com/arthchan2003">Arthur Chan</a>. We also run Facebook's most active <a href="https://www.facebook.com/groups/DeepNetGroup">A.I. group</a> with 19,000+ members and host a weekly <a href="https://www.youtube.com/channel/UC3YM5TEbSqIpFGH85d6gjKg">"office hour"</a> on YouTube. </p>
+<p><a href="http://ctt.ec/oecC4">Share on Twitter</a> | <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//aidl.io&amp;title=Check%20out%20the%20AIDL%20newsletter%20for%20the%20week's%20most%20relevant%20and%20impactful%20developments%20in%20%23AI%20and%20%23DeepLearning%20http%3A//aidl.io&amp;summary=&amp;source=">Share on Linkedin</a></p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<ul>
+<li><a href="http://aidl.io/issues/11/index.html#start">Previous issue April 28th 2017</a></li>
+<li>12 of 86</li>
+<li><a href="http://aidl.io/issues/13/index.html#start">Next issue May 12th 2017</a></li>
+</ul>
+<p>©2017-2019 Artificial Intelligence and Deep Learning Weekly | <a href="http://aidl.io/sponsorship/index.html">Sponsorship</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

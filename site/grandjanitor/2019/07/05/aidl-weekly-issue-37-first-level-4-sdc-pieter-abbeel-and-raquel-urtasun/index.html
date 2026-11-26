@@ -1,0 +1,1318 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of essays and thoughts of Arthur">
+      
+      
+        <meta name="author" content="Arthur Chan">
+      
+      
+        <link rel="canonical" href="https://arthchan2003.github.io/grandjanitor/2019/07/05/aidl-weekly-issue-37-first-level-4-sdc-pieter-abbeel-and-raquel-urtasun/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AIDL Weekly Issue 37 - First Level 4 SDC, Pieter Abbeel and Raquel Urtasun - Arthur's AI Advisory Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aidl-weekly-issue-37-first-level-4-sdc-pieter-abbeel-and-raquel-urtasun" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-header__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arthur's AI Advisory Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIDL Weekly Issue 37 - First Level 4 SDC, Pieter Abbeel and Raquel Urtasun
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../fullbio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Full bio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../ai_portfolio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI Portfolio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../resources/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+  The Grand Janitor (archive)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arthur&#39;s AI Advisory Blog" class="md-nav__button md-logo" aria-label="Arthur's AI Advisory Blog" data-md-component="logo">
+      
+  <img src="../../../../../images/ArthurChanConsulting.ico" alt="logo">
+
+    </a>
+    Arthur's AI Advisory Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fullbio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Full bio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ai_portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗂️Resource Directory (Arthur Chan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../learning-dl-top5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Learning Deep Learning: My Curated Top-Five List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../book-recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Recommended Books in Machine Learning / Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor (archive)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Grand Janitor (archive)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Grand Janitor Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aidl-weekly-issue-37-first-level-4-sdc-pieter-abbeel-and-raquel-urtasun">AIDL Weekly Issue 37 - First Level 4 SDC, Pieter Abbeel and Raquel Urtasun<a class="headerlink" href="#aidl-weekly-issue-37-first-level-4-sdc-pieter-abbeel-and-raquel-urtasun" title="Permanent link">&para;</a></h1>
+<h1 id="issue-37-november-12th-2017"><a href="http://aidl.io/issues/37/index.html#start">Issue 37 <em>November 12th 2017</em> </a><a class="headerlink" href="#issue-37-november-12th-2017" title="Permanent link">&para;</a></h1>
+<h2 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h2>
+<h3 id="thoughts-from-your-humble-curators">Thoughts From Your Humble Curators<a class="headerlink" href="#thoughts-from-your-humble-curators" title="Permanent link">&para;</a></h3>
+<p>The biggest news last week: Waymo was putting the first Level 4 SDC on the ground. We also learned that Pieter Abbeel has left OpenAI and started his own robotic startup, Embodied Intelligence. Wired profiled Uber's new head of their Toronto's team, Raquel Urtasan. We cover all these pieces in our News section. </p>
+<p>The rest of this issue should be very interesting as well: First is the new Distill article by (Chris) Olah, Mordvintsev and Schubert, which is an excellent review on visualization. Then, there is Google PhD Fellow Anirban Santara gave us his take on how to build a career in ML. AIDL-LD members, Ben Davis, gave us a nice summary of a paper on image fusion schemes. And you may feel interested in the two papers published by the Salesforce Einstein's Lab last week, both on NNMT, which Arthur reviewed this week.</p>
+<hr />
+<p>Join our community for real-time discussions with this iOS app here: https://itunes.apple.com/us/app/expertify/id969850760</p>
+<p>As always, if you like our newsletter, feel free to subscribe/share the letter to your colleagues.</p>
+<p>We will host our own show at the AI World events: "Attack of the AI Startups". If you live in the New England area, feel free to join!</p>
+<p>Artificial Intelligence and Deep Learning Weekly</p>
+<hr />
+<h3 id="attack-of-the-ai-startups"><a href="https://aiworld.com/sessions/mlai/">Attack of the AI Startups </a><a class="headerlink" href="#attack-of-the-ai-startups" title="Permanent link">&para;</a></h3>
+<p>We will be hosting an AIDL Meetup at the AI World Conference in Boston on Dec 12 at 6:15pm where some cutting-edge AI companies will present. We got FREE tickets for you all! Come join us in person if you can!! </p>
+<p>Attack of the AI Startups - https://aiworld.com/sessions/mlai/ at AI World - aiworld.com</p>
+<p>All attendees need to register to attend. To register, please go to: https://aiworld.com/live-registration/ To receive your FREE expo pass (thru Nov 15), use priority code: AIWMLAIX</p>
+<p>To receive a $200 discount off of your 1, 2 or 3 day VIP conference pass, use priority code: AIWMLAI200</p>
+<p>AI World is the industry's largest independent event focused on the state of the practice of enterprise AI and machine learning. AI World is designed to help business and technology executives cut through the hype, and learn how advanced intelligent technologies are being successfully deployed to build competitive advantage, drive new business opportunities, reduce costs and accelerate innovation efforts.</p>
+<p>The 3–day conference and expo brings together the entire applied AI ecosystem, including innovative enterprises, industry thought leaders, startups, investors, developers, independent researchers and leading solution providers. Join 100+ speakers and 75+ sponsors and exhibitors and thousands of attendees. Other than that, we also include some of our analyses on two paper as well as multiple interesting links for blogs and open source resources. So check it out!</p>
+<p>As always, if you like our newsletter, subscribe/forward it to your colleagues!</p>
+<p><a href="https://aiworld.com/sessions/mlai/">aiworld.com</a></p>
+<h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="first-level-4-sdc-in-us"><a href="https://www.theverge.com/2017/11/7/16615290/waymo-self-driving-safety-driver-chandler-autonomous">First Level 4 SDC in US</a><a class="headerlink" href="#first-level-4-sdc-in-us" title="Permanent link">&para;</a></h3>
+<p>This is huge. So this is the first Level 4 SDC on the road. Level 4 is commonly known as "mind off", which means human supervision is not necessary. Deploying a Level 4 on the road shows that Waymo is confident about their technology. </p>
+<p>Phoenix was chosen because restrictions of SDC is nada at this point. But then cities around the States is frantically changing laws so that they can be the new hub of SDC. In this rate, we can expect SDC deployment would spread across united states soon.</p>
+<p><a href="https://www.theverge.com/2017/11/7/16615290/waymo-self-driving-safety-driver-chandler-autonomous">theverge.com</a></p>
+<hr />
+<h3 id="pieter-abbeel-left-openai-started-embodied-intelligence"><a href="https://www.wired.com/story/embodied-intelligence-want-to-really-teach-a-robot-command-it-with-vr/">Pieter Abbeel left OpenAI, started Embodied Intelligence</a><a class="headerlink" href="#pieter-abbeel-left-openai-started-embodied-intelligence" title="Permanent link">&para;</a></h3>
+<p>We are surprised by another superstar researcher leaving OpenAI. Back in June, we learned that Andrej Karpathy join Teslas as a director of AI. This time, RL expert Pieter Abbeel left OpenAI and started his own company Embodied Intelligence. </p>
+<p>How should we see this? There should be at least three perspectives. The first is that OpenAI wasn't able to keep many star researchers decided. That's perhaps because it is a non-profit institution, and funding for her seems to be scarce. Remember the web version of OpenAI gym? Researchers at OpenAI seems to give up its maintenance because of <a href="https://www.reddit.com/r/MachineLearning/comments/6zvlm2/d_openai_closing_down_gym_toolkit_website/">lack of resources</a> (Also see Weekly Issue 30(http://aidl.io/issues/36#start) for more coverage.)</p>
+<p>Then it is the question about whether one should develop AI via research or via deploying real-life production system. In the case of both Karpathy and Abbeel, they chose to come up with commercial solutions. Perhaps the difference is one decided to work for a S&amp;P 500 company, one decided to start his own company.</p>
+<p>As for Abbeel's decision itself, it is certainly an interesting space he got into. Embodied Intelligence's business model is to create solution which allow robotics arm to adapt more quickly. Their solution is, AFAWK, using VR to accelerate learning. The space though is rather hot and crowded, as <a href="https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/ai-startup-embodied-intelligence">Spectrum</a> reported, there are other companies existing including <a href="https://www.kindred.ai/">Kindred.ai</a>, <a href="http://www.kinemasystems.com/">Kinema Systems</a>, and <a href="https://www.righthandrobotics.com/">RightHand Robotics</a>. Arguably, they lack of brilliance of Abbeel and his OpenAI's colleagues, but then you got to ask if $7 million (<a href="https://www.nytimes.com/2017/11/06/technology/artificial-intelligence-start-up.html">as reported by NYT</a>) for such investment-intensive application such as robotics.</p>
+<p><a href="https://www.wired.com/story/embodied-intelligence-want-to-really-teach-a-robot-command-it-with-vr/">wired.com</a></p>
+<hr />
+<h3 id="meet-raquel-urtasun"><a href="https://www.wired.com/story/meet-the-woman-making-ubers-self-driving-cars-smarter-cheaper/">Meet Raquel Urtasun</a><a class="headerlink" href="#meet-raquel-urtasun" title="Permanent link">&para;</a></h3>
+<p>Who is Raquel Urtasan? You might wonder. As it turns out Raquel Urtasan was an Associate Professor of University of Toronto before she joined Uber as the head of Uber's Toronto's SDC group. While her PhD was more on <a href="http://www.cs.toronto.edu/~urtasun/publications/urtasun_thesis_3541.pdf">human motion models</a>, her tenure at UoT was more focused on how to use deep learning in computer vision and SDC. </p>
+<p>Urtasan's philosophy of SDC is very different from the mainstreams such as Waymo's. She advocates the use of cameras instead of the more expensive LIDAR as the main sensors of SDC. For example, she and her students have many papers on using deep learning to create coherent images as well as utilizing different type of mapping images in SDC. (See her <a href="http://www.cs.toronto.edu/~urtasun/publications/publications.html">publication page</a>.</p>
+<p>Coincidentally, she joins when Waymo just started their high-profile lawsuit against Uber and Levandowski, which as you know is all about whether Levandowski is stealing trade secret of Waymo on LIDAR. Performance of Uber's SDC was also known to be lagging with <a href="http://www.businessinsider.com/uber-self-driving-cars-disengagements-once-a-mile-humans-leaked-data-2017-3">high disengagement rate</a>.</p>
+<p>Will Urtasun succeed? It's hard to say, LIDAR and cameras are generally complementary technologies. You can imagine sometimes you need information from one of them. So it's very hard to say which technology will prevail. Of course, those who support to use camera as the only sensor would face another problem: LIDAR's cost of production is <a href="http://www.businessinsider.com/googles-waymo-reduces-lidar-cost-90-in-effort-to-scale-self-driving-cars-2017-1">reducing</a>, would there be one day LIDAR is as commonplace as camera?</p>
+<p>For Uber though, Urtasan's hire is a kind of change of heart, with camera-based technology, they will not prone to compete with giants such as Waymo who had invested on LIDAR-based technology for more than 10 years. Camera-based technology could give Uber an "out", and gives a chances for her SDC research to grow again.</p>
+<p><a href="https://www.wired.com/story/meet-the-woman-making-ubers-self-driving-cars-smarter-cheaper/">wired.com</a></p>
+<h2 id="blog-posts">Blog Posts<a class="headerlink" href="#blog-posts" title="Permanent link">&para;</a></h2>
+<h3 id="feature-visualization-a-distill-article"><a href="https://distill.pub/2017/feature-visualization/">Feature Visualization - A Distill Article. </a><a class="headerlink" href="#feature-visualization-a-distill-article" title="Permanent link">&para;</a></h3>
+<p>If not the best, this is one of the best review of feature visualization in a convolutional neural network. For years, our go-to tutorial on visualization is usually Johnson's lecture in cs231n. But then we never seen visualization can achieve stunning quality like the Distill authors (Olah, Mordvintsev and Schubert) did. </p>
+<p>Notice it is not just a review article, the authors also introduce a new criterion to improve diversity of visualization. We are also happy that Distill continues to maintain high quality in its publication.</p>
+<p><a href="https://distill.pub/2017/feature-visualization/">distill.pub</a></p>
+<hr />
+<h3 id="andrew-ng-enough-papers"><a href="https://medium.com/@Synced/andrew-ng-says-enough-papers-lets-build-ai-now-6b52d24bcd58">Andrew Ng: "Enough Papers!"</a><a class="headerlink" href="#andrew-ng-enough-papers" title="Permanent link">&para;</a></h3>
+<p>Prof. Ng reportedly said, </p>
+<blockquote>
+<p>We have enough papers. Stop publishing, and start transforming people’s lives with technology.</p>
+</blockquote>
+<p>Sounds like many young researchers already agree with him, just look at Andrej Karpathy? And Pieter Abbeel, who we cover this issue. </p>
+<p><a href="https://medium.com/@Synced/andrew-ng-says-enough-papers-lets-build-ai-now-6b52d24bcd58">medium.com</a></p>
+<hr />
+<h3 id="ms-or-startup-in-deep-learning-by-anirban-santara"><a href="https://medium.com/@nrbnsntr/ms-or-startup-job-which-way-to-go-to-build-a-career-in-deep-learning-2d62a5b10f9e">MS or Startup in Deep Learning by Anirban Santara</a><a class="headerlink" href="#ms-or-startup-in-deep-learning-by-anirban-santara" title="Permanent link">&para;</a></h3>
+<p>At AIDL, we frequently got questions on how to start an DL and data science career. Here is the take of Google PhD Fellow Anirban Santara on whether you should take a Master or join a startup to build such career. </p>
+<p><a href="https://medium.com/@nrbnsntr/ms-or-startup-job-which-way-to-go-to-build-a-career-in-deep-learning-2d62a5b10f9e">medium.com</a></p>
+<h2 id="open-source">Open Source<a class="headerlink" href="#open-source" title="Permanent link">&para;</a></h2>
+<h3 id="models-from-nasnet"><a href="https://github.com/tensorflow/models/tree/master/research/slim/nets/nasnet">Models from NASNet</a><a class="headerlink" href="#models-from-nasnet" title="Permanent link">&para;</a></h3>
+<p>This is based on the work of the paper <a href="https://arxiv.org/abs/1707.07012">"Learning Transferable Architectures for Scalable Image Recognition"</a>. The variants are trained on CIFAR-10 and Imagenet and can be used in varieties of applications. </p>
+<p><a href="https://github.com/tensorflow/models/tree/master/research/slim/nets/nasnet">github.com</a></p>
+<h2 id="paperthesis-review">Paper/Thesis Review<a class="headerlink" href="#paperthesis-review" title="Permanent link">&para;</a></h2>
+<h3 id="weighted-transformer"><a href="https://einstein.ai/research/weighted-transformer">Weighted Transformer</a><a class="headerlink" href="#weighted-transformer" title="Permanent link">&para;</a></h3>
+<p>This is one of the two papers SalesForce Einstein lab published last week. Both of them requires understanding of MT, NNMT and purely attention-based NNMT. Since this first one is not too difficult to understand, I would just give you some background on NNMT first. </p>
+<p>When NNMT was first perceived. The original form starts with an Encoder of the text, convert it to what usually known as a "thought vector". The thought vector will then decode by the Decoder. In the original setting, both Encoder and Decoder are usually LSTMs</p>
+<p>Then there is the idea of attention. Well, you can think of it as more like an extra layer just on the thought vector on the decoder side. The goal is decide how much attention you want to pay on the thought vector.</p>
+<p>Now of course, people have then played with various architecture for these Enc-Dec structure. The first to notice is that such structure usually has a giant LSTM or CNN. But notice that no one really like them! LSTM is hard to parallelize and CNN can consume a lot of memories.</p>
+<p>That makes Google work mid of this year, <a href="https://arxiv.org/pdf/1706.03762.pdf">"Attention is all you need" </a> a stunning and useful result. What the authors were saying is proposing is to just use the idea of attention to create a system, they call it transformer. There are multiple tricks to get it work but perhaps the most important one is "multi-head attentions", in a way this is like the concepts of channels in Convnet, but now instead of doing one single attention, we are now attend in multiple places. Each head will learn to attend differently.</p>
+<p>Naturally the method is fast because you can also parallelize it, but then Google's researchers also find it to be <em>better</em> in the BLEU score. That's why top house are switching to purely attention-based method these days.</p>
+<p>Now finally I can talk about what the Salesforce paper is about. In the original Google's paper, representation learned by multi-attention heads are only concatenate with each other to form one "supervector" But then the authors of the paper decide to use another set of weighting. This again, further improve the performance on WMT14 by 0.4 BLEU score, which is quite significant.</p>
+<p><a href="https://einstein.ai/research/weighted-transformer">einstein.ai</a></p>
+<hr />
+<h3 id="non-autoregressive-neural-machine-translation"><a href="https://einstein.ai/research/non-autoregressive-neural-machine-translation">Non-Autoregressive Neural Machine Translation</a><a class="headerlink" href="#non-autoregressive-neural-machine-translation" title="Permanent link">&para;</a></h3>
+<p>This is the second of the two papers from Salesforce, "Non-Autoregressive Neural Machine Translation" . Unlike the "Weighted Transformer, I don't believe it improves SOTA results. But then it introduces a cute idea into a purely attention-based NNMT, I would suggest you my previous post before you read on. </p>
+<p>Okay. The key idea introduced in the paper is fertility. So this is to address one of the issues introduced by a purely attention-based model introduced from "Attention is all you need". If you are doing translation, the translated word can 1) be expanded to multiple words, 2) transform to a totally different word location.</p>
+<p>In the older world of statistical machine translation, or what we called IBM models. The latter model is called "Model 2" which decide the "absolute alignment" of source/target language pair. The former is called fertility model or "Model 3". Of course, in the world of NNMT, these two models were thought to be obsolete. Why not just use RNN in the Encoder/Decoder structure to solve the problem? (Btw, there are totally 5 types IBM Models. If you are into SMT, you should probably learn it up.)</p>
+<p>But then in the world of purely attention-based NNMT, idea such as absolute alignment and fertility become important again. Because you don't have memory within your model. So in the original "Attention is all you need" paper, there is already the thought of "positional encoding" which is to model absolute alignment.</p>
+<p>So the new Salesforce paper actually introduces another layer which brought back fertility. Instead of just feeding the output of encoder directly into the decoder. It will feed to a fertility layer to decide if a certain word should have higher fertility first. e.g. a fertility of 2 means that it should be copied twice. 0 means the word shouldn't be copy.</p>
+<p>I think the cute thing about the paper is two-fold. One is that it is an obvious expansion of the whole idea of attention-based NNMT . Then there is the Socher's group is reintroducing classical SMT idea back to NNMT.</p>
+<p>The result though is not working as well as the standard NNMT. As you can see in Table 1. There is still some degradation using the attention-based approach. That's perhaps why when the Google Research Blog mention the Salesforce results : it said "<em>towards</em> non-autoregressive translation". It implies that the results is not yet satisfying.</p>
+<p><a href="https://einstein.ai/research/non-autoregressive-neural-machine-translation">einstein.ai</a></p>
+<hr />
+<h3 id="medical-image-segmentation-based-on-multi-modal-convolutional-neural-network-study-on-image-fusion-schemes"><a href="https://www.facebook.com/groups/aidl.ld/permalink/899349283563072/">Medical Image Segmentation Based on Multi-Modal Convolutional Neural Network: Study on Image Fusion Schemes</a><a class="headerlink" href="#medical-image-segmentation-based-on-multi-modal-convolutional-neural-network-study-on-image-fusion-schemes" title="Permanent link">&para;</a></h3>
+<p>This is a well-written summary by one of our members. We decide to feature it here without further comments. So check it out! Only in our <a href="https://www.facebook.com/groups/aidl.ld/?ref=bookmarks">Literature Discussion</a> group. </p>
+<p><a href="https://www.facebook.com/groups/aidl.ld/permalink/899349283563072/">facebook.com</a></p>
+<h2 id="contemporary-classic">Contemporary Classic<a class="headerlink" href="#contemporary-classic" title="Permanent link">&para;</a></h2>
+<h3 id="deep-learning-architecture-diagrams"><a href="http://fastml.com/deep-learning-architecture-diagrams/">Deep Learning Architecture Diagrams</a><a class="headerlink" href="#deep-learning-architecture-diagrams" title="Permanent link">&para;</a></h3>
+<p>This is a now classic article on architecture diagrams of deep learning. The section which criticizes Azimov Institute's infographics of deep learning should be a must-read for everyone. </p>
+<p><a href="http://fastml.com/deep-learning-architecture-diagrams/">fastml.com</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../../assets/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
