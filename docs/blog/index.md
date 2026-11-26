@@ -1,4 +1,4 @@
 # Blog
 
-Looking for older posts? My earlier blog, [The Grand Janitor](/grandjanitor/) (2006–2020), is archived here too.
+My earlier writing is in the [Grand Janitor blog archive](/grandjanitor/) (2006–2020), organized by year.
 
